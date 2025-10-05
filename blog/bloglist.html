@@ -100,10 +100,10 @@
         <img src="../asset/ex23.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
           <rect width="100%" height="100%" fill="#868e96"></rect>
         <ul class="list-group list-group-flush" style="text-align: center;">
-        <li class="list-group-item"><a href="writing5.html">文章</a></li>
-        <li class="list-group-item"><a href="writing5.html">文章</a></li>
-        <li class="list-group-item"><a href="writing5.html">文章</a></li>
-        <li class="list-group-item"><a href="writing5.html">文章</a></li>
+        <li class="list-group-item"><a href="writing12.html">音樂表演的一致性</a></li>
+        <li class="list-group-item"><a href="writing11.html">三個練琴心態的建議</a></li>
+        <li class="list-group-item"><a href="writing10.html">詮釋與實踐</a></li>
+        <li class="list-group-item"><a href="writing9.html">音樂表演時的負面情緒</a></li>
         <li class="list-group-item"><a href="writing8.html">鋼琴基礎對於弦樂學習的影響</a></li>
         <li class="list-group-item"><a href="writing7.html">咖啡因與演奏音樂</a></li>
         <li class="list-group-item"><a href="writing6.html">小提琴，不使用肩墊？</a></li>
@@ -139,39 +139,59 @@
       
           // 更新分頁按鈕
           pagination.innerHTML = "";
+
+          // 建立 Bootstrap 分頁容器
+          const ul = document.createElement("ul");
+          ul.classList.add("pagination", "justify-content-center");
       
           // 上一頁
-          const prevBtn = document.createElement("button");
-          prevBtn.classList.add("page-btn", "nav-btn");
-          prevBtn.textContent = "上一頁";
-          prevBtn.disabled = (page === 1);
-          prevBtn.onclick = () => { showPage(page - 1); };
-          pagination.appendChild(prevBtn);
+          const prevLi = document.createElement("li");
+  prevLi.classList.add("page-item");
+  if (page === 1) prevLi.classList.add("disabled");
+
+  const prevA = document.createElement("a");
+  prevA.classList.add("page-link");
+  prevA.href = "#";
+  prevA.textContent = "«";
+  prevA.onclick = (e) => { e.preventDefault(); if (page > 1) showPage(page - 1); };
+  prevLi.appendChild(prevA);
+  ul.appendChild(prevLi);
+
       
           // 頁碼按鈕
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement("button");
-        btn.textContent = i;
-        btn.classList.add("page-btn"); // 統一 class
-      
-        if (i === page) {
-          btn.classList.add("active"); // 當前頁面加 active 樣式
-        }
-      
-        btn.onclick = () => { showPage(i); };
-        pagination.appendChild(btn);
-      }
-      
-          // 下一頁
-          const nextBtn = document.createElement("button");
-          nextBtn.classList.add("page-btn", "nav-btn");
-          nextBtn.textContent = "下一頁";
-          nextBtn.disabled = (page === totalPages);
-          nextBtn.onclick = () => { showPage(page + 1); };
-          pagination.appendChild(nextBtn);
-      
-          // 更新目前頁數
-          currentPage = page;
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement("li");
+    li.classList.add("page-item");
+    if (i === page) li.classList.add("active");
+
+    const a = document.createElement("a");
+    a.classList.add("page-link");
+    a.href = "#";
+    a.textContent = i;
+    a.onclick = (e) => { e.preventDefault(); showPage(i); };
+
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
+
+  // 下一頁
+  const nextLi = document.createElement("li");
+  nextLi.classList.add("page-item");
+  if (page === totalPages) nextLi.classList.add("disabled");
+
+  const nextA = document.createElement("a");
+  nextA.classList.add("page-link");
+  nextA.href = "#";
+  nextA.textContent = "»";
+  nextA.onclick = (e) => { e.preventDefault(); if (page < totalPages) showPage(page + 1); };
+  nextLi.appendChild(nextA);
+  ul.appendChild(nextLi);
+
+  // 把分頁加到 DOM
+  pagination.appendChild(ul);
+
+  // 更新目前頁數
+  currentPage = page;
         }
       
         // 初始化
