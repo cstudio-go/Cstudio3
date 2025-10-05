@@ -1,0 +1,98 @@
+
+  
+  /* Splash Screen */
+  #splash {
+    background: linear-gradient(to left, rgb(63, 55, 53), rgb(67, 43, 30), rgb(77, 37, 7));
+    color: white;
+    font-size: 2rem; 
+    align-items: center;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+    height: 100vh;  
+    animation: fadeOut 1.5s ease forwards;
+    animation-delay: 3s;
+  }
+  
+  /* Splash Logo Animation */
+  .logo {
+    animation: scaleUp 3.5s ease-in-out forwards;
+  }
+  .logo2 {
+    animation: scaleUp-left 3.5s ease-in-out forwards;
+  }
+  
+  @keyframes scaleUp {
+  
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(0); }
+    70% {transform: translateX(0) scale(1);}
+  100% {transform: translateX(0) scale(1.15);}
+    }
+  
+    @keyframes scaleUp-left {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(0%); }
+      70% {transform: translateX(0) scale(1);}
+  100% {transform: translateX(0) scale(1.15);}
+      }
+  
+  /* Fade Out Animation */
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fromtop {
+  
+    0% { transform: translateY(100%); }
+    50% { transform: translateY(0); }
+    70% {transform: translateY(0) scale(1);}
+  100% {transform: translateY(0) scale(1.15);}
+    }
+  
+    @keyframes frombottom {
+  
+      0% { transform: translateY(-100%); }
+      50% { transform: translateY(0); }
+      70% {transform: translateY(0) scale(1);}
+    100% {transform: translateY(0) scale(1.15);}
+      }
+  
+      @keyframes fadeInBackground {
+        0% {
+          background: linear-gradient(to left, rgb(35, 35, 35), rgb(18, 24, 34), rgb(2, 18, 48));
+        }
+        100% {
+          background-image: url(asset/ex1-4.webp);
+        }
+      }
+  
+  
+  @media screen and (max-width: 500px) {
+    #splash {
+    animation: fadeIn 3s ease forwards, fadeOut 1.4s ease forwards 3s;
+    background-color: rgb(115, 90, 90);
+    }
+    .logo2 {
+      border-radius: 50px;
+      animation: frombottom 3.2s ease-in-out forwards;
+    } 
+  
+    .logo {
+      animation: fromtop 3.2s ease-in-out forwards;
+    }
+  
+  }

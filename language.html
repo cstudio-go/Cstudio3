@@ -9,6 +9,9 @@
     rel="stylesheet">
 <style>
   
+  #shortBio {
+    text-align: center;
+  }
 
   #img {
     width: 500px;
@@ -36,6 +39,11 @@
     #text {
     padding: 0;
   }
+
+    #shortBio {
+      display: block;
+      text-align: left;
+    }
   }
 
 
@@ -47,7 +55,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">瑋語老師的教室</a>
+          <a class="navbar-brand" href="index.html">瑋語老師的教室</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -71,10 +79,9 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="language.html">語言與框架</a>
-                  <a class="dropdown-item" href="outsourcing.html">架站服務</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">作品</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
+                  <a class="dropdown-item" href="outsourcing.html">架站服務</a>
                 </div>
               </li>
             </ul>
@@ -99,7 +106,7 @@
         <h3 class="card-header" style="text-align: center;">-熟悉語言與框架-</h3>
         <div class="card-body">
           
-          <h5 class="card-title" style="text-align: center;">我從2024年開始接觸軟體工程，自學了前後端技術，這個網站就是作品之一，這裡是一些我常使用的程式語言與框架</h5>
+          <h5 class="card-title" id="shortBio">我從2024年開始接觸軟體工程，自學了前後端技術，這個網站就是作品之一，這裡是一些我常用的程式語言與框架。</h5>
         </div>
         <table class="table table-hover" style="max-width: 1000px; margin: 0 auto;">
             <thead>
