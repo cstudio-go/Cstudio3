@@ -20,7 +20,9 @@
   }
 
   #text {
-    padding: 0 30%;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
   }
 
 
@@ -33,11 +35,13 @@
       width: 100%;
       height: auto;
     }
-    #text {
-    padding: 0;
-  }
   }
 
+  @media screen and (max-width: 799px) {
+   #text {
+    padding: 0 20px;
+   }
+  }
 
 
 </style>
@@ -54,18 +58,18 @@
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="main.html">主頁
+                <a class="nav-link active" href="/main.html">主頁
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog/bloglist.html">部落格</a>
+                <a class="nav-link" href="bloglist.html">部落格</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="podcast.html">播客</a>
+                <a class="nav-link" href="../podcast.html">播客</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">聯繫我</a>
+                <a class="nav-link" href="/contact.html">聯繫我</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
@@ -96,29 +100,25 @@
 
       <div class="card mb-3">
         <span class="line">
-        <h3 class="card-header" style="text-align: center;">-歡迎來到張瑋語的網站-</h3>
-        <div class="card-body">
-          
-          <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
-          <h6 class="card-subtitle text-muted" style="text-align: center;">這裡有部落格，播客與心得分享，也可以<a href="https://sendfox.com/cstudio" style="color: rgb(173, 187, 216); text-decoration: none; white-space: nowrap;">訂閱最新消息</a>，找我上課可以用<a href="https://tidycal.com/cstudio" style="text-decoration: none; color: rgb(173, 187, 216);"><span style="white-space: nowrap;">約課系統</span></a>，合作或其他事務請您<a href="contact.html" style="text-decoration: none; color: rgb(173, 187, 216); white-space: nowrap;">來信留言</a></h4></h6>
+        <h3 class="card-header" style="text-align: center;">學習軟體工程的好處</span></h3>
+          <p class="card-text" style="text-align: center;" id="text">
+            <span>撰文：張瑋語 --------更新於2025.02 <a href="bloglist.html" style="font-size: smaller;">文章列表</a></span><br><br>
+            <span>自從開始接觸軟體工程後，我發現做這件事還能打開眼界，<span style="white-space: nowrap;">讓人在不同的角度審視問題。</span></span><br><br>
+            <span>1. 對於所有設計更加的敏感</span><br><br>
+            <span>因為有接觸前端工程的原因，網頁設計與介面的操控開始慢慢的影響自己對於設計的敏感性。看到一個設計很好的產品，會對它的細節產生好奇，想要研究怎麼去調動顏色，形狀與大小，如何創造出特定的感覺，讓產品能達到需求。</span><br><br>
+        <span>2. 暸解與電腦的溝通方式</span><br><br>
+    <span>跟電腦打交道時，學習並知道了幾種不同的溝通方法。輸入不同的代碼可以讓電腦做不同的事，小至計算，調控介面與資料搜集，大至創造程式，創造人工智能，精算，精密篩選等，與電腦的溝通越發的熟練，它能幫助我們的事情也就越多。</span><br><br>
+<span>3. 提升解決問題的能力</span><br><br>
+<span>因為軟體工程很容易碰到問題而卡住，所以也在訓練個人解決問題的能力，反而讓我意識到其中的有趣之處：本來不知道自己能做到的事，在<mark style="background-color: burlywood; font-size: 100%;">突破了自己極限的那一瞬間，感到一切都是值得的</mark>。生活中的許多問題，在解決這些事情的過程中，人就會逐漸的成長。這種快樂不是來自於跟他人的比較，似乎更單純的讓人幸福。<br><a href="bloglist.html" style="font-size: smaller;">回上一頁</a></h4>
+</span>
         </div>
-        <img src="asset/logo.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
-          <rect width="100%" height="100%" fill="#868e96"></rect>
-        <div class="card-body">
-        </span>
-          <p class="card-text" style="text-align: center;" id="text"><span id="about">關於我：</span><br>2019年於堪薩斯大學取得音樂演奏博士之後，曾於交響樂團與大學，我除了教小(中)提琴與鋼琴，也喜歡哲學，心理學，電腦，創作與編曲，現居台北內湖。</p>
-        </div>
-        <ul class="list-group list-group-flush" style="text-align: center;">
-          <li class="list-group-item">2023 榮獲香港弦樂公開賽榮譽指導教師</li>
-          <li class="list-group-item">2021 榮獲加拿大皇家之聲音樂比賽第一名</li>
-        </ul>
-        <div class="card-body" style="text-align: center;">
-          <a href="/bio.html" class="card-link">完整簡歷</a>
-          <button class="card-link" onclick="showvideo()" id="audioButton">音樂試聽</button>
-        </div>
-        <div id="audioText" style="display: none; text-align: center; color: rgb(83, 79, 79);">流浪者之歌 -小提琴</div>
-        <audio id="audio1" controls style="display: none; margin:5px auto;">試聽</audio>
+        
         <div class="card-footer text-muted" style="text-align: center;">
+            <p>延伸閱讀</p>
+        <div class="card-body" style="text-align: center;">
+            <a href="#" class="card-link">Card link</a><br>
+            <a href="#" class="card-link">Another link</a>
+          </div>
           www.cstudio-go.com
         </div>
         

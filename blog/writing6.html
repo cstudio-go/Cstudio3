@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑋語老師的教室</title>
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+<style>
+  
+
+  #img {
+    width: 500px;
+    height: 500px;
+  }
+  #portrait{
+    width: 107px;
+    height: 200px;
+  }
+
+  #text {
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+  }
+
+
+  @media screen and (max-width: 500px) {
+    #img{
+      width: 100%;
+      height: auto;
+    }
+    #portrait{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 799px) {
+   #text {
+    padding: 0 20px;
+   }
+  }
+
+
+</style>
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">瑋語老師的教室</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="/main.html">主頁
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bloglist.html">部落格</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../podcast.html">播客</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact.html">聯繫我</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <script>
+        var showvideo = () => {
+        var audio1 = document.getElementById('audio1');
+        var audioText = document.getElementById('audioText');
+        audio1.preload = "auto";
+        audio1.src = "asset/gypsyAir.mp3";
+        audio1.load();
+        audio1.style.display= "block";
+        audioText.style.display = "block";
+        }
+        </script>
+
+      <div class="card mb-3">
+        <span class="line">
+        <h3 class="card-header" style="text-align: center;">小提琴，不使用肩墊？</span></h3>
+          <p class="card-text" style="text-align: center;" id="text">
+            <span>撰文：張瑋語 --------更新於2025.06 <a href="bloglist.html" style="font-size: smaller;">文章列表</a></span><br><br>
+            <span>
+                開始不用肩墊去拉琴，是來自2014年去聽的一場小提琴音樂會。<br><br>
+    
+    音樂會演奏的是一位波士頓當地的女小提琴家，她與樂團合作演出拉威爾的Tzigane，沒有使用肩墊然而左手技巧絲毫不受到影響，不管是把位跑動，震音，顫音，泛音都可以控制的很好。而更讓我感到好奇的，是她的小提琴音色特別的好。我以前也聽說過不使用肩墊音色會更好的說法。因此就這樣開始不用肩墊去練琴了。<br><br></span>
+    
+    <span>不使用肩墊的困難</span><br>
+    <span>起步時，直接面臨的是沒有肩墊支撐時的不安全感，琴變得特別容易滑動。我似乎得更努力的去夾琴，音準變的不好掌握了，而且左手換把位時琴會跟著移動，琴頭好像會更容易往下垂。</span><br><br>
+    
+    <span>調整，再調整</span><br>
+    <span>在不停的嘗試著在不用肩墊的情況下，我做著簡化動作，降低複雜程度的工作。終於在一天，我發現了托琴與夾琴的切換方法。簡而言之，就是<mark style="background-color: burlywood; font-size: 100%; font-size: 100%;">在左手需要移動與動作時適當的夾琴，而左手到位的時候則加入托琴的動作</mark>，掌握到這點，之後就上手的比較快了。</span><br><br>
+    
+    <span>參與，舉辦音樂會</span><br>
+    <span>我因為希望能夠實踐看看，因此開始在交響樂團與室內樂的演出裡拿掉了肩墊。因為這些是公開演出，有著保持演出品質的壓力，我只能更努力的去克服技術的問題。一年後，在就讀博士班一年級時，舉辦了不使用肩墊的獨奏會，正式的確定了演奏不使用肩墊的習慣。之後，中提琴上也開始施行。</span><br><br>
+    
+    <span>回顧，不使用肩墊的優勢</span><br>
+    <span>可能最明顯的，是小提琴的<mark style="background-color: burlywood; font-size: 100%;">聲音明亮了</mark>一些。再來，我感覺不用肩墊後，對於<mark style="background-color: burlywood; font-size: 100%;">音準的把握有提升</mark>，我更加的不再依靠記憶位置，而是用耳朵去定位音高。最後，因為沒有了肩墊，左手<mark style="background-color: burlywood; font-size: 100%;">持琴的部分有了更多的空間</mark>，有時可以配合右手運弓的感覺，我感覺在演奏上是一些很好的優勢。</span><br><br>
+    
+    <span>初學就不用肩墊嗎？</span><br>
+    <span>不是特別建議，因為剛開始學習小提琴時，有太多的困難要克服，不使用肩墊將會更大的提升難度。建議左右手的技術都較穩定時再嘗試。比方說，能演奏三個八度的音階，能夠自然的使用顫音(Vibrato)時。<a href="bloglist.html" style="font-size: smaller;"><br>回上一頁</a></span>
+</span>
+        </div>
+        
+        <div class="card-footer text-muted" style="text-align: center;">
+            <p>延伸閱讀</p>
+        <div class="card-body" style="text-align: center;">
+            <a href="writing2.html" class="card-link">三個學習音樂的觀念：讓你擴展視野，快速進步</a><br>
+            <a href="writing4.html" class="card-link">關於使用Blender剪輯影片</a>
+          </div>
+          www.cstudio-go.com
+        </div>
+        
+          
+      </div>
+      
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script>
+
+$('.line').hide();
+$('.line').slideDown(2000);
+
+
+        </script>
+</body>
+</html>

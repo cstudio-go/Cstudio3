@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>瑋語老師的教室</title>
+    <title>瑋語老師的教室 --聯繫我</title>
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+       emailjs.init({
+         publicKey: "ZgS3i6_Ozsax-2SqO",
+       });
+    })();
+ </script>
+ <script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // these IDs from the previous steps
+            emailjs.sendForm('service_us4jag6', 'template_5u3zqpj', this)
+                .then(() => {
+                    alert('寄信成功了，期待您的消息！');
+                }, (error) => {
+                    alert('寄信失敗了，請再試試看！', error);
+                });
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <style>
   
 
@@ -19,8 +42,10 @@
     height: 200px;
   }
 
-  #text {
-    padding: 0 30%;
+  #theForm {
+    max-width: 500px;
+    height: auto;
+    border: solid 3px black;
   }
 
 
@@ -33,9 +58,12 @@
       width: 100%;
       height: auto;
     }
-    #text {
-    padding: 0;
+    #theForm {
+    width: auto;
+    height: auto;
+    border: solid 3px black;
   }
+
   }
 
 
@@ -96,28 +124,34 @@
 
       <div class="card mb-3">
         <span class="line">
-        <h3 class="card-header" style="text-align: center;">-歡迎來到張瑋語的網站-</h3>
-        <div class="card-body">
-          
-          <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
-          <h6 class="card-subtitle text-muted" style="text-align: center;">這裡有部落格，播客與心得分享，也可以<a href="https://sendfox.com/cstudio" style="color: rgb(173, 187, 216); text-decoration: none; white-space: nowrap;">訂閱最新消息</a>，找我上課可以用<a href="https://tidycal.com/cstudio" style="text-decoration: none; color: rgb(173, 187, 216);"><span style="white-space: nowrap;">約課系統</span></a>，合作或其他事務請您<a href="contact.html" style="text-decoration: none; color: rgb(173, 187, 216); white-space: nowrap;">來信留言</a></h4></h6>
-        </div>
-        <img src="asset/logo.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
+        <h3 class="card-header" style="text-align: center;">聯繫我</h3>
+        <img src="asset/logo2.png" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
           <rect width="100%" height="100%" fill="#868e96"></rect>
-        <div class="card-body">
+        <div class="card-body" style="margin: 0 auto;" id="theForm">
+            <form id="contactForm">
+                <label>姓名：</label>
+                    <input type="text" name ="user_name" style="background-color: rgb(234, 231, 231); margin-bottom: 2px;"><br>
+                <label>郵箱：</label>
+                    <input type="text" name ="user_email" style="background-color: rgb(234, 231, 231);"><br>
+                    <label>
+                      <span id="typed"></span></label>
+                    <br>
+                    <textarea name="message" style="background-color: rgb(234, 231, 231);  width: 100%; height: 200px;"></textarea><br>
+                    <input id ='enter' type="submit" style="font-weight: 600;" value="送出"/> 
+                </form>
+                </div>
         </span>
-          <p class="card-text" style="text-align: center;" id="text"><span id="about">關於我：</span><br>2019年於堪薩斯大學取得音樂演奏博士之後，曾於交響樂團與大學，我除了教小(中)提琴與鋼琴，也喜歡哲學，心理學，電腦，創作與編曲，現居台北內湖。</p>
-        </div>
-        <ul class="list-group list-group-flush" style="text-align: center;">
-          <li class="list-group-item">2023 榮獲香港弦樂公開賽榮譽指導教師</li>
-          <li class="list-group-item">2021 榮獲加拿大皇家之聲音樂比賽第一名</li>
-        </ul>
-        <div class="card-body" style="text-align: center;">
-          <a href="/bio.html" class="card-link">完整簡歷</a>
-          <button class="card-link" onclick="showvideo()" id="audioButton">音樂試聽</button>
-        </div>
-        <div id="audioText" style="display: none; text-align: center; color: rgb(83, 79, 79);">流浪者之歌 -小提琴</div>
-        <audio id="audio1" controls style="display: none; margin:5px auto;">試聽</audio>
+        <!--Typed.js code-->
+        <script>
+            const typed = new Typed('#typed', {
+              strings: ["","留個言吧?", "~留個言嘛~", "不留言嗎?", "真的不留言了嗎?"],
+              typeSpeed: 400,
+              backSpeed: 200,
+              backDelay: 1000,
+              loop: true,
+              cursorChar: "|"
+            });
+          </script>
         <div class="card-footer text-muted" style="text-align: center;">
           www.cstudio-go.com
         </div>
@@ -131,7 +165,7 @@
       <script>
 
 $('.line').hide();
-$('.line').slideDown(2000);
+$('.line').fadeIn(2000);
 
 
         </script>

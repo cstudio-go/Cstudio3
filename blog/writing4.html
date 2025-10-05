@@ -20,7 +20,9 @@
   }
 
   #text {
-    padding: 0 30%;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
   }
 
 
@@ -33,11 +35,13 @@
       width: 100%;
       height: auto;
     }
-    #text {
-    padding: 0;
-  }
   }
 
+  @media screen and (max-width: 799px) {
+   #text {
+    padding: 0 20px;
+   }
+  }
 
 
 </style>
@@ -54,18 +58,18 @@
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="main.html">主頁
+                <a class="nav-link active" href="/main.html">主頁
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog/bloglist.html">部落格</a>
+                <a class="nav-link" href="bloglist.html">部落格</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="podcast.html">播客</a>
+                <a class="nav-link" href="../podcast.html">播客</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">聯繫我</a>
+                <a class="nav-link" href="/contact.html">聯繫我</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
@@ -96,29 +100,30 @@
 
       <div class="card mb-3">
         <span class="line">
-        <h3 class="card-header" style="text-align: center;">-歡迎來到張瑋語的網站-</h3>
-        <div class="card-body">
-          
-          <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
-          <h6 class="card-subtitle text-muted" style="text-align: center;">這裡有部落格，播客與心得分享，也可以<a href="https://sendfox.com/cstudio" style="color: rgb(173, 187, 216); text-decoration: none; white-space: nowrap;">訂閱最新消息</a>，找我上課可以用<a href="https://tidycal.com/cstudio" style="text-decoration: none; color: rgb(173, 187, 216);"><span style="white-space: nowrap;">約課系統</span></a>，合作或其他事務請您<a href="contact.html" style="text-decoration: none; color: rgb(173, 187, 216); white-space: nowrap;">來信留言</a></h4></h6>
+        <h3 class="card-header" style="text-align: center;">關於使用Blender剪輯影片</span></h3>
+          <p class="card-text" style="text-align: center;" id="text">
+            <span>撰文：張瑋語 --------更新於2025.03 <a href="bloglist.html" style="font-size: smaller;">文章列表</a></span><br><br>
+            <span>本來對於Blender的認識是一個3D建模的軟體，最近因為知道其有影片剪輯的功能，所以就下載下來試試看了。沒有想到還滿好用的，它具有一般剪輯軟體的多種功能。</span><br><br>
+            <span style="color: rgb(53, 53, 53)"><span style="color: rgb(92, 63, 63)">1. -基礎的剪輯功能-</span><br>
+                複製剪下貼上，拼接影片，基本的影片編輯功能<br><br>
+             2. <span style="color: rgb(92, 63, 63)">-影像的操控-</span><br>
+                控制圖片大小，播放速度，調整光影，對比度，加浮水印等<br><br>
+             3. <span style="color: rgb(92, 63, 63)">-加效果跟濾鏡-</span><br>
+                加上銜接影片的效果，也可以加上一些特效（比如說讓影像模糊）<br><br>
+             4. <span style="color: rgb(92, 63, 63)">-控制音效-</span><br>
+                顯示聲波圖可以更精確的鎖定剪輯位置，調整音量，讓聲音跟影像同步，加上聲音特效<br><br>
+             5. <span style="color: rgb(92, 63, 63)">-支援常見輸出檔案-</span><br>
+             ​Blender支援MP4, AVI, MKV, MOV等影片的輸出, AAC，MP3，VORBIS，Opus，FLAC，PCM等音樂檔案的輸出</span><br><br>
+             <span>總結來說，Blender作為一個免費的軟體，功能非常全面，雖然學習起來並不容易，但學後覺得非常實用。<br><a href="bloglist.html" style="font-size: smaller;">回上一頁</a></span>
+</span>
         </div>
-        <img src="asset/logo.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
-          <rect width="100%" height="100%" fill="#868e96"></rect>
-        <div class="card-body">
-        </span>
-          <p class="card-text" style="text-align: center;" id="text"><span id="about">關於我：</span><br>2019年於堪薩斯大學取得音樂演奏博士之後，曾於交響樂團與大學，我除了教小(中)提琴與鋼琴，也喜歡哲學，心理學，電腦，創作與編曲，現居台北內湖。</p>
-        </div>
-        <ul class="list-group list-group-flush" style="text-align: center;">
-          <li class="list-group-item">2023 榮獲香港弦樂公開賽榮譽指導教師</li>
-          <li class="list-group-item">2021 榮獲加拿大皇家之聲音樂比賽第一名</li>
-        </ul>
-        <div class="card-body" style="text-align: center;">
-          <a href="/bio.html" class="card-link">完整簡歷</a>
-          <button class="card-link" onclick="showvideo()" id="audioButton">音樂試聽</button>
-        </div>
-        <div id="audioText" style="display: none; text-align: center; color: rgb(83, 79, 79);">流浪者之歌 -小提琴</div>
-        <audio id="audio1" controls style="display: none; margin:5px auto;">試聽</audio>
+        
         <div class="card-footer text-muted" style="text-align: center;">
+            <p>延伸閱讀</p>
+        <div class="card-body" style="text-align: center;">
+            <a href="#" class="card-link">Card link</a><br>
+            <a href="#" class="card-link">Another link</a>
+          </div>
           www.cstudio-go.com
         </div>
         
