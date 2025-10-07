@@ -11,6 +11,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet">
     <link rel="stylesheet" href="blogstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <style>
   
 
@@ -109,7 +110,7 @@
         <span class="line">
         <h3 class="card-header" style="text-align: center;">廣讀與樂感</span></h3>
           <p class="card-text" style="text-align: center;" id="text">
-            <span>撰文：張瑋語 --更新於2025.08 <a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
+            <span id="typed"></span><a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
                 <img src="blogpic/ex14.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle;border-radius: 50% ;margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
             <span style="display:block; text-align: left;">
                 最近Van Cliburn的首獎得主Aristo Sham在一次他的訪問中提到他的學習經驗。他五，六歲左右時對英皇考級產生興趣，因此他去學習每一首英皇一到八級的作品(所有大概300多首)，六歲時他學到八級時，被他母親阻止了，因為太瘋狂了。<br><br>
@@ -141,6 +142,15 @@
   
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+       <!--Typed.js code-->
+       <script>
+        const typed = new Typed('#typed', {
+          strings: ["撰文：張瑋語 --更新於2025.08 ",],
+          typeSpeed: 150,
+          loop: false,
+          cursorChar: ""
+        });
+      </script>
       <script>
 
 $('.line').hide();
