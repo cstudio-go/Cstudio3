@@ -16,6 +16,7 @@
 <link rel="preload" href="asset/ex4.webp" as="image">
 <link rel="preload" href="asset/ex5.webp" as="image">
 <link rel="preload" href="asset/ex6.webp" as="image">
+<link rel="preload" href="asset/ex7.webp" as="image">
 
 <style>
 .card {
@@ -99,7 +100,20 @@ const Intro2 = {
   <div class="card-body">
     <h5 class="card-title animate__animated animate__fadeInLeft">SPA的商用應用</h5>
     <p class="card-text animate__animated animate__fadeInRight">SPA廣泛應用於商業網站，如購物平台、會員系統、教育與教學網站。它能快速回應使用者操作，適合展示商品或需要高互動與即時更新的線上服務。</p>
-    <router-link to="shop" class="btn btn-primary">商品展示</a>
+    <router-link to="Intro3" class="btn btn-primary">SPA定製流程</a>
+  </div>
+</div>
+  `
+}
+
+const Intro3 = {
+  template: `
+     <div class="card">
+  <img src="asset/ex7.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title animate__animated animate__zoomIn">SPA的定製流程</h5>
+    <p class="card-text animate__animated animate__fadeIn">總製作流程約1-3週，包含客製化討論與定稿，客戶對接與成品上傳。</p>
+    <router-link to="Shop" class="btn btn-primary">商品展示</a>
   </div>
 </div>
   `
@@ -157,7 +171,7 @@ template: `
 <img src="asset/ex6.webp" class="card-img-top animate__animated animate__fadeIn" alt="...">
 <div class="card-body">
   <h5 class="card-title animate__animated animate__fadeIn">KUN肩墊</h5>
-  <p class="card-text animate__animated animate__fadeInRight">KUN Bravo肩墊專為小提琴與中提琴設計，採用柔軟材質與符合人體工學的結構，可穩定支撐肩膀並分散壓力，減輕演奏時的疲勞感。KUN BRAVO能提供舒適與穩定的支撐，幫助演奏者保持正確姿勢，提升演奏表現與持久力。<br><em style="color: grey">售價&nbsp;&nbsp;$4200</em></p>
+  <p class="card-text animate__animated animate__fadeInRight">KUN Bravo肩墊專為小提琴與中提琴設計，採用柔軟材質與符合人體工學的結構，可穩定支撐肩膀並分散壓力，減輕演奏時的疲勞感。KUN Bravo能提供舒適與穩定的支撐，幫助演奏者保持正確姿勢，提升演奏表現與持久力。<br><em style="color: grey">售價&nbsp;&nbsp;$4200</em></p>
   <router-link to="shop" class="btn btn-primary">下一個</a>
 </div>
 </div>
@@ -170,6 +184,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/intro', component: Intro },
   { path: '/intro2', component: Intro2},
+  { path: '/intro3', component: Intro3},
   { path: '/shop', component: Shop},
   { path: '/shop2', component: Shop2},
   { path: '/shop3', component: Shop3},
