@@ -75,6 +75,7 @@
     border: solid 3px rgb(167, 151, 135);
   }
 
+
   }
 
 
@@ -147,8 +148,14 @@
                       <span id="typed"></span></label>
                     <br>
                     <textarea name="message" style="background-color: rgb(234, 231, 231);  width: 100%; height: 200px;"></textarea><br>
-                    <input id ='enter' type="submit" style="font-weight: 600; margin-right: 3px;" value="送出"/> <i class="fa-brands fa-line fa-xl" onClick="lineID()" style="margin-right: 5px;"></i><i class="fa-solid fa-phone fa-lg" onClick="phoneID()"></i>
-                </form>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <input id ='enter' type="submit" style="font-weight: 600; margin-right: 3px;" value="送出"/>
+                    <div style="display: flex; gap: 10px;">
+                     <i class="fa-brands fa-line fa-xl" onClick="lineID()" style="margin-right: 1px; cursor: grab" ></i>
+                     <i class="fa-solid fa-phone fa-lg" onClick="phoneID()" style="cursor: grab"></i>
+                    </div>
+                  </div>
+                  </form>
                 </div>
         </span>
         <!--Typed.js code-->
