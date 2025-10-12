@@ -112,12 +112,16 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    望春風 - 編曲/鋼琴
+                    望春風 - 編曲/鋼琴&nbsp;&nbsp;<i class="fa-solid fa-beat fa-headphones" style="--fa-beat-scale: 1.05;"></i>
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <strong>《望春風》是1933年由鄧雨賢作曲、李臨秋填詞的台語經典歌曲。旋律優美動人，歌詞描繪春夜微風、思念與情感的氛圍。此曲結合傳統與現代風格，被視為台灣早期流行音樂的重要代表作，歷久彌新。
+                    <button class="card-link btn btn-outline-primary" type="button" onclick="showspring()" style="padding: 1px 8px">音樂試聽</button><br>
+                    <span id="springtext" style="display: none; text-shadow: 1px 1px #b6b6b5;">點擊</span>
+                    <a href="https://youtu.be/HycHL673Lgk?si=4ngbLlczEW2JgN7u" target="_blank" style="display:none;" id="spring"><i class="fa-brands fa-youtube fa-xl fa-beat-fade" style="color:#e32400; --fa-beat-fade-opacity: 0.9; --fa-beat-fade-scale: 1.05;"></i></a>
+                    <span id="springtext2" style="display: none; text-shadow: 1px 1px #b6b6b5;">前往</span>
                 </div>
               </div>
             </div>
@@ -227,6 +231,17 @@ $('.line').slideDown(2000);
   audio2.style.display= "block";
   audioText2.style.display = "block";
   }
+
+  let showspring = () => {
+  let Spring = document.getElementById('spring');
+  let SpringText = document.getElementById('springtext');
+  let SpringText2 = document.getElementById('springtext2');
+  SpringText.style.display= "inline";
+  SpringText2.style.display= "inline";
+  Spring.style.display = "inline";
+
+  }
+
   </script>
 
 
