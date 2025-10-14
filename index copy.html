@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑋語老師的教室</title>
+    <meta property="og:title" content="瑋語老師的教室">
+    <meta name="description" content="歡迎來到瑋語老師的教室。我分享小中提琴與鋼琴教學、演奏、還有部落格與軟體工程資訊。">
+<meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品, Cstudio">
+<meta property="og:image" content="https://cstudio-go.com/logo.webp">
+<link rel="canonical" href="https://www.cstudio-go.com/">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="splash.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+      
+      @keyframes scaleUp {
+  
+  0% { transform: translateX(100%); }
+  50% { transform: translateX(50vw); }
+  70% {transform: translateX(50vw) scale(1);}
+100% {transform: translateX(50vw) scale(1.30);}
+  }
+
+  @keyframes scaleUp-left {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    90% {transform: translateX(-37vw) scale(1);}
+100% {transform: translateX(-37vw) scale(1);}
+    }
+
+        .box {
+    width: 200px;
+    height: auto;
+    margin: 50px auto;
+  }
+  .logo1 {
+    animation: scaleUp 3.5s ease-in-out forwards;
+  }
+  .logo2 {
+    border-radius: 10px;
+    animation: scaleUp-left 3.5s ease-in-out forwards;
+  }
+        @media screen and (max-width: 768px) {
+            * {
+                font-size: 1rem;    
+            }
+        }
+          </style>
+</head>
+<body>
+   <!-- Splash Screen -->
+   <div id="splash">
+    <img class="box" src="asset/violin.webp" width="200" height="400">
+    <div class="box logo2" style="color:rgb(239, 253, 255); font-size: x-large; margin: 20px">歡<br>迎<br>來<br>到<br>瑋<br>語<br>老<br>師<Br>的<br>教<br>室</div>
+  </div>
+
+  <script>
+    gsap.to(".box", { duration: 3, x: 200, rotation: 360});
+  </script>
+  <script src="splash.js"></script>
+</body>
+</html>
