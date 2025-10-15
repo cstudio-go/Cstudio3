@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>瑋語老師的教室</title>
-    <meta name="description" content="文章：關於使用Blender剪輯影片">
+    <meta name="description" content="文章：Joplin筆記系統">
 <meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
 <meta property="og:image" content="https://cstudio-go.com/logo.webp">
     <link 
@@ -22,6 +22,7 @@
   #img {
     width: 500px;
     height: 500px;
+    
   }
   #portrait{
     width: 107px;
@@ -35,6 +36,8 @@
   }
 
 
+
+
   @media screen and (max-width: 500px) {
     #img{
       width: 100%;
@@ -44,6 +47,14 @@
       width: 100%;
       height: auto;
     }
+    .left {
+        text-align: left;
+    }
+    .navbar-brand{
+      animation: slideInDown;
+      animation-duration: 1s;
+    }
+
   }
 
   @media screen and (max-width: 799px) {
@@ -108,33 +119,53 @@
 
       <div class="card mb-3">
         <span class="line">
-        <h3 class="card-header" style="text-align: center;">關於使用Blender剪輯影片</h3>
+        <h3 class="card-header" style="text-align: center;">Joplin筆記系統</span></h3>
           <p class="card-text" style="text-align: center;" id="text">
-            <span id="typed"></span><a href="bloglist.html" style="font-size: smaller;  white-space: nowrap;">文章列表</a><br><br>
-            <img src="blogpic/ex16.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 20px auto 35px auto;max-width: 150px; height: auto;" id="img">
+            <span id="typed"></span><a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
+                <img src="blogpic/ex19.png" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
             <span style="display:block; text-align: left;">
-            本來對於Blender的認識是一個3D建模的軟體，最近因為知道其有影片剪輯的功能，所以就下載下來試試看了。沒有想到還滿好用的，它具有一般剪輯軟體的多種功能。<br><br>
-            <span style="color: rgb(92, 63, 63)">**基礎的剪輯功能</span><br>
-                複製剪下貼上，拼接影片，基本的影片編輯功能<br><br>
-             <span style="color: rgb(92, 63, 63)">**影像的操控</span><br>
-                控制圖片大小，播放速度，調整光影，對比度，加浮水印等<br><br>
-             <span style="color: rgb(92, 63, 63)">**加效果跟濾鏡</span><br>
-                加上銜接影片的效果，也可以加上一些特效（比如說讓影像模糊）<br><br>
-             <span style="color: rgb(92, 63, 63)">**控制音效</span><br>
-                顯示聲波圖可以更精確的鎖定剪輯位置，調整音量，讓聲音跟影像同步，加上聲音特效<br><br>
-             <span style="color: rgb(92, 63, 63)">**支援常見輸出檔案</span><br>
-             ​Blender支援MP4, AVI, MKV, MOV等影片的輸出, AAC，MP3，VORBIS，Opus，FLAC，PCM等音樂檔案的輸出<br><br>
-             總結來說，Blender作為一個免費的軟體，功能非常全面，雖然學習起來並不容易，但學後覺得非常實用。<br>
-            </span>
-            <a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-            </span>
+                最近開始使用Joplin來記錄筆記並寫作，做為一個免費的寫作軟體，發現它有很多優點，我覺得優秀的軟體應該要被更多人知道，所以這邊分享一下使用它的心得。<br><br>
+
+在使用Joplin之前，我使用的是Typora跟iA Writer，做為偶爾的紀錄或者是少量的寫作，這兩個寫作軟體其實都能勝任且使用上相當直覺，他們的介面也設計的相當美觀，有客製化的字體與格式的選擇。<br><br>
+
+但之所以會想要尋找第三個選擇，是因為Typora跟iA Writer共有的一個缺點：支援平台跟設備數量有限制。<br><br>
+Typora一個序號最多三台機器，它支持Windows跟蘋果Mac系統，但是不支持Linux系統，也不支持手機跟平板的使用。<br><br>
+
+iA Writer支持蘋果Mac系統跟Windows系統，也支持手機跟平板，但是不支持Linux系統，而且他要求每個系統的使用都要分開購買，也就是説，蘋果Mac,，Windows，安卓，蘋果iOS上一共要購買四次。<br><br>
+
+我本來主要是使用iA Writer搭配蘋果雲端硬碟iCloud來紀錄生活與寫一些筆記，前陣子我將Windows的電腦系統換成了Linux Mint來操作，結果發現兩個常用的寫作軟體都沒辦法使用，只好搜尋新的系統，而意外找到了Joplin。<br><br>
+
+說說Joplin的優點：<br><br>
+
+＊＊Joplin幾乎支援了我所有的設備<br>
+
+蘋果Mac，蘋果iOS，安卓，Windows，Linux上都可以使用，並且我透過Dropbox來共享筆記，發現在可以一鍵同步筆記的情況下，只要手上有任何一個電子設備就可以連結並繼續之前的寫作。<br><br>
+
+＊＊支援離線<br>
+
+所有筆記本地端都有一份備份，不依賴網路連線。即使在沒有網路狀況下，也可以查看、編輯筆記。<br><br>
+
+＊＊擴充性相當自由<br>
+
+Joplin可以下載插件並增加想要的功能，字數計算，加入代辦事項，建立圖表，到數學運算都可以透過加入插件來客製化。<br><br>
+
+＊＊開源軟體<br>
+
+Joplin是開源軟體，因為不用擔心會被強制收費或限制功能，也不怕它終止服務，程式穩定度非常高。<br><br>
+
+--結論--<br>
+
+工具的存在始終是來自於需求。這次因為系統的更換，才意外的開始使用新的筆記系統，而我覺得Joplin作為開源軟體，是非常便利且實用的選擇。
+</span>
+<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
+</span>
         </div>
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
         <div class="card-body" style="text-align: center;">
-            <a href="writing10.html" class="card-link">詮釋與實踐</a><br>
-            <a href="writing12.html" class="card-link">音樂表演的一致性</a>
+            <a href="a15.html" class="card-link">用小提琴演奏巴哈為什麼這麼難？</a><br>
+            <a href="a16.html" class="card-link">寫作的力量</a>
           </div>
           www.cstudio-go.com<br>
           <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
@@ -146,19 +177,18 @@
   
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <!--Typed.js code-->
-        <script>
-          const typed = new Typed('#typed', {
-            strings: ["撰文：張瑋語 --更新於2025.02&nbsp;",],
-            typeSpeed: 150,
-            loop: false,
-            cursorChar: ""
-          });
-        </script>
+       <!--Typed.js code-->
+       <script>
+        const typed = new Typed('#typed', {
+          strings: ["撰文：張瑋語 --更新於2025.10&nbsp;",],
+          typeSpeed: 150,
+          loop: false,
+          cursorChar: ""
+        });
+      </script>
       <script>
 
-
-$('.line').slideDown(1500);
+$('.line').slideDown(1200);
 
 
         </script>
