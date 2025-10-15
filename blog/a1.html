@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>瑋語老師的教室</title>
-    <meta name="description" content="文章：使用Hugo軟體快速架站">
+    <meta name="description" content="文章：只學習一種音樂，是很可惜的事">
 <meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
 <meta property="og:image" content="https://cstudio-go.com/logo.webp">
     <link 
@@ -15,14 +15,13 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <style>
   
-  .line {
-  display: none;
-}
+  .line{
+    display: none;
+  }
 
   #img {
     width: 500px;
     height: 500px;
-    border-radius: 50%;
   }
   #portrait{
     width: 107px;
@@ -36,8 +35,6 @@
   }
 
 
-
-
   @media screen and (max-width: 500px) {
     #img{
       width: 100%;
@@ -47,14 +44,11 @@
       width: 100%;
       height: auto;
     }
-    .left {
-        text-align: left;
-    }
+
     .navbar-brand{
       animation: slideInDown;
       animation-duration: 1s;
     }
-
   }
 
   @media screen and (max-width: 799px) {
@@ -78,7 +72,7 @@
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="../main.html">主頁
+                <a class="nav-link active" href="/main.html">主頁
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -119,26 +113,30 @@
 
       <div class="card mb-3">
         <span class="line">
-          <h3 class="card-header" style="text-align: center;">使用Hugo軟體快速架站</h3>
+        <h3 class="card-header" style="text-align: center;">只學習一種音樂，是很可惜的事</h3>
           <p class="card-text" style="text-align: center;" id="text">
-            <span id="typed"></span><a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
-                <img src="blogpic/ex23.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
-            <span style="display:block; text-align: left;">
-                HUGO是一個使用GO語言的快速架站軟體，它可以搭配內建或客製化的主題，不用學習任何的HTML，CSS跟JS就可以快速的架設網站，只要使用一般文章的標記方式，透過HUGO就可以轉換成已設計好的網頁格式。<br><br>
+            <span id="typed"></span> <a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a>
+            <span style="display: block; text-align: left;">
+              <img src="blogpic/ex4.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 20px auto 35px auto; border-radius: 50%;max-width: 200px; height: auto;" id="img">
+            今天想針對很多人接觸音樂，不知不覺會局限自己這件事，提出一些想法。<br><br>
 
-我使用了HUGO架設了簡單的<a href="../myblog" target="_blank" style="white-space: nowrap;">部落格模板</a>，搭配它內建的Ananke主題，發現特別適合極簡主義的部落格作家。而HUGO的缺點是，他的客製化主題版本較早的話，有時會跟官方的更新衝突，導致在導入主題時常常會在執行網站時卡住，要去解決亂碼。<br><br>
-
-如果想簡單使用HUGO的話，考量到要“快速架設網站”的目的，那就只用官方內建的主題就好。
-</span>
-<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-</span>
+                現代人非常忙碌，專注力有限，所以學習都講究一個效率或成果。只是，在追求高效率的同時，可能也同時不能體會深度學習的機會，錯過了許多學習的樂趣。<br><br>
+                兩年前我在學校教書時，讓一位學生學莫札特的小提琴協奏曲，一陣子後，他開始對莫札特的音樂加深了印象，知道有時要處理的輕盈，要注意音色，聲音必須乾淨，要更注意音準。但是技術之外，我們發現他卡住了，卡在更深入理解音樂的課題上，這時就有一個問題，我們要怎麼更進一步的暸解音樂，瞭解莫札特？<br><br>            
+                雖然可以繼續的練習來強化技術，但是為了擴展認識音樂的深度，我讓學生接觸莫札特的交響曲。交響曲各個聲部之間有許多對話，有時齊奏，有時輪流伴奏。過一陣子後，他有了新的體會，知道交響曲跟協奏曲的相同之處，暸解到為什麼之前單獨練習時覺得旋律單調，是因為音樂有其他的聲部。<br><br>  
+                之後，他再次卡住了。這次是一些段落演奏起來呆板，快速音群也跑的一跛一跛的，就一直被我提出來要改進。學生苦惱之際，我建議他聽莫札特的單簧管協奏曲。因為單簧管在演奏莫札特時可以讓音色非常放鬆與連貫。單簧管沒有辦法像小提琴使用顫音(vibrato)，很多時候是用音量與音色的變化來表現。於是我們嘗試模仿像單簧管一樣去表現在小提琴上，慢慢的就解決了這些問題。<br><br>
+                為了讓他更能理解音樂，我也讓他也聽聽海頓（莫札特的老師）的弦樂四重奏。這些作品可以發現設計音樂的巧思，理解音樂作為表達的手法不只是"好聽"，聲音也可以憤怒，可以創造反差，可以幽默，可以模仿世間的聲音等等。我們找到了音樂的文法，理解表達的方法，也突破了瓶頸。<br><br>       
+                <mark style="background-color: burlywood; font-size: 100%; border-radius: 50% 20% / 10% 40%;">既然可以從不同的音樂中得到幫助，就放手去接觸吧</mark>。對於學習一種樂器，或是集中練習一首曲子的人來說，去聽聽不同樂器的音樂，去看看從沒有聽過的音樂會，感受一下不同形式的表演藝術，一定能更暸解音樂的面貌。
+                <br>
+                </span>
+                <a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
+                </p>
         </div>
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
         <div class="card-body" style="text-align: center;">
-            <a href="writing2.html" class="card-link">三個學習音樂的觀念：讓你擴展視野，快速進步</a><br>
-            <a href="writing11.html" class="card-link">三個練琴心態的建議</a>
+            <a href="a2.html" class="card-link">三個學習音樂的觀念：讓你擴展視野，快速進步</a><br>
+            <a href="a11.html" class="card-link">三個練琴心態的建議</a>
           </div>
           www.cstudio-go.com<br>
           <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
@@ -153,15 +151,17 @@
        <!--Typed.js code-->
        <script>
         const typed = new Typed('#typed', {
-          strings: ["撰文：張瑋語 --更新於2025.10&nbsp;",],
+          strings: ["撰文：張瑋語 --更新於2024.12&nbsp;",],
           typeSpeed: 150,
           loop: false,
           cursorChar: ""
         });
       </script>
+      
       <script>
 
-$('.line').slideDown(1200);
+
+$('.line').slideDown(1500);
 
 
         </script>
