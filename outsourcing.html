@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSC3GPD1M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSC3GPD1M0');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>瑋語老師的教室</title>
@@ -45,6 +53,11 @@
     }
     #text {
     padding: 0;
+  }
+
+  table td:last-child, table th:last-child {
+    font-size: 0.8rem;     /* Slightly smaller font */
+    max-width: 80px;       /* Limit width */
   }
   }
 
@@ -110,46 +123,46 @@
           
           <h5 class="card-title" style="text-align: center;">企業網站，工作室網頁，一頁式廣告，部落格，電商網站</h5>
         </div>
-        <a href="contact.html" class="card-link  btn btn-primary btn-sm animate__animated animate__jackInTheBox animate__delay-1s" style="margin: 0 auto; display: block; width: 150px; opacity: 75%">點擊聯繫</a>
+        <button onClick="lineID()" class="card-link  btn btn-primary btn-sm animate__animated animate__jackInTheBox animate__delay-1s" style="margin: 0 auto; display: block; width: 150px; opacity: 75%; border-radius: 9999px;">點擊聯繫</button>
         <table class="table table-hover" style="max-width: 1000px; margin: 0 auto;">
             <thead>
               <tr>
                 <th scope="col">種類</th>
-                <th scope="col">所需時間</th>
+                <th scope="col">流程</th>
                 <th scope="col">功能介紹</th>
-                <th scope="col">價格</th>
+                <th scope="col" style="font-size: 1rem;">價格</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="table-active">
-                <th scope="row">一頁式網頁SPA</th>
+              <tr class="table-active table-info">
+                <th scope="row">一頁式應用程式SPA</th>
                 <td>約1至3週</td>
-                <td>簡單簡潔，可搭配少量動畫</td>
+                <td>應用程式般的網頁，簡潔且反應快速，適合廣告，商品介紹</td>
                 <td>$10000</td>
               </tr>
               <tr>
-                <th scope="row">多頁式網頁</th>
-                <td>約4週至12週</td>
-                <td>隨功能需求，少量到全面功能：介紹頁面，即時通，留言板，部落格，電商等</td>
-                <td>$20000 - $200000</td>
+                <th scope="row">經典一頁式網頁</th>
+                <td>約1至5週</td>
+                <td>商品介紹頁面，公司簡介，企業名片，經營理念等，可搭配動畫效果</td>
+                <td>$10000-<span style="white-space: nowrap;">$25000</span></td>
               </tr>
               <tr class="table-primary">
-                <th scope="row">部落格</th>
-                <td>約2-4週</td>
-                <td>搭配設計要求，具個人特色</td>
-                <td>$30000</td>
+                <th scope="row">多頁式網頁</th>
+                <td>約4至12週</td>
+                <td>隨功能需求，少量到全面功能：介紹頁面，即時通，留言板，部落格，電商等</td>
+                <td>$20000-<span style="white-space: nowrap;">$200000</span></td>
               </tr>
               <tr class="table-secondary">
-                <th scope="row">電商架站</th>
-                <td>約6-10週</td>
-                <td>從設計到產品上架</td>
-                <td>$100000 - $150000</td>
+                <th scope="row">客製化部落格</th>
+                <td>約3至5週</td>
+                <td>搭配設計要求，具個人特色</td>
+                <td>$30000-<span style="white-space: nowrap;">$50000</span></td>
               </tr>
               <tr class="table-success">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th scope="row">電商架站</th>
+                <td>約6至10週</td>
+                <td>從設計到產品上架</td>
+                <td>$100000-<span style="white-space: nowrap;">$150000</span></td>
               </tr>
               <tr class="table-danger">
                 <th scope="row"></th>
@@ -197,5 +210,10 @@ $('.line').slideDown(2000);
 
 
         </script>
+        <script>
+          let lineID = () => {
+            alert("LINE ID: 8899610  📞: 0958-376453");
+          }
+          </script>
 </body>
 </html>
