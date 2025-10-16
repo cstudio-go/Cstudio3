@@ -107,17 +107,7 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/gypsyAir.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
+      
 
       <div class="card mb-3">
         <span class="line">
@@ -159,7 +149,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>《Amazing Grace》是一首18世紀由英國牧師John Newton創作的基督教聖詩。歌詞表達了悔改、得救與重生的信仰歷程，旋律簡單卻深具感染力。此曲廣泛流傳於世界各地，常在宗教儀式、音樂會及電影中演唱，被視為希望與救贖的象徵。
+                  <strong>《Amazing Grace》是一首18世紀由英國牧師John Newton創作的基督教聖詩。歌詞表達了悔改、得救與重生的信仰歷程，旋律簡單卻深具感染力。此曲廣泛流傳於世界各地，常在宗教儀式、音樂會及電影中演唱，被視為希望與救贖的象徵。</strong>
 
                     <button class="card-link btn btn-outline-primary" type="button" onclick="showvideo()" id="audioButton" style="padding: 1px 8px">音樂試聽</button>
         <div id="audioText" style="display: none; color: rgb(41, 38, 38);">Amazing Grace</div>
@@ -176,7 +166,7 @@
                 </h2>
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Lake寫於2025年8月底，從爵士鋼琴家Bill Evans的音樂中得到靈感，使用了一些爵士元素，傳達湖面自然與平靜的一面。
+                    <strong>Lake寫於2025年8月底，從爵士鋼琴家Bill Evans的音樂中得到靈感，使用了一些爵士元素，傳達湖面自然與平靜的一面。</strong>
                   </div>
                 </div>
               </div>
@@ -199,12 +189,27 @@
               </h2>
               <div id="collapseone1" class="accordion-collapse collapse" aria-labelledby="headingone1" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>《維瓦第〈四季〉之〈冬〉第二樂章》以溫柔抒情的旋律描繪寒冬中的寧靜時刻。小提琴在柔和的伴奏中流暢歌唱，仿若人在屋內避寒、靜賞窗外風雪。音樂展現溫暖與寒冷的對比，情感細膩動人。
+                  <strong>《維瓦第〈四季〉之〈冬〉第二樂章》以溫柔抒情的旋律描繪寒冬中的寧靜時刻。小提琴在柔和的伴奏中流暢歌唱，仿若人在屋內避寒、靜賞窗外風雪。音樂展現溫暖與寒冷的對比，情感細膩動人。</strong>
 
                     <button class="card-link btn btn-outline-primary" type="button" onclick="showvideo2()" id="audioButton" style="padding: 1px 8px">音樂試聽</button>
         <div id="audioText2" style="display: none; color: rgb(41, 38, 38);">Winter - 2nd Movement</div>
         <audio id="audio2" controls style="display: none;">試聽</audio>
 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                    流浪者之歌 - 小提琴&nbsp;&nbsp;<i class="fa-solid fa-beat fa-headphones" style="--fa-beat-scale: 1.05;"></i>
+                </button>
+              </h2>
+              <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>流浪者之歌是小提琴炫技名曲，又能表現出深情與浪漫，被視為薩拉沙泰最著名的代表作之一，也是小提琴家必演的經典作品。</strong>
+                  <button class="card-link btn btn-outline-primary" type="button" onclick="showvideo3()" id="audioButton" style="padding: 1px 8px">音樂試聽</button>
+                  <div id="audioText3" style="display: none; color: rgb(41, 38, 38);">流浪者之歌</div>
+        <audio id="audio3" controls style="display: none;">試聽</audio>
                 </div>
               </div>
             </div>
@@ -251,6 +256,16 @@ $('.line').slideDown(2000);
   audio2.load();
   audio2.style.display= "block";
   audioText2.style.display = "block";
+  }
+
+  var showvideo3 = () => {
+  var audio3 = document.getElementById('audio3');
+  var audioText3 = document.getElementById('audioText3');
+  audio3.preload = "auto";
+  audio3.src = "asset/gypsyAir.mp3";
+  audio3.load();
+  audio3.style.display= "block";
+  audioText3.style.display = "block";
   }
 
   let showspring = () => {
