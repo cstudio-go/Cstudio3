@@ -81,8 +81,8 @@
 
 
 </style>
-
-
+<!--SweetAlert2-->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
@@ -148,8 +148,8 @@
           <p class="card-text" id="text"><span id="about">-關於我-</span>2019年於堪薩斯大學取得音樂演奏博士之後，曾於交響樂團與大學工作，我除了教小中提琴與鋼琴，也喜歡哲學，心理學，電腦，創作與編曲，<span style="white-space: nowrap;">現居台北內湖。</span></p>
         
         <ul class="list-group list-group-flush" style="text-align: center;">
-          <li class="list-group-item">2023 榮獲香港弦樂公開賽榮譽指導教師</li>
-          <li class="list-group-item">2021 榮獲加拿大皇家之聲音樂比賽第一名</li>
+          <li class="list-group-item" onclick="showPhoto1()" style="cursor:grab">2023 榮獲香港弦樂公開賽榮譽指導教師</li>
+          <li class="list-group-item" onclick="showPhoto2()" style="cursor:grab">2021 榮獲加拿大皇家之聲音樂比賽第一名</li>
         </ul>
         <div class="card-body" style="text-align: center;">
           <a href="bio.html" class="card-link btn btn-outline-primary" style="padding: 1px 8px">完整簡歷</a>
@@ -175,5 +175,31 @@ $('.line').fadeIn(2000);
 
 
         </script>
+       <script>
+    function showPhoto1() {
+      Swal.fire({
+        title: '🎵 Practice Reminder',
+        text: 'Keep your rhythm steady!',
+        imageUrl: 'https://picsum.photos/300/200', // ← replace with your image
+        imageWidth: 300,
+        imageAlt: 'Music Photo',
+        confirmButtonText: 'Close',
+        confirmButtonColor: '#3085d6',
+        background: '#fff',
+      });
+    }
+    function showPhoto2() {
+      Swal.fire({
+        title: '🎵 Practice Reminder',
+        text: 'Keep your rhythm steady!',
+        imageUrl: 'https://picsum.photos/300/200', // ← replace with your image
+        imageWidth: 300,
+        imageAlt: 'Music Photo',
+        confirmButtonText: 'Close',
+        confirmButtonColor: '#3085d6',
+        background: '#fff',
+      });
+    }
+  </script>
 </body>
 </html>
