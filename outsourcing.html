@@ -17,6 +17,8 @@
 <meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
 <meta property="og:image" content="https://cstudio-go.com/logo.webp">
 <!--animate.css-->    
+<!--sweetAlert2-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -211,9 +213,14 @@ $('.line').slideDown(2000);
 
         </script>
         <script>
-          let lineID = () => {
-            alert("LINE ID: 8899610  📞: 0958-376453");
-          }
+          function lineID() {
+  Swal.fire({
+  imageUrl: 'asset/lineQR.webp',
+  imageWidth: 250,
+  title: '掃碼加入好友',
+  text: '或聯繫：0958-376453',
+  confirmButtonText: 'Close'
+}) }
           </script>
 </body>
 </html>
