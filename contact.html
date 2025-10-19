@@ -26,6 +26,9 @@
     <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet">
+<!--sweetAlert2-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
     (function(){
@@ -177,12 +180,21 @@
             });
           </script>
           <script>
-            let lineID = () => {
-              alert("LINE ID: 8899610");
-            }
-            let phoneID = () => {
-              alert('0958-376453')
-            }
+         function lineID() {
+  Swal.fire({
+  imageUrl: 'asset/lineQR.webp',
+  imageWidth: 250,
+  title: '掃碼加入好友',
+  text: '使用ID加入:8899610',
+  confirmButtonText: 'Close'
+}) }
+            function phoneID() {
+  Swal.fire({
+  imageUrl: 'cover.png',
+  title: '電話請聯繫',
+  text: '0958-376453',
+  confirmButtonText: 'Close'
+}) }
           </script>
 
         <div class="card-footer text-muted" style="text-align: center;">
