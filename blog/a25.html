@@ -44,6 +44,13 @@
     text-align: center;
   }
 
+    .card-body {
+    opacity: 0;
+  }
+  .card-body.visible {
+    opacity: 1;
+  }
+
 
 
 
@@ -207,5 +214,17 @@ $('.line').slideDown(1200);
 
 
         </script>
+        <!--jquery scrolling-->
+        <script>
+    $(window).on("scroll", function() {
+      // Detect if the user scrolled near the bottom (e.g. last 200px)
+      if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200) {
+        let link = $(".card-body");
+        if (!link.hasClass("visible")) {
+          link.addClass("visible animate__animated animate__backInDown");
+        }
+      }
+    });
+  </script>
 </body>
 </html>
