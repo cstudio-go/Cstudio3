@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="blogstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
   
   .line {
@@ -51,7 +53,10 @@
     opacity: 1;
   }
 
-
+  .note {
+    opacity: 0;
+    display: inline-block;
+  }
 
 
   @media screen and (max-width: 500px) {
@@ -147,7 +152,7 @@
 
 
 
-<span style="color: rgb(123, 28, 28)">練習發音</span><br>
+<i class="fa-solid fa-music note"></i> <span style="color: rgb(123, 28, 28)"> 練習發音</span><br>
 
 這是練習空弦的的主要目的，為了在發音上掌握的更好，可以在幾個要點上來要求:<br><br>
 
@@ -159,7 +164,7 @@
 
 
 
-<span style="color: rgb(123, 28, 28)">練習放鬆</span><br>
+<i class="fa-solid fa-music note"></i> <span style="color: rgb(123, 28, 28)"> 練習放鬆</span><br>
 
 好的小提琴家都能在看起來很輕鬆的狀態下呈現出各種演奏效果，簡直就像奇蹟一樣。而其中的秘密是，他們能放鬆大部分的肌肉，只使用必要的部分。<br><br>
 
@@ -170,7 +175,7 @@
 
 
 
-<span style="color: rgb(123, 28, 28)">練習冥想</span><br>
+<i class="fa-solid fa-music note"></i> <span style="color: rgb(123, 28, 28)"> 練習冥想</span><br>
 
 也是個人覺得很多人忽略的部分。練習空弦時我們可以注意各種不同的現象，一開始是聲音，音量，色彩，再來是弓的位置，弓的接觸點，弓的接觸面，持琴的方式，腳的位置，手指的使用，我們心靈所注意的領域，它就會自然的更深入發展，仔細觀察就有非常多可以探索的領域。<br><br>
 
@@ -221,10 +226,24 @@ $('.line').slideDown(1200);
       if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200) {
         let link = $(".card-body");
         if (!link.hasClass("visible")) {
-          link.addClass("visible animate__animated animate__backInDown");
+          link.addClass("visible animate__animated animate__fadeInUp");
         }
       }
     });
   </script>
+  <!--Scrolling appear-->
+   <script>
+$(window).on('scroll', function() {
+  $('.note').each(function() {
+    const elementTop = $(this).offset().top;
+    const windowBottom = $(window).scrollTop() + $(window).height();
+
+    if (windowBottom > elementTop + 100 && !$(this).hasClass('animate__animated')) {
+      $(this).addClass('animate__animated animate__bounceInLeft'); // Animate.css classes
+      $(this).css('opacity', 1); // show element
+    }
+  });
+});
+</script>
 </body>
 </html>
