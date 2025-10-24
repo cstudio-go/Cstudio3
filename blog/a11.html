@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="blogstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
   
   .line {
@@ -43,7 +45,11 @@
     text-align: center;
   }
 
-
+  .note {
+    opacity: 0;
+    display: inline-block;
+  }
+ 
 
   @media screen and (max-width: 500px) {
     #img{
@@ -129,15 +135,15 @@
             喜歡練琴的人不多，有些音樂人甚至討厭練琴，鋼琴家魯賓斯坦曾說過他就厭惡長時間的練習。小提琴家薩拉撒泰則是一天練14小時的小提琴長達37年，而且還是在討厭練琴的基礎上。爵士樂的傳奇人物杜克公爵也公開說過討厭練琴，更偏好作曲與改編作品。<br><br>
             雖然大部分的人都討厭練琴，還是有喜歡練琴的音樂人。他們的原因不乏是從中找到秩序感，一種掌控性，練習時可以舒壓，或是在練習過程中喜歡進步的感覺，喜歡挑戰自己等等。<br><br>
             雖然都知道練習才能幫助我們進步，但碰到練琴枯燥的狀況很常見，碰到挫折時想放棄的情況也很多，那用什麼樣的心態可以幫助我們更從容的面對？這邊有三個建議：<br><br>
-            **培養長遠思考，積少成多的心態<br>
+            <i class="fa-solid fa-music note"></i> 培養長遠思考，積少成多的心態<br>
             練習前雖然想著要一次大量的練習，但除非有特殊的原因，很少有人能忍受動輒數個小時的單一活動。也就是說，我們都有可能會有撐不下去的感覺，那就要衡量是否晚點可以再回來練，做些轉移活動。
             <br><br>
             轉移活動的神奇之處，是我們的潛意識裡會持續的作用幫助我們找到難點的解決方法，而淺意識不需要我們在練琴的狀態時就可以工作。<br><br>
             
-                **了解音樂對自己是什麼，昇華重複性的無聊感<br>
+                <i class="fa-solid fa-music note"></i> 了解音樂對自己是什麼，昇華重複性的無聊感<br>
                 <em>“枯燥的時候，記得在裡面尋找意義”</em><br>
                 我喜歡的作者Viktor Frankl在“尋找生命的意義”一書中提到: 人在極端環境之下，只要心中擁有意義，他就可以承受各種的不合理。音樂人雖然很多時候不提，但是我們在教學，創作，演奏音樂時的意義，其實是需要自己找到一個解釋的。如果能夠清楚為什麼自己要在音樂的道路前進，就更容易面對練習。<br><br>
-                **成長思維，參考其他視角，繼續擴展世界觀<br>
+                <i class="fa-solid fa-music note"></i> 成長思維，參考其他視角，繼續擴展世界觀<br>
                 有些音樂人他的人生閱歷很豐富，這些很可能會顯示在他的音樂與深度。
                     舉例來說，懂的聯覺概念的人很可能會使用視覺(如明亮的，繽紛的)與味覺(甜美的，苦澀的)來形容與表達音樂。喜歡文化的人，能透過語言，飲食，民族性等深入的暸解當地的音樂。<br>
                 培養豐富的閱歷，除了接受新知，認識朋友之外，也需要一個成長思維的心態。人在一直吸收，學習的過程中，他會慢慢的發展出一些固定的思維，這比較容易限制住我們看待事物的角度。在練習音樂的過程中，除了達成練習目的之外，也可以尋找一些不同的看待音樂的角度，看看其他人的視角，可以幫助我們繼續擴展深度。<br><br>
@@ -179,5 +185,20 @@ $('.line').slideDown(1200);
 
 
         </script>
+
+        <!--Scrolling appear-->
+   <script>
+$(window).on('scroll', function() {
+  $('.note').each(function() {
+    const elementTop = $(this).offset().top;
+    const windowBottom = $(window).scrollTop() + $(window).height();
+
+    if (windowBottom > elementTop + 100 && !$(this).hasClass('animate__animated')) {
+      $(this).addClass('animate__animated animate__bounceInLeft'); // Animate.css classes
+      $(this).css('opacity', 1); // show element
+    }
+  });
+});
+</script>
 </body>
 </html>
