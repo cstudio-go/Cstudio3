@@ -29,8 +29,8 @@
 
 
   #img {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
   }
   #portrait{
     width: 107px;
@@ -38,7 +38,10 @@
   }
 
   #text {
-    padding: 0 30%;
+    display: block;
+    text-align: left;
+    width: 800px;
+    margin: 0 auto;
   }
 
 
@@ -60,7 +63,21 @@
       height: auto;
     }
     #text {
-    padding: 0;
+    width: auto;
+  }
+  }
+
+  @media screen and (min-width: 501px) and (max-width: 900px) {
+    #img{
+      width: 300px;
+      height: 300px;
+    }
+    #portrait{
+      width: 100%;
+      height: auto;
+    }
+    #text {
+    width: 500px;
   }
   }
 
@@ -108,6 +125,21 @@
       </nav>
 
       <div class="line">
+
+<div class="card mb-3">
+        
+        
+        <img src="https://cstudio-go.com/blog/blogpic/ex17.webp" class="d-block user-select-none animate__animated animate__fadeIn" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
+          <rect width="100%" height="100%" fill="#868e96"></rect>
+          <h3 class="card-header" style="text-align: center;">約翰．塞巴斯汀．巴哈</h3>
+        <div class="card-body">
+          <p class="card-text" id="text" style="text-align: left">
+            約翰．塞巴斯汀．巴哈（Johann Sebastian Bach, 1685–1750），德國巴洛克時期作曲家與管風琴家，出身音樂世家。他曾任魏瑪與萊比錫等地宮廷及教堂音樂職務，創作範圍廣泛，包含宗教與世俗音樂。代表作有《馬太受難曲》、《平均律鋼琴曲集》、《布蘭登堡協奏曲》及《無伴奏小提琴組曲》。巴哈的音樂結構嚴謹、情感深刻，被譽為西方音樂史上最偉大的作曲家之一。
+            </p>
+        </div>
+        </div>
+
+
      <div class="accordion" id="accordionExample" style="margin: 0 auto; max-width: 800px;">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
