@@ -20,12 +20,11 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
     rel="stylesheet">
     
+    <link rel="preload" href="blogpic/ex28.webp" as="image">
     <link rel="preload" href="blogpic/ex27.webp" as="image">
     <link rel="preload" href="blogpic/ex15.webp" as="image">
     <link rel="preload" href="blogpic/ex26.webp" as="image">
     <link rel="preload" href="blogpic/ex25.webp" as="image">
-    <link rel="preload" href="blogpic/ex24.webp" as="image">
-    
     
     
 <style>
@@ -144,6 +143,7 @@
         <img src="../asset/ex23-1.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle;" id="img">
           <rect width="100%" height="100%" fill="#868e96"></rect>
         <ul class="list-group list-group-flush" style="text-align: center;">
+        <li class="list-group-item"><a href="a27.html">表演時與自我的和解</a></li>
         <li class="list-group-item"><a href="a26.html" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="小提琴進階技巧">音色的應用</a></li>
         <li class="list-group-item"><a href="a25.html" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="小提琴基礎理論">弦樂為什麼練習空弦</a></li>
         <li class="list-group-item"><a href="a24.html" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="弦樂音準基礎">使用持續音來鍛鍊音準</a></li>
@@ -285,5 +285,30 @@ $('.line').fadeIn(800);
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   </script>
+<!--turnOff Tooltips-->
+<script>
+  function handleTooltipResize() {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+    if (window.innerWidth <= 500) {
+      // Disable tooltips
+      tooltipTriggerList.forEach(el => {
+        const tooltip = bootstrap.Tooltip.getInstance(el);
+        if (tooltip) tooltip.dispose(); // remove tooltip instance
+      });
+    } else {
+      // Re-enable tooltips
+      tooltipTriggerList.forEach(el => {
+        if (!bootstrap.Tooltip.getInstance(el)) {
+          new bootstrap.Tooltip(el);
+        }
+      });
+    }
+  }
+
+  // Run on page load and resize
+  window.addEventListener('load', handleTooltipResize);
+  window.addEventListener('resize', handleTooltipResize);
+</script>
 </body>
 </html>
