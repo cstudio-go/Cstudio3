@@ -37,13 +37,17 @@
     height: 200px;
   }
 
-  #text {
+  .text {
     display: block;
     text-align: left;
     width: 800px;
     margin: 0 auto;
   }
 
+  .progress {
+    max-width: 800px;
+    margin: 5px auto;
+  }
 
 
   .accordion-button:not(.collapsed) {
@@ -62,9 +66,13 @@
       width: 100%;
       height: auto;
     }
-    #text {
+    .text {
     width: auto;
   }
+   .progress {
+    width: auto;
+  }
+
   }
 
   @media screen and (min-width: 501px) and (max-width: 900px) {
@@ -76,9 +84,14 @@
       width: 100%;
       height: auto;
     }
-    #text {
-    width: 500px;
+    .text {
+    width: 90%;
   }
+   .progress {
+    max-width: 90%;
+    margin: 5px auto;
+  }
+
   }
 
 
@@ -133,7 +146,7 @@
           <rect width="100%" height="100%" fill="#868e96"></rect>
           <h3 class="card-header" style="text-align: center;">約翰．塞巴斯汀．巴哈</h3>
         <div class="card-body">
-          <p class="card-text" id="text" style="text-align: left">
+          <p class="card-text text" style="text-align: left">
             約翰．塞巴斯汀．巴哈（Johann Sebastian Bach, 1685–1750），德國巴洛克時期作曲家與管風琴家，出身音樂世家。他曾任魏瑪與萊比錫等地宮廷及教堂音樂職務，創作範圍廣泛，包含宗教與世俗音樂。代表作有《馬太受難曲》、《平均律鋼琴曲集》、《布蘭登堡協奏曲》及《無伴奏小提琴組曲》。巴哈的音樂結構嚴謹、情感深刻，被譽為西方音樂史上最偉大的作曲家之一。
             </p>
         </div>
@@ -142,11 +155,19 @@
         <div class="card text-white bg-dark mb-3" style="max-width: 800px; margin: 0 auto;">
           
           <div class="card-body">
-            <h4 class="card-title">六首小提琴無伴奏奏鳴曲與組曲（Sei Solo a Violino senza Basso accompagnato, BWV 1001–1006）</h4>
-            <p class="card-text">這六首作品創作於約1720年，是巴哈為獨奏小提琴所寫的巔峰之作，包括三首奏鳴曲（g小調、a小調、C大調）與三首組曲（b小調、d小調、E大調）。奏鳴曲以慢板、賦格、抒情樂章及終曲構成，展現嚴謹的對位技巧；組曲則以舞曲為主，風格多變而富於歌唱性。特別是d小調組曲的〈恰空〉被譽為小提琴文獻中的高峰，充滿深刻的情感與結構之美。整套作品充分展現小提琴的多聲部可能性與巴哈的音樂哲思。</p>
+            <h4 class="card-title text">六首小提琴無伴奏奏鳴曲與組曲（Sei Solo a Violino senza Basso accompagnato, BWV 1001–1006）</h4>
+            <p class="card-text text">這六首作品創作於約1720年，是巴哈為獨奏小提琴所寫的巔峰之作，包括三首奏鳴曲（g小調、a小調、C大調）與三首組曲（b小調、d小調、E大調）。奏鳴曲以慢板、賦格、抒情樂章及終曲構成，展現嚴謹的對位技巧；組曲則以舞曲為主，風格多變而富於歌唱性。特別是d小調組曲的（夏康舞曲）被譽為小提琴文獻中的高峰，充滿深刻的情感與結構之美。整套作品充分展現小提琴的多聲部可能性與巴哈的音樂哲思。</p>
           </div>
         </div>
 
+        <div class="alert alert-dismissible alert-primary text">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>本錄音屬於個人版權所有</strong> <br><a href="../contact.html" class="alert-link">如需使用或轉載，請聯繫本人</a><br>本網站中之所有音樂錄音、文字與內容，均為本站作者之原創作品，受著作權法與相關智慧財產權法令保護。
+</div>
+
+<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar" style="width: 10%">1/32</div>
+</div>
 
      <div class="accordion" id="accordionExample" style="margin: 0 auto; max-width: 800px;">
   <div class="accordion-item">
@@ -158,9 +179,9 @@
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Adagio</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Adagio</em></div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Fuga</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Fuga</em> </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Siciliana</em></div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
@@ -208,7 +229,7 @@
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Fuga</em> </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Andante</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Andante</em></div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Allegro</em> </div>
     </div>
@@ -224,15 +245,15 @@
     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Allemanda</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Allemanda</em></div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Corrente</em> </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Sarabanda</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Sarabanda</em> </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Giga</em> </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Ciaccona (Chaconne)</em> <audio controls><source src="../asset/Bach.mp3" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <em style="font-size:smaller; margin-right: 20px;">Ciaccona (Chaconne)</em></div>
     </div>
     </div>
   </div>
@@ -284,6 +305,8 @@
   </div>
 
 </div>
+<br>
+<a href="../podcast.html" style="display: block; text-align: center;">上一頁</a>
           <div class="card-footer text-muted py-3 animate__animated animate__fadeIn animate__delay-2s" style="text-align: center; background-color: #f8f9fa; font-weight: 400;" id="footer">
           www.cstudio-go.com<br>
         <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
