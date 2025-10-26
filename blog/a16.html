@@ -31,7 +31,7 @@
   #img {
     width: 500px;
     height: 500px;
-    border-radius: 50%;
+    border-radius: 30px;
   }
   #portrait{
     width: 107px;
@@ -173,6 +173,12 @@
 $('.line').slideDown(1200);
 
 
+        </script>
+
+        <!--Gsap CDN-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script>
+        gsap.from("#img", { y: -500, opacity:0 ,duration: 2, rotate: 360, ease: "bounce.out" });
         </script>
 </body>
 </html>
