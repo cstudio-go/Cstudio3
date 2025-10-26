@@ -45,6 +45,14 @@ body {
   max-width: 240px;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+
 @media screen and (min-width: 800px) {
   .violin {
     max-width: 280px;
@@ -68,7 +76,14 @@ body {
     <router-link class="btn btn-success" to="/contact">登出</router-link>
   </nav>
   <div class="d-flex justify-content-center">
-    <router-view></router-view>
+    <transition
+  appear-active-class=""
+  enter-active-class="animate__animated animate__fadeIn"
+  leave-active-class="animate__animated animate__fadeOut"
+  mode="out-in"
+>
+  <router-view></router-view>
+</transition>
   </div>
 </div>
 
