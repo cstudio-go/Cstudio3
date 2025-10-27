@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Room - 瑋語老師的教室</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+     
+  <h6 style="text-align: center; margin-top: 5vw;">
+    管理者：瑋語老師 ｜<span style="white-space: nowrap; font-size: smaller;">此名稱登入後才能使用</span>
+  </h6>
+
+  <div id="chat" style="max-width: 800px; margin: 0 auto; border: 1px brown solid; padding: 10px;">
+    <!-- Admin Login Button -->
+    <div style="margin-bottom: 10px;">
+      <button onclick="adminLogin()" class="btn btn-warning btn-sm">管理者登入</button>
+      <span id="loginStatus" style="margin-left:10px; font-weight:bold;">目前狀態</span>
+    </div>
+
+    <!-- Messages -->
+    <div id="messages" style="border:1px solid #ccc; height:300px; overflow:auto; padding:5px;" class="line"></div>
+
+    <!-- Input area -->
+    <div style="display: flex; justify-content: left; gap: 10px; margin-top: 5px;">
+      <input type="text" id="name" placeholder="姓名" class="form-control form-control-sm" style="max-width:150px;" />
+      <input type="text" id="msg" placeholder="輸入訊息" class="form-control form-control-sm" />
+      <button onclick="sendMsg()" class="btn btn-secondary btn-sm">送出</button>
+    </div>
+  </div>
+
+  <a href="https://www.cstudio-go.com/main.html" class="btn btn-secondary" style="display: block; max-width: 100px; text-align: center; margin: 20px auto;">回到網站</a>
+
+  <script>
+    // 1️⃣ Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyA84CWdlsekXy9KqmUdxhnIE4QQmywkasI",
+      authDomain: "cstudio-chat.firebaseapp.com",
+      databaseURL: "https://cstudio-chat-default-rtdb.firebaseio.com",
+      projectId: "cstudio-chat",
+      storageBucket: "cstudio-chat.firebasestorage.app",
+      messagingSenderId: "115718281673",
+      appId: "1:115718281673:web:669f895cd611d668507018",
+      measurementId: "G-F13GF997HL"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const messagesDiv = document.getElementById("messages");
+    const loginStatus = document.getElementById("loginStatus");
+    const presenceRef = db.ref("presence/admin");
+
+    // 2️⃣ Auth state & presence
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        presenceRef.set(true);
+        presenceRef.onDisconnect().set(false);
+        loginStatus.textContent = "管理者目前在線上";
+      }
+    });
+
+    db.ref("presence/admin").on("value", snapshot => {
+      const online = snapshot.val();
+      loginStatus.textContent = online ? "管理者目前在線上" : "管理者目前不在喔";
+    });
+
+    // 3️⃣ Admin login
+    function adminLogin() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth()
+        .signInWithPopup(provider)
+        .then(result => {
+          alert("Logged in as admin: " + result.user.displayName);
+          loginStatus.textContent = "Logged in as Admin: " + result.user.displayName;
+        })
+        .catch(error => {
+          alert("Login failed: " + error.message);
+          loginStatus.textContent = "Not logged in";
+        });
+    }
+
+    // 4️⃣ Send message
+    function sendMsg() {
+      const msg = document.getElementById("msg").value;
+      if (!msg) return;
+
+      const user = firebase.auth().currentUser;
+      let name = document.getElementById("name").value || "Anonymous";
+
+      // Prevent impersonation
+      const adminNames = ["瑋語老師", "瑋語", "張瑋語", "張老師", "玮语老师", "玮语", "张玮语"];
+      if (adminNames.includes(name)) {
+        if (user) {
+          name = "瑋語老師";
+        } else {
+          alert("只有管理者才能使用這個名字喔!");
+          return;
+        }
+      }
+
+      db.ref("messages").push({
+        name,
+        msg,
+        timestamp: Date.now(),
+        uid: user ? user.uid : null
+      });
+
+      document.getElementById("msg").value = "";
+    }
+
+    // 5️⃣ Display messages
+    db.ref("messages").on("child_added", snapshot => {
+      const { name, msg } = snapshot.val();
+      const div = document.createElement("div");
+      div.style.margin = "2px 0";
+      if (name === "瑋語老師") {
+        div.style.fontWeight = "bold";
+        div.style.color = "#9e3c39";
+      }
+      div.textContent = `${name}: ${msg}`;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+  </script>
+   
+
+</body>
+</html>
