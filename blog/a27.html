@@ -63,6 +63,8 @@
     color: #952c09; /* the color you want here */
 }
 
+
+
   @media screen and (max-width: 500px) {
     #img{
       width: 100%;
@@ -163,7 +165,7 @@
 </span>
 <div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
   <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
-  <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;">給個回應</button>
+  <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">給個回應</button>
 </div>
 
 </p></span>
@@ -175,7 +177,7 @@
 <script>
 var disqus_config = function () {
     this.page.url = window.location.href;  // Use the current page URL
-    this.page.identifier = "unique-post-id"; // Give each post a unique identifier
+    this.page.identifier = "blog-post-a27"; // Give each post a unique identifier
     this.language = "zh_TW"; // Force Traditional Chinese
 };
 
@@ -237,15 +239,17 @@ $('.line').slideDown(1200);
     });
   </script>
   <script>
- function appear() {
-    var disqusWrapper = document.getElementById('disqus-wrapper');
-    if (disqusWrapper.style.display === 'block') {
-        disqusWrapper.style.display = 'none'; // hide if currently shown
-    } else {
-        disqusWrapper.style.display = 'block'; // show if currently hidden
-    }
-
-
+function appear() {
+  var disqusWrapper = $("#disqus-wrapper");
+  let changenote = document.getElementById('note');
+  
+  if (disqusWrapper.is(":visible")) {
+    disqusWrapper.slideUp(400); // slide up in 0.4 seconds
+    changenote.innerText = "給個回應";
+  } else {
+    disqusWrapper.slideDown(400); // slide down in 0.4 seconds
+    changenote.innerText = "收回";
+  }
 }
 </script>
 <!--disqus-->
