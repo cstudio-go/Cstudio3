@@ -12,6 +12,8 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+<!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
      
@@ -21,12 +23,19 @@
 
   <div id="chat" style="max-width: 800px; margin: 0 auto; border: 1px brown solid; padding: 10px;">
     <!-- Admin Login Button -->
+     <div style="display: flex; justify-content: space-between;">
     <div style="margin-bottom: 10px;">
       <button onclick="adminLogin()" class="btn btn-warning btn-sm">管理者登入</button>
       <span id="loginStatus" style="margin-left:10px; font-weight:bold;">目前狀態</span>
     </div>
-
+    <i class="fa-solid fa-dog fa-bounce" style="margin-top: 6px; margin-right: 10px; color: #d6d6d6"></i>
+    </div>
     <!-- Messages -->
+    <div class="alert alert-dismissible alert-danger" style="border:1px solid #ccc; padding:0 5px;margin: 2px auto; font-weight: 400;">
+            
+            *禁止攻擊與不當言論
+        
+    </div>
     <div id="messages" style="border:1px solid #ccc; height:300px; overflow:auto; padding:5px;" class="line"></div>
 
     <!-- Input area -->
@@ -36,7 +45,11 @@
       <button onclick="sendMsg()" class="btn btn-secondary btn-sm">送出</button>
     </div>
   </div>
-
+  <div style="max-width: 800px; margin: 0 auto;">
+  <div class="marquee">
+<p style="text-align: center;font-size: smaller; color:#d5d2d2;">＊請以友善與尊重的態度交流，<span style="white-space: nowrap;">共同營造良好討論環境。</span></p>
+</div>
+</div>
   <a href="https://www.cstudio-go.com/main.html" class="btn btn-secondary" style="display: block; max-width: 100px; text-align: center; margin: 20px auto;">回到網站</a>
 
   <script>
