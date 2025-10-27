@@ -50,7 +50,18 @@
     opacity: 1;
   }
 
+#disqus_thread {
+    max-width: 700px;
+    margin: 0 auto;
+}
+#disqus-wrapper {
+  display: none;
+}
 
+
+#disqus-wrapper a:any-link {
+    color: #952c09; /* the color you want here */
+}
 
   @media screen and (max-width: 500px) {
     #img{
@@ -150,10 +161,36 @@
 
 如果你在表演，比賽或考試時感覺壓力非常的大，除了更多的演出可以練習自己的膽量外，也可以考慮向內探索，尋找與自我和解的方式，或許就可以更容易的在表演時進入狀態。
 </span>
-<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+  <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+  <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;">給個回應</button>
+</div>
+
 </p></span>
         </div>
-        
+
+<!--disqus-->
+<div id="disqus-wrapper">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = window.location.href;  // Use the current page URL
+    this.page.identifier = "unique-post-id"; // Give each post a unique identifier
+    this.language = "zh_TW"; // Force Traditional Chinese
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://cstudio.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
         <div class="card-body" style="text-align: center;">
@@ -179,6 +216,8 @@
           cursorChar: ""
         });
       </script>
+
+
       <script>
 
 $('.line').slideDown(1200);
@@ -197,5 +236,21 @@ $('.line').slideDown(1200);
       }
     });
   </script>
+  <script>
+ function appear() {
+    var disqusWrapper = document.getElementById('disqus-wrapper');
+    if (disqusWrapper.style.display === 'block') {
+        disqusWrapper.style.display = 'none'; // hide if currently shown
+    } else {
+        disqusWrapper.style.display = 'block'; // show if currently hidden
+    }
+
+
+}
+</script>
+<!--disqus-->
+<script id="dsq-count-scr" src="//cstudio.disqus.com/count.js" async></script>
+
+
 </body>
 </html>
