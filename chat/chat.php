@@ -66,7 +66,7 @@ async function loadMessages(){
         const bold = (m.name==='瑋語老師') ? 'font-weight:bold;' : '';
         return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
     }).join('');
-    box.scrollTop = box.scrollHeight;
+   
 }
 
 setInterval(loadMessages, 2000);
