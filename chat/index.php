@@ -22,7 +22,7 @@ $isAdmin = isset($_SESSION['admin']);
   管理者：瑋語老師 ｜<span style="font-size:smaller;">此名稱登入後才能使用</span>
 </h6>
 
-<div id="chat" style="max-width:800px;margin:0 auto;border:1px brown solid;padding:10px;">
+<div id="chat" style="max-width:800px;margin:0 auto 9px auto;border: 1.5px brown solid; box-shadow: 30px 30px 80px rgba(44, 21, 21, 0.7);;padding:10px;">
   <div style="display:flex;justify-content:space-between;">
     <div style="margin-bottom:10px;">
       <?php if (!$isAdmin): ?>
