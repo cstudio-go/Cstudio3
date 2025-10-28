@@ -8,6 +8,15 @@ if (!isset($_SESSION['admin'])) {
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSC3GPD1M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSC3GPD1M0');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>聊天室 - 管理員模式</title>
