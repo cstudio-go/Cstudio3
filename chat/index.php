@@ -110,8 +110,10 @@ async function loadMessages() {
     let bold = (m.name === "瑋語老師") ? 'font-weight:bold;' : '';
     return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
   }).join('');
-
- 
+ const distanceFromBottom = box.scrollHeight - box.scrollTop - box.clientHeight;
+  if (distanceFromBottom < 120) {
+    box.scrollTop = box.scrollHeight;
+  }
 }
 
 async function updateVisitors() {
