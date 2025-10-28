@@ -26,7 +26,7 @@ $isAdmin = isset($_SESSION['admin']);
   <div style="display:flex;justify-content:space-between;">
     <div style="margin-bottom:10px;">
       <?php if (!$isAdmin): ?>
-        <a href="admin.html" class="btn btn-primary">管理者登入</a>
+        <a href="admin.html" class="btn btn-warning">管理者登入</a>
       <?php else: ?>
         <span class="text-success">已登入管理員</span>
         <a href="logout.php" class="btn btn-danger btn-sm">登出</a>
@@ -101,12 +101,17 @@ async function loadMessages() {
   const res = await fetch('chat_api.php');
   const data = await res.json();
   const box = document.getElementById('messages');
+
+  // Check if user is near the bottom (within 50px)
+  const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 50;
+
   box.innerHTML = data.map(m => {
     let color = (m.name === "瑋語老師") ? "#9e3c39" : (m.color || 'black');
     let bold = (m.name === "瑋語老師") ? 'font-weight:bold;' : '';
     return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
   }).join('');
-  box.scrollTop = box.scrollHeight;
+
+ 
 }
 
 async function updateVisitors() {
