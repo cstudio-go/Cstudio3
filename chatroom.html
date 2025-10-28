@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSC3GPD1M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSC3GPD1M0');
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Room - 瑋語老師的教室</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+  <meta name="description" content="瑋語老師的聊天室，歡迎來一起討論">
+<meta property="og:image" content="https://cstudio-go.com/cover.png">
+<meta name ="keywords" content="瑋語老師, 部落格, 小提琴, 中提琴 ,鋼琴, 編曲, 軟體工程, 音樂作品">
 
     
   <!-- Firebase SDKs -->
@@ -14,6 +26,22 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
 <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+.selected-color {
+  border: 3px solid #555;  /* thicker border for visibility */
+  box-sizing: border-box;   /* make sure border doesn’t increase button size */
+  transform: scale(1.2);    /* optional: slightly enlarge selected button */
+}
+.color-btn {
+  width: 30px;  /* slightly bigger for mobile */
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+</style>
+
 </head>
 <body>
      
@@ -28,20 +56,25 @@
       <button onclick="adminLogin()" class="btn btn-warning btn-sm">管理者登入</button>
       <span id="loginStatus" style="margin-left:10px; font-weight:bold;">目前狀態</span>
     </div>
-    <i class="fa-solid fa-dog fa-bounce" style="margin-top: 6px; margin-right: 10px; color: #d6d6d6"></i>
+    <i class="fa-solid fa-dog fa-bounce" style="margin-top: 6px; margin-right: 10px; color: #d6d6d6"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="你也喜歡動物嗎?"></i>
     </div>
     <!-- Messages -->
-    <div class="alert alert-dismissible alert-danger" style="border:1px solid #ccc; padding:0 5px;margin: 2px auto; font-weight: 400;">
-            
+    
+    <div class="alert alert-dismissible alert-danger" style="border:1px solid #ccc; padding:0 5px;margin: 0 auto 2px auto; font-weight: 400;">
+            <span style="color:black;">當前在線人數：</span><span id="visitorCount" style="color: black;">0</span><br>
             *禁止攻擊與不當言論
-        
+
     </div>
     <div id="messages" style="border:1px solid #ccc; height:300px; overflow:auto; padding:5px;" class="line"></div>
 
     <!-- Input area -->
     <div style="display: flex; justify-content: left; gap: 10px; margin-top: 5px;">
-      <input type="text" id="name" placeholder="姓名" class="form-control form-control-sm" style="max-width:150px;" />
+      <input type="text" id="name" placeholder="姓名" class="form-control form-control-sm" style="max-width:90px;" />
       <input type="text" id="msg" placeholder="輸入訊息" class="form-control form-control-sm" />
+      <div style="display:block;">
+      <button type="button" class="color-btn" onclick="setColor('black', this)" style="background:black; width:20px; height:20px; border:none; cursor:pointer; margin-top: 4px;"></button>
+  <button type="button" class="color-btn" onclick="setColor('rgb(48, 153, 244)', this)" style="background:rgb(48, 153, 244); width:20px; height:20px; border:none; cursor:pointer;"></button>
+        </div>
       <button onclick="sendMsg()" class="btn btn-secondary btn-sm">送出</button>
     </div>
   </div>
@@ -53,6 +86,9 @@
   <a href="https://www.cstudio-go.com/main.html" class="btn btn-secondary" style="display: block; max-width: 100px; text-align: center; margin: 20px auto;">回到網站</a>
 
   <script>
+   
+
+
     // 1️⃣ Initialize Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyA84CWdlsekXy9KqmUdxhnIE4QQmywkasI",
@@ -99,7 +135,15 @@
           loginStatus.textContent = "Not logged in";
         });
     }
+let userColor = 'black'; // default color
+function setColor(color, btn) {
+  userColor = color;
+// Remove selection from all color buttons
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected-color'));
 
+  // Add selection to the clicked button
+  btn.classList.add('selected-color');
+}
     // 4️⃣ Send message
     function sendMsg() {
       const msg = document.getElementById("msg").value;
@@ -118,10 +162,14 @@
           return;
         }
       }
+      
+
+
 
       db.ref("messages").push({
         name,
         msg,
+        color: userColor,
         timestamp: Date.now(),
         uid: user ? user.uid : null
       });
@@ -130,20 +178,45 @@
     }
 
     // 5️⃣ Display messages
-    db.ref("messages").on("child_added", snapshot => {
-      const { name, msg } = snapshot.val();
-      const div = document.createElement("div");
-      div.style.margin = "2px 0";
-      if (name === "瑋語老師") {
-        div.style.fontWeight = "bold";
-        div.style.color = "#9e3c39";
-      }
-      div.textContent = `${name}: ${msg}`;
-      messagesDiv.appendChild(div);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    });
+   db.ref("messages").on("child_added", snapshot => {
+  const { name, msg, color } = snapshot.val();
+  const div = document.createElement("div");
+  div.style.margin = "2px 0";
+  div.style.color = color || "#000"; // fallback to black
+  if (name === "瑋語老師") {
+    div.style.fontWeight = "bold";
+    div.style.color = "#9e3c39"; // override admin color
+  }
+  div.textContent = `${name}: ${msg}`;
+  messagesDiv.appendChild(div);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+});
+
+    const visitorsRef = db.ref("presence/visitors");
+let visitorId = null;
+
+function setVisitorPresence() {
+  visitorId = Date.now() + "-" + Math.floor(Math.random() * 1000); // unique ID
+  const visitorRef = visitorsRef.child(visitorId);
+  visitorRef.set(true);
+  visitorRef.onDisconnect().remove(); // remove when user leaves
+}
+
+setVisitorPresence();
+
+const visitorCountSpan = document.getElementById("visitorCount");
+visitorsRef.on("value", snapshot => {
+  const count = snapshot.numChildren();
+  visitorCountSpan.textContent = count;
+});
+
   </script>
-   
+   <!--Tooltips-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 
 </body>
 </html>
