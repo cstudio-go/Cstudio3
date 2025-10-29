@@ -43,7 +43,7 @@
   }
 
   #text {
-    padding: 0 30%;
+    padding: 0 20%;
     text-align: left;
   }
 
@@ -66,6 +66,31 @@
  
 .btn1, .btn2, .btn3, .btn4 {
   padding: 3px;
+}
+
+.container {
+  display: flex; 
+  justify-content: center; 
+  gap: 5px;
+}
+
+
+@media screen and (min-width: 500px) {
+  .btn1, .btn2, .btn3, .btn4 {
+  padding: 1.5px 10px;
+  font-size: medium;
+}
+  .container { 
+  gap: 12px;
+
+}
+
+@media screen and (min-width: 900px) {
+#text{
+  padding: 0 35%;
+} 
+}
+
 }
   @media screen and (max-width: 500px) {
     #img{
@@ -161,7 +186,7 @@
         <div class="card-body">
           
           <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
-          <div style="display: flex; justify-content: center; gap: 5px;">
+          <div class="container">
           <a class="btn btn-dark btn1" href="blog/bloglist.html" role="button">
             閱讀<span style="white-space: nowrap;">文章</span>
           </a>
