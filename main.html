@@ -53,7 +53,20 @@
     text-align: center;
   }
 
+
+
+.btn1, .btn2{
+  background-color: rgb(186, 85, 22);
+  border-color: rgb(186, 85, 22); /* optional, matches the button */
+}
+.btn1:hover, .btn2:hover {
+  background-color: rgb(130, 60, 17); /* slightly lighter/darker for hover */
+  border-color: rgb(130, 60, 17);
+}
  
+.btn1, .btn2, .btn3, .btn4 {
+  padding: 3px;
+}
   @media screen and (max-width: 500px) {
     #img{
       width: 100%;
@@ -148,7 +161,21 @@
         <div class="card-body">
           
           <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
-          <h6 class="card-subtitle text-muted" style="text-align: center;">這裡有部落格，播客與<a href="/chat/index.php" style="color: rgb(92, 136, 226); text-decoration: none; white-space: nowrap;"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="24小時聊天室">聊天室</a>，也可以<a href="https://sendfox.com/cstudio" style="color: rgb(92, 136, 226); text-decoration: none; white-space: nowrap;"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="作品與部落格更新">訂閱最新消息</a>，找我上課可以用<a href="https://tidycal.com/cstudio" style="text-decoration: none; color: rgb(92, 136, 226);"><span style="white-space: nowrap;" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="10天內的可預約時間">約課系統</span></a>，合作或其他事務請您<a href="contact.html" style="text-decoration: none; color: rgb(92, 136, 226); white-space: nowrap;">來信留言</a></h6>
+          <div style="display: flex; justify-content: center; gap: 5px;">
+          <a class="btn btn-dark btn1" href="blog/bloglist.html" role="button">
+            閱讀<span style="white-space: nowrap;">文章</span>
+          </a>
+          <a class="btn btn-danger btn2" href="https://sendfox.com/cstudio" role="button">
+            訂閱<span style="white-space: nowrap;">頻道</span>
+          </a>
+          <a class="btn btn-dark btn3" href="https://tidycal.com/cstudio" role="button" >
+            約課<span style="white-space: nowrap;">系統</span>
+          </a>
+          <a class="btn btn-dark btn4"  href="chat/index.php" role="button">
+            留言<span style="white-space: nowrap;">聯繫</span>
+          </a>
+          </div>
+          
         </div>
         <img src="asset/logo.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
           <rect width="100%" height="100%" fill="#868e96"></rect>
