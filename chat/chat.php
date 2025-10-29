@@ -66,6 +66,9 @@ async function sendMsg(){
     loadMessages();
 }
 
+
+
+
 async function loadMessages(){
     const res = await fetch('chat_api.php');
     const data = await res.json();

@@ -13,8 +13,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat Room - 瑋語老師的教室</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title>隱密聊天室</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/cyborg/bootstrap.min.css" rel="stylesheet">
   <meta name="description" content="瑋語老師的聊天室，歡迎來一起討論">
 <meta property="og:image" content="https://cstudio-go.com/cover.png">
 <meta name ="keywords" content="瑋語老師, 部落格, 小提琴, 中提琴 ,鋼琴, 編曲, 軟體工程, 音樂作品">
@@ -46,7 +46,7 @@
 <body>
      
   <h6 style="text-align: center; margin-top: 5vw;">
-    管理者：瑋語老師 ｜<span style="white-space: nowrap; font-size: smaller;">此名稱登入後才能使用</span>
+    管理者：鮪魚 ｜<span style="white-space: nowrap; font-size: smaller;">此名稱登入後才能使用</span>
   </h6>
 
   <div id="chat" style="max-width: 800px; margin: 0 auto; border: 1px brown solid; padding: 10px;">
@@ -56,7 +56,7 @@
       <button onclick="adminLogin()" class="btn btn-warning btn-sm">管理者登入</button>
       <span id="loginStatus" style="margin-left:10px; font-weight:bold;">目前狀態</span>
     </div>
-    <i class="fa-solid fa-dog fa-bounce" style="margin-top: 6px; margin-right: 10px; color: #d6d6d6"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="你也喜歡動物嗎?"></i>
+    <i class="fa-solid fa-fire fa-beat-fade" style="margin-top: 6px; margin-right: 10px; color: #e32400"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="燃起來"></i>
     </div>
     <!-- Messages -->
     
@@ -72,8 +72,8 @@
       <input type="text" id="name" placeholder="姓名" class="form-control form-control-sm" style="max-width:90px;" />
       <input type="text" id="msg" placeholder="輸入訊息" class="form-control form-control-sm" />
       <div style="display:block;">
-      <button type="button" class="color-btn" onclick="setColor('black', this)" style="background:black; width:20px; height:20px; border:none; cursor:pointer; margin-top: 4px;"></button>
-  <button type="button" class="color-btn" onclick="setColor('rgb(48, 153, 244)', this)" style="background:rgb(48, 153, 244); width:20px; height:20px; border:none; cursor:pointer;"></button>
+      <button type="button" class="color-btn" onclick="setColor('white', this)" style="background:white; width:20px; height:20px; border:none; cursor:pointer; margin-top: 4px;"></button>
+  <button type="button" class="color-btn" onclick="setColor('rgb(17, 144, 255)', this)" style="background:rgb(17, 144, 255); width:20px; height:20px; border:none; cursor:pointer;"></button>
         </div>
       <button onclick="sendMsg()" class="btn btn-secondary btn-sm">送出</button>
     </div>
@@ -135,7 +135,7 @@
           loginStatus.textContent = "Not logged in";
         });
     }
-let userColor = 'black'; // default color
+let userColor = 'white'; // default color
 function setColor(color, btn) {
   userColor = color;
 // Remove selection from all color buttons
@@ -153,10 +153,10 @@ function setColor(color, btn) {
       let name = document.getElementById("name").value || "Anonymous";
 
       // Prevent impersonation
-      const adminNames = ["瑋語老師", "瑋語", "張瑋語", "張老師", "玮语老师", "玮语", "张玮语"];
+      const adminNames = ["瑋語老師", "瑋語", "張瑋語", "鮪魚" ,"wei","張老師", "玮语老师", "玮语", "张玮语"];
       if (adminNames.includes(name)) {
         if (user) {
-          name = "瑋語老師";
+          name = "鮪魚";
         } else {
           alert("只有管理者才能使用這個名字喔!");
           return;
@@ -177,15 +177,28 @@ function setColor(color, btn) {
       document.getElementById("msg").value = "";
     }
 
+    // enter key can send messages
+    const msgInput = document.getElementById("msg");
+
+msgInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // prevent form submission or new line
+    sendMsg();              // call your send message function
+  }
+});
+
+
+
+
     // 5️⃣ Display messages
    db.ref("messages").on("child_added", snapshot => {
   const { name, msg, color } = snapshot.val();
   const div = document.createElement("div");
   div.style.margin = "2px 0";
   div.style.color = color || "#000"; // fallback to black
-  if (name === "瑋語老師") {
+  if (name === "鮪魚") {
     div.style.fontWeight = "bold";
-    div.style.color = "#9e3c39"; // override admin color
+    div.style.color = "#d16d0f"; // override admin color
   }
   div.textContent = `${name}: ${msg}`;
   messagesDiv.appendChild(div);
