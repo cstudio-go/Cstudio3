@@ -24,17 +24,13 @@
 <style>
 
 body {
-  height: 45vh;
-  width: 100%;
   background: url('asset/ex1.webp') center bottom / cover no-repeat;
   /* shorthand: background-image + position + size + repeat */
 }
 
 
 
-.violin {
-  max-width: 240px;
-}
+
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -43,16 +39,32 @@ body {
   opacity: 0;
 }
 
+.photo-line {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  border: none; /* optional: remove border if you like */
+}
+
 .photo-grid3 {
     display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .photo-grid4 {
     display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+}
+
+.good1 {
+  max-width: 50vw;
+  max-height: 50vw;
+  min-width: 300px;
+  min-height: 300px;
+  display: block;
 }
 
 
@@ -171,14 +183,19 @@ const Home = {
 
 const Intro = {
   template: `
-     <div class="card animate__animated animate__fadeIn">
-  <img src="asset/ex2.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">SPA的商業優勢</h5>
-    <p class="card-text">使用SPA可提升網頁載入速度與使用者體驗，減少伺服器請求，方便動態更新內容，增加客戶停留時間與轉換率，對商業行銷與品牌形象有正面助益。<br>SPA還能降低伺服器負擔，打造流暢的購物體驗、即時客服系統或互動式教學平台，使用SPA支援個人化推薦與精準廣告投放，增強商業效益與品牌競爭力。</p>
-    <router-link to="/intro2" class="btn btn-primary">商業應用</a>
-  </div>
-</div>
+    <div class="photo-line animate__animated animate__fadeIn">
+      <div>
+        <img src="asset/ex2.webp" class="good1" alt="...">
+      </div>
+      <div class="card p-3" style="max-width: 130px;">
+        <h5 style="margin: 20px auto 10px auto; display: block; text-align: center;">經典筆記 ＄490</h5>
+        <p class="card-text" style="margin: 0 auto; display: block; text-align: center;">
+          好的筆記本取決於您的需求，可從個人書寫習慣來選擇。
+        </p>
+        <router-link to="/intro2" class="btn btn-primary">加入購物車</router-link>
+        <router-link to="/" class="btn btn-info">上一頁</router-link>
+      </div>
+    </div>
   `
 }
 
