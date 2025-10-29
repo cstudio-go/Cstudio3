@@ -39,10 +39,7 @@ body {
   opacity: 0;
 }
 
-.photo-line {
-  display: flex;
-  justify-content: center;
-}
+
 .card {
   border: none; /* optional: remove border if you like */
 }
@@ -57,19 +54,42 @@ body {
     display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  margin-bottom: 20px;
 }
 
-.good1 {
-  max-width: 50vw;
-  max-height: 50vw;
-  min-width: 300px;
-  min-height: 300px;
-  display: block;
+.right{
+  display: none;
 }
 
+.img {
+  max-width: 600px;
+  max-height: 500px;
+}
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 470px) {
+ #container {
+  display: flex;
+  justify-content: center;
   
+ }
+ .right{
+  display: block;
+  width: 20%;
+}
+.left {
+  width: 80%;
+}
+.blackborder {
+  border: 2px black solid;
+}
+
+}
+
+@media screen and (max-width: 450px) {
+.photo-grid4, .photo-grid3 {
+  font-size: xx-small;
+  gap: 1px;27
+ }
 }
 
 </style>
@@ -108,7 +128,7 @@ const Home = {
       <div class="photo-grid3 mb-4"> <!-- 3-item grid -->
         <div class="card animate__animated animate__zoomIn">
           <img src="asset/ex2.webp" class="card-img-top" alt="...">
-          <div class="card-body">
+          <div class="card-body s1">
             <router-link to="/intro" class="card-title">經典筆記</router-link>
           </div>
         </div>
@@ -183,19 +203,26 @@ const Home = {
 
 const Intro = {
   template: `
-    <div class="photo-line animate__animated animate__fadeIn">
-      <div>
-        <img src="asset/ex2.webp" class="good1" alt="...">
-      </div>
-      <div class="card p-3" style="max-width: 130px;">
-        <h5 style="margin: 20px auto 10px auto; display: block; text-align: center;">經典筆記 ＄490</h5>
-        <p class="card-text" style="margin: 0 auto; display: block; text-align: center;">
+  <div id="container">
+    <div class="card animate__animated animate__fadeIn left">
+        <img src="asset/ex2.webp" class="card-img-top img" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">經典筆記 ＄490</h5>
+        <p class="card-text">
           好的筆記本取決於您的需求，可從個人書寫習慣來選擇。
         </p>
         <router-link to="/intro2" class="btn btn-primary">加入購物車</router-link>
         <router-link to="/" class="btn btn-info">上一頁</router-link>
+        </div>
       </div>
-    </div>
+      <div class="right">
+       <img src="asset/ex2.webp" class="card-img-top blackborder" alt="...">
+       <img src="asset/ex2.webp" class="card-img-top blackborder" alt="..." style="margin: 2px 0;">
+       <img src="asset/ex2.webp" class="card-img-top blackborder" alt="...">
+        </div>
+
+        </div>
+
   `
 }
 
