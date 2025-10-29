@@ -106,6 +106,19 @@ async function sendMsg() {
   loadMessages();
 }
 
+//enter key can send message
+const msgInput = document.getElementById("msg");
+
+msgInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // prevent default action
+    sendMsg();              // call your existing sendMsg function
+  }
+});
+
+
+
+
 async function loadMessages() {
   const res = await fetch('chat_api.php');
   const data = await res.json();
