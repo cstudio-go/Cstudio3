@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSC3GPD1M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSC3GPD1M0');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!--preload images-->
+<link rel="preload" href="asset/ex8.webp" as="image">
+<link rel="preload" href="asset/hello.webp" as="image">
+
+
+<style>
+
+body {
+  height: 45vh;
+  width: 100%;
+  background: url('asset/ex1.webp') center bottom / cover no-repeat;
+  /* shorthand: background-image + position + size + repeat */
+}
+
+
+
+.violin {
+  max-width: 240px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+.photo-grid3 {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
+  gap: 20px;
+}
+
+.photo-grid4 {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 10px;
+}
+
+
+@media screen and (min-width: 800px) {
+  
+}
+
+</style>
+
+
+
+<title>SPA展示</title>
+
+
+
+</head>
+<body>
+<div id="app" class="container my-5">
+  <nav class="d-flex justify-content-center mb-4">
+    <router-link class="btn btn-primary me-2" to="/">店家招牌</router-link>
+    <router-link class="btn btn-secondary me-2" to="/shop">團購熱門</router-link>
+    <a class="btn btn-secondary me-2" href="register.html">登入/註冊</a>
+    <a class="btn btn-success" to="logout.php">登出</a>
+  </nav>
+  <div class="d-flex justify-content-center">
+    <transition
+  appear-active-class=""
+  enter-active-class="animate__animated animate__fadeIn"
+  leave-active-class="animate__animated animate__fadeOut"
+  mode="out-in"
+>
+  <router-view></router-view>
+</transition>
+  </div>
+</div>
+
+<script>
+const Home = {
+  template: `
+    <div> <!-- single root -->
+      <div class="photo-grid3 mb-4"> <!-- 3-item grid -->
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex2.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex3.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典耳機</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex4.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典樂器</router-link>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-grid4"> <!-- 4-item grid -->
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex4.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex2.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex3.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex2.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+      </div>
+
+<div class="photo-grid3 mb-4"> <!-- 3-item grid -->
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex3.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典筆記</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex4.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典文件</router-link>
+          </div>
+        </div>
+        <div class="card animate__animated animate__zoomIn">
+          <img src="asset/ex2.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <router-link to="/intro" class="card-title">經典文具</router-link>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  `
+}
+
+const Intro = {
+  template: `
+     <div class="card animate__animated animate__fadeIn">
+  <img src="asset/ex2.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">SPA的商業優勢</h5>
+    <p class="card-text">使用SPA可提升網頁載入速度與使用者體驗，減少伺服器請求，方便動態更新內容，增加客戶停留時間與轉換率，對商業行銷與品牌形象有正面助益。<br>SPA還能降低伺服器負擔，打造流暢的購物體驗、即時客服系統或互動式教學平台，使用SPA支援個人化推薦與精準廣告投放，增強商業效益與品牌競爭力。</p>
+    <router-link to="/intro2" class="btn btn-primary">商業應用</a>
+  </div>
+</div>
+  `
+}
+
+const Contact = {
+  template: `
+     <div class="card animate__animated animate__fadeIn">
+  <img src="asset/ex5.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">聯絡方式</h5>
+    <p class="card-text">Email: cstudio.go@gmail.com</p>
+    <a href="https://www.cstudio-go.com/main.html" class="btn btn-primary">回到網站</a>
+  </div>
+</div>
+  `
+}
+
+const Intro2 = {
+  template: `
+     <div class="card">
+  <img src="asset/ex3.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title animate__animated animate__fadeInLeft">SPA的商用應用</h5>
+    <p class="card-text animate__animated animate__fadeInRight">SPA廣泛應用於商業網站，如購物平台、會員系統、教育與教學網站。它能快速回應使用者操作，適合展示商品或需要高互動與即時更新的線上服務。</p>
+    <router-link to="Intro3" class="btn btn-primary">SPA定製流程</a>
+  </div>
+</div>
+  `
+}
+
+const Intro3 = {
+  template: `
+     <div class="card">
+  <img src="asset/ex7.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title animate__animated animate__zoomIn">SPA的定製流程</h5>
+    <p class="card-text animate__animated animate__fadeIn">總製作流程約1-3週，包含客製化討論與定稿，客戶對接與成品上傳。</p>
+    <router-link to="Shop" class="btn btn-primary">商品展示</a>
+  </div>
+</div>
+  `
+}
+
+const Shop = {
+
+  template: `
+     <div class="card violin">
+  <img src="asset/violin.webp" class="card-img-top animate__animated animate__fadeIn violin" alt="...">
+  <div class="card-body">
+    <h5 class="card-title animate__animated animate__fadeIn">義大利小提琴</h5>
+    <p class="card-text animate__animated animate__fadeInRight">製於2001年，由Mason Law所製造，此琴獲得羅馬製琴比賽第一名<br><em style="color: grey">售價&nbsp;&nbsp;$220000</em></p>
+    <router-link to="Shop2" class="btn btn-primary">下一個</a>
+  </div>
+</div>
+  `
+
+}
+
+const Shop2 = {
+
+template: `
+   <div class="card">
+<img src="asset/ex1.webp" class="card-img-top animate__animated animate__fadeIn" alt="...">
+<div class="card-body">
+  <h5 class="card-title animate__animated animate__fadeIn">節拍器</h5>
+  <p class="card-text animate__animated animate__fadeInRight">節奏的重要夥伴，可以長時間工作，現在特價中<br><em style="color: grey">售價&nbsp;&nbsp;$490</em></p>
+  <router-link to="Shop3" class="btn btn-primary">下一個</a>
+</div>
+</div>
+`
+
+}
+
+const Shop3 = {
+
+template: `
+   <div class="card">
+<img src="asset/ex4.webp" class="card-img-top animate__animated animate__fadeIn" alt="...">
+<div class="card-body">
+  <h5 class="card-title animate__animated animate__fadeIn">松香</h5>
+  <p class="card-text animate__animated animate__fadeInRight">Melos Rosin是小提琴或中提琴用的琴弓松香，質地較輕，適合初學者或喜歡順滑、容易控制弓速的演奏者。它能產生溫暖且清晰的音色，不會過於黏重，適合長時間練習或需要靈活弓法的演奏。<br><em style="color: grey">售價&nbsp;&nbsp;$990</em></p>
+  <router-link to="shop4" class="btn btn-primary">下一個</a>
+</div>
+</div>
+`
+
+}
+
+const Shop4 = {
+
+template: `
+   <div class="card">
+<img src="asset/ex6.webp" class="card-img-top animate__animated animate__fadeIn" alt="...">
+<div class="card-body">
+  <h5 class="card-title animate__animated animate__fadeIn">KUN肩墊</h5>
+  <p class="card-text animate__animated animate__fadeInRight">KUN Bravo肩墊專為小提琴與中提琴設計，採用柔軟材質與符合人體工學的結構，可穩定支撐肩膀並分散壓力，減輕演奏時的疲勞感。KUN Bravo能提供舒適與穩定的支撐，幫助演奏者保持正確姿勢，提升演奏表現與持久力。<br><em style="color: grey">售價&nbsp;&nbsp;$4200</em></p>
+  <router-link to="shop" class="btn btn-primary">下一個</a>
+</div>
+</div>
+`
+
+}
+
+
+const routes = [
+  { path: '/', component: Home },
+  { path: '/intro', component: Intro },
+  { path: '/intro2', component: Intro2},
+  { path: '/intro3', component: Intro3},
+  { path: '/shop', component: Shop},
+  { path: '/shop2', component: Shop2},
+  { path: '/shop3', component: Shop3},
+  { path: '/shop4', component: Shop4},
+  { path: '/contact', component: Contact}
+]
+
+const router = VueRouter.createRouter({
+  history: VueRouter.createWebHashHistory(),
+  routes
+})
+
+const app = Vue.createApp({})
+app.use(router)
+app.mount('#app')
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+     
+        .center {
+            display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+  height: 100vh;           /* make body take full viewport height */
+  margin: 0;
+        }
+
+        #img {
+            max-width: 300px;
+            display: block;
+        }
+
+    </style>
+    <!--SweetAlert2-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="center line">
+
+        <div class="card mb-3">
+            <h3 class="card-header" style="text-align: center;">登入</h3>
+            <div class="card-body">
+              <h5 class="card-title">會員商品9折優惠</h5>
+              <h6 class="card-subtitle text-muted">輸入信箱直接登入/註冊</h6>
+            </div>
+            <img src="asset/ex1.webp" class="d-block user-select-none" id="img" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+              
+            <div class="card-body">
+                <form method="POST" action="send_link.php">
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <button type="submit">送出</button>
+                  </form>
+            </div>
+            
+            <div class="card-body">
+                <button onclick="showPhoto1()" cursor="grab" class="btn btn-secondary">限時活動</button>
+              <a href="index.html" class="btn btn-secondary">返回</a>
+            </div>
+            <div class="card-footer text-muted">
+              商品更新｜  2 days ago
+            </div>
+          </div>
+          
+
+
+        
+  
+      </div>
+   
+
+
+      <script>
+      function showPhoto1() {
+        Swal.fire({
+          title: '新客好禮',
+          text: '11/11前註冊，領取訂製小禮物',
+          imageUrl: 'asset/ex1.webp',
+          imageWidth: 300,
+          imageAlt: 'Award Photo',
+          confirmButtonText: 'Close',
+          confirmButtonColor: '#3085d6',
+          background: '#EBE9E6',
+          
+        });
+      }
+      </script>
+         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+         <script>
+   $('.line').hide();
+   $('.line').fadeIn(2000);
+   
+           </script>
+</body>
+</html>
