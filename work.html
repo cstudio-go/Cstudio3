@@ -41,7 +41,24 @@
     margin: 10px 0;
   }
 
-  @media screen and (max-width: 500px) {
+  #container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 1400px) {
+    #container{
+      gap: 10px;
+    }
+  }
+
+
+  @media screen and (max-width: 599px) {
+    #container{
+      display: block;
+    }
+    
     #img{
       width: 100%;
       height: auto;
@@ -112,32 +129,94 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/gypsyAir.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
+      
 
       <div class="card mb-3">
         <span class="line">
         <h3 class="card-header" style="text-align: center;">-前後端作品-</h3>
         <div class="card-body">
+      
+          <div id="container">
+          <!--第1個card-->
+          <div class="card mb-3">
+            <h3 class="card-header">SPA網站</h3>
+            <div class="card-body">
+              <h5 class="card-title">快速的頁面響應</h5>
+              <h6 class="card-subtitle text-muted">適合即時資訊、廣告、社群或電子商務平台</h6>
+            </div>
+            <img src="blog/blogpic/ex27.webp" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+            <div class="card-body">
+              <p class="card-text">一頁式網頁是將網站所有主要內容集中在單一頁面，使用者可透過滑動或點擊導覽列快速定位到不同區塊。這種設計簡潔直觀，瀏覽體驗流暢，特別適合作品集、活動宣傳或個人簡歷展示。不過若內容過多，頁面可能過長，對SEO的效果也不如多頁式網站靈活。</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-light">單頁式結構</li>
+              <li class="list-group-item bg-light">動態數據更新</li>
+            </ul>
+            <div class="card-body">
+              <a href="vueSpa/index.html" class="card-link">前往SPA作品</a>
+            </div>
+            <div class="card-footer text-muted">
+              作品完成於2025/8
+            </div>
+          </div>
           
-          <h5 class="card-title" style="text-align: center;">一頁式網站</h5>
-          <h6 class="card-subtitle text-muted" style="text-align: center;">一頁式網頁是將網站所有主要內容集中在單一頁面，使用者可透過滑動或點擊導覽列快速定位到不同區塊。這種設計簡潔直觀，瀏覽體驗流暢，特別適合作品集、活動宣傳或個人簡歷展示。不過若內容過多，頁面可能過長，對SEO的效果也不如多頁式網站靈活。</h6>
-        </div>
-        <img src="asset/logo.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
-          <rect width="100%" height="100%" fill="#868e96"></rect>
-        <div class="card-body">
-        </span>
-          <p class="card-text" id="text"><span id="about"><a>點擊打開一頁式展示頁</a></span></p>
-        </div>
+
+
+          <!--第2個card-->
+          <div class="card mb-3">
+            <h3 class="card-header bg-dark text-white">24h聊天室</h3>
+            <div class="card-body">
+              <h5 class="card-title">即時連結你我他</h5>
+              <h6 class="card-subtitle text-muted">聊天功能兼留言板</h6>
+            </div>
+            <img src="blog/blogpic/ex1.webp" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+            <div class="card-body bg-dark text-white">
+              <p class="card-text">聊天室提供即時文字互動，使用者可傳送訊息並自訂顏色，管理員擁有專屬名稱與固定顏色，系統可顯示在線人數與訊息歷史，並支援簡單管理功能，確保交流安全與順暢。</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-light">即時訊息傳送</li>
+              <li class="list-group-item">使用者身份管理</li>
+              <li class="list-group-item bg-light">多媒體支援（可選）</li>
+              <li class="list-group-item">使用者數量顯示</li>
+              <li class="list-group-item bg-light">簡單管理功能</li>
+            </ul>
+            <div class="card-body">
+              <a href="chatroom.html" class="card-link">前往聊天室作品</a>
+            </div>
+            <div class="card-footer text-muted">
+              作品完成於2025/10
+            </div>
+          </div>
+       
+
+          <!--第3個card-->
+          <div class="card mb-3">
+            <h3 class="card-header">部落格</h3>
+            <div class="card-body">
+              <h5 class="card-title">與讀者互動、建立社群</h5>
+              <h6 class="card-subtitle text-muted">只屬於自己的設計</h6>
+            </div>
+            <img src="blog/blogpic/ex6.webp" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+            <div class="card-body">
+              <p class="card-text">部落格是一個線上平台，可用來分享個人經驗、專業知識或生活趣事，並與讀者互動交流。它可發表文章、評論產品或服務，建立個人品牌與網路能見度，同時促進社群互動，增進讀者黏著度，兼具資訊分享與行銷功能。</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">分享經驗與生活點滴</li>
+              <li class="list-group-item">發表專業知識與教學內容</li>
+              <li class="list-group-item">提供產品或服務評論與推薦</li>
+              <li class="list-group-item">與讀者互動、建立社群</li>
+            </ul>
+            <div class="card-body">
+              <a href="blog/bloglist.html" class="card-link">前往部落格作品</a>
+            </div>
+            <div class="card-footer text-muted">
+              作品完成於2025/8
+            </div>
+          </div>
+          
+<!--結束-->
+</div>
+
        
         <div class="card-footer text-muted" style="text-align: center;">
           www.cstudio-go.com
