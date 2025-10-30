@@ -25,6 +25,10 @@ $isAdmin = isset($_SESSION['admin']);
   <style>
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
+
+    .accordion{
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -85,8 +89,25 @@ $isAdmin = isset($_SESSION['admin']);
    style="display:block;max-width:100px;">回到網站</a> 
    <button onclick="appear()" class="btn btn-outline-primary" id="buttonText">放點音樂</button>
       </div>
-      
- 
+      <br>
+      <div class="accordion" id="accordionExample" style="margin: 0 auto; max-width: 800px;">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        🎵 最近在聽
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <em style="font-size:smaller; margin-right: 20px;">方大同精選</em> <audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/8af01056-37a5-4f45-832e-e8ec2b1a326c/files/get/方大同精選.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <em style="font-size:smaller; margin-right: 20px;">Les Miserable Ost</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
+    </div>
+    </div>
+      </div>
+      </div>
+
 
 <script>
 let userColor = 'black';
