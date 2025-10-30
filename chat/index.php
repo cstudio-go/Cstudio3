@@ -57,7 +57,7 @@ $isAdmin = isset($_SESSION['admin']);
     *禁止攻擊與不當言論
   </div>
   <div>
-  <button class="btn btn-danger  btn-sm" style="border-radius: 70%;" id="like-btn"><i class="bi bi-heart">  <span id="like-count">0</span></i></button>
+  <button class="btn btn-danger  btn-sm" id="like-btn"><i class="bi bi-heart">  <span id="like-count">0</span></i></button>
       </div>
 </div>
 </div>
