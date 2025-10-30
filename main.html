@@ -64,9 +64,19 @@
   border-color: rgb(130, 60, 17);
 }
  
+
+
+
 .btn1, .btn2, .btn3, .btn4 {
   padding: 3px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
+  transform: scale(1.12); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
 
 .container {
   display: flex; 
@@ -114,6 +124,11 @@
       animation: flipInX;
       animation-duration: 1s;
     }
+    .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
+  transform: scale(1); 
+  box-shadow: none; 
+}
+
 
   }
   .swal2-image {
@@ -168,17 +183,6 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/Bach.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
 
       <div class="card mb-3">
         <span class="line">
@@ -216,7 +220,9 @@
           <button class="card-link btn btn-outline-secondary" type="button" onclick="showvideo()" id="audioButton" style="padding: 1px 8px" >音樂試聽</button>
         </div>
         <div id="audioText" style="display: none; text-align: center; color: rgb(83, 79, 79);">巴哈 -Gavotte en Rondeau</div>
-        <audio id="audio1" controls style="display: none; margin:5px auto;">試聽</audio>
+        <div style="text-align: center;">
+        <audio id="audio1" controls style="display: none; margin:5px auto;"></audio>
+        </div>
         <div class="card-footer text-muted" style="text-align: center;">
           www.cstudio-go.com<br>
         <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
@@ -235,7 +241,32 @@ $('.line').fadeIn(2000);
 
 
         </script>
+
+<script>
+  function showvideo() {
+    const $audio1 = $('#audio1');
+    const $audioText = $('#audioText');
+    const $button = $('#audioButton');
+  
+    if (!$audio1.attr('src')) {
+      $audio1.attr('src', 'asset/Bach.mp3');
+      $audio1[0].load();
+    }
+  
+    if ($audio1.is(':visible')) {
+      $audio1.slideUp(400);
+      $audioText.slideUp(400);
+      $button.text('音樂試聽');
+    } else {
+      $audio1.slideDown(400);
+      $audioText.slideDown(400);
+      $button.text('收回');
+    }
+  }
+  </script>
        <script>
+
+
 
 
     function showPhoto1() {
