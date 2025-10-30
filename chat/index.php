@@ -102,6 +102,8 @@ $isAdmin = isset($_SESSION['admin']);
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">方大同精選</em> <audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/8af01056-37a5-4f45-832e-e8ec2b1a326c/files/get/方大同精選.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <em style="font-size:smaller; margin-right: 20px;">relax爵士精選</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/f6dd9c43-6ada-4d2e-8b85-25e0fbf39c3a/files/get/relax%20jazz.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <em style="font-size:smaller; margin-right: 20px;">Les Miserable Ost</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
     </div>
     </div>
