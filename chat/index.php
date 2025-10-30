@@ -163,10 +163,19 @@ async function loadMessages() {
   const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 50;
 
   box.innerHTML = data.map(m => {
-    let color = (m.name === "瑋語老師") ? "#9e3c39" : (m.color || 'black');
-    let bold = (m.name === "瑋語老師") ? 'font-weight:bold;' : '';
-    return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
-  }).join('');
+    let color;
+  if (m.name === "瑋語老師") {
+    // If the old message color was black, override to #9e3c39
+    color = (m.color === "black" || m.color === "#000000") ? "#9e3c39" : (m.color || "#9e3c39");
+  } else {
+    color = m.color || 'black';
+  }
+  let bold = (m.name === "瑋語老師") ? 'font-weight:bold;' : '';
+  return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
+}).join('');
+
+
+
  const distanceFromBottom = box.scrollHeight - box.scrollTop - box.clientHeight;
   if (distanceFromBottom < 120) {
     box.scrollTop = box.scrollHeight;
