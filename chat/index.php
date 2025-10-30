@@ -20,6 +20,8 @@ $isAdmin = isset($_SESSION['admin']);
   <title>Chat Room - 瑋語老師的教室</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <!--bootstrap icon css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
@@ -49,10 +51,16 @@ $isAdmin = isset($_SESSION['admin']);
   </div>
 
   <div class="alert alert-danger" style="border:1px solid #ccc; padding:0 5px; margin:0 auto 2px auto; font-weight:400;">
+    <div style="display: flex; justify-content: space-between;">
+      <div>
     <span>當前在線人數：</span><span id="visitorCount">0</span><br>
     *禁止攻擊與不當言論
   </div>
-
+  <div>
+  <button class="btn btn-danger  btn-sm" style="border-radius: 70%;" id="like-btn"><i class="bi bi-heart">  <span id="like-count">0</span></i></button>
+      </div>
+</div>
+</div>
   <div id="messages" style="border:1px solid #ccc; height:300px; overflow:auto; padding:5px;"></div>
 
   <div style="display:flex;justify-content:left;gap:10px;margin-top:5px;">
@@ -77,141 +85,8 @@ $isAdmin = isset($_SESSION['admin']);
    style="display:block;max-width:100px;">回到網站</a> 
    <button onclick="appear()" class="btn btn-outline-primary" id="buttonText">放點音樂</button>
       </div>
-      <br>
-   <div class="accordion" id="accordionExample" style="margin: 0 auto; max-width: 800px;">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        🎵 Sonata No. 1 in G minor, BWV 1001
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Adagio</em> <audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/94375355-1a51-4f93-85be-572045ab2cfd/files/get/Sonata%20No.1%20Adagio.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Fuga</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Siciliana</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Presto</em> </div>
-    </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        🎵 Partita No. 1 in B minor, BWV 1002
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Allemanda</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Double</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Corrente</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Double (Presto)</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <em style="font-size:smaller; margin-right: 20px;">Sarabande</em> </div>
-          <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <em style="font-size:smaller; margin-right: 20px;">Double</em> </div>
-          <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <em style="font-size:smaller; margin-right: 20px;">Tempo di Borea</em> </div>
-          <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <em style="font-size:smaller; margin-right: 20px;">Double (Presto)</em> </div>
-    </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        🎵 Sonata No. 2 in A minor, BWV 1003
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Grave</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Fuga</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Andante</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Allegro</em> </div>
-    </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        🎵 Partita No. 2 in D minor, BWV 1004
-      </button>
-    </h2>
-    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Allemanda</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Corrente</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Sarabanda</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/b7886d77-093d-4402-b2e3-3ba7476d518c/files/get/Partita%20No.2%20Sarabande.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Giga</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Ciaccona (Chaconne)</em></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFive">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        🎵 Sonata No. 3 in C major, BWV 1005
-      </button>
-    </h2>
-    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Adagio</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Fuga</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Largo</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Allegro assai</em> </div>
-    </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSix">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-        🎵 Partita No. 3 in E major, BWV 1006
-      </button>
-    </h2>
-    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Preludio</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Loure</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Gavotte en Rondeau</em> <audio controls  controlslist="nodownload"><source src="https://app.koofr.net/content/links/8242ef18-6ac1-463f-a26c-07a5dd1e0b34/files/get/Partita%20No.3%20Gavotte.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Menuet I</em> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Menuet II</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Bourrée</em></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Gigue</em></div>
-    </div>
-    </div>
-  </div>
+      
+ 
 
 <script>
 let userColor = 'black';
@@ -309,6 +184,39 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
     }
   }
   </script>
+
+<script>
+const pageId = 'index';
+const likeBtn = document.getElementById('like-btn');
+const likeCount = document.getElementById('like-count');
+
+// Load current like count
+async function loadLikes() {
+    const res = await fetch('like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+}
+loadLikes();
+
+// Click handler
+likeBtn.addEventListener('click', async () => {
+    const res = await fetch('like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+
+  
+
+});
+</script>
+
 
 </body>
 </html>

@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="blogstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--bootstrap icon css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style>
   
   .line {
@@ -119,17 +121,7 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/gypsyAir.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
+   
 
       <div class="card mb-3">
         <span class="line">
@@ -144,9 +136,11 @@
 
 寫作的好處在我看來，可能最明顯的是幫助釐清自己的思想。有時在寫的過程中會意外的發現，對事物的想法不是自己本來認為的那樣。可能這也是因為在寫的過程中，會自然的以客觀的角度去敘述。另一個好處是，寫作時可以鍛鍊表達的技巧，因爲我們不停的在敘述，就需要去考慮如何更精準的，在有限的文字裡去傳達意思。<br>
 </span>
-<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-</span>
-        </div>
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+<a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button class="btn btn-danger  btn-sm" style="max-width: 300px;" id="like-btn"><i class="bi bi-heart"><span id="like-count">0</span></i></button>
+
+</div>
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
@@ -185,5 +179,11 @@ $('.line').slideDown(1200);
         <script>
         gsap.from("#img", { y: -500, opacity:0 ,duration: 2, rotate: 360, ease: "bounce.out" });
         </script>
+        
+        <script>window.postId = "a16";</script>
+        <script type="module" src="firebase.js"></script>
+        <script type="module" src="comments.js"></script>
+        <script type="module" src="like.js"></script>
+        
 </body>
 </html>

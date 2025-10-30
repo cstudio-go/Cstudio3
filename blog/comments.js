@@ -9,7 +9,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 // Use a unique ID for each post (you can change this dynamically)
-const postId = "post1";
+const postId = window.postId;
 
 const commentList = document.getElementById("comment-list");
 const form = document.getElementById("comment-form");
