@@ -58,6 +58,9 @@
     display: inline-block;
   }
 
+  .wrapper {
+  display: none;
+}
 
   @media screen and (max-width: 500px) {
     #img{
@@ -190,9 +193,31 @@
 
 練習空弦可能是一件枯燥的事，但如果能在過程中找到意義，學習的過程中就能更充實也更愉快。
 </span>
-<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+<a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">給個回應</button>
+</div>
 </p></span>
         </div>
+
+        <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
+          <div style="display: block; margin: 0 auto; text-align: center;">
+          
+  <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
+  <div id="comment-list"></div>
+
+  <h5 class="bg-secondary text-white">發文</h5>
+  <form id="comment-form">
+    <input type="text" class="form-text text-muted" id="author" style="width: 300px;" placeholder="姓名" required /><br />
+    <textarea id="content" class="form-text text-muted" rows="3" style="width: 300px;" placeholder="留言..." required></textarea><br />
+    <button class="btn btn-primary btn-sm" style="margin-bottom: 3px;" type="submit">送出</button>
+  </form>
+
+ 
+
+  </div>
+        </div>
+
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
@@ -204,7 +229,9 @@
           <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
         </div>
         
-          
+    
+        
+
       
   
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -250,5 +277,22 @@ $(window).on('scroll', function() {
   });
 });
 </script>
+
+<script>
+  function appear() {
+    var commentWrapper = $(".wrapper");
+    let changenote = document.getElementById('note');
+    
+    if (commentWrapper.is(":visible")) {
+      commentWrapper.slideUp(400); // slide up in 0.4 seconds
+      changenote.innerText = "給個回應";
+    } else {
+      commentWrapper.slideDown(400); // slide down in 0.4 seconds
+      changenote.innerText = "收回";
+    }
+  }
+  </script>
+<script type="module" src="firebase.js"></script>
+<script type="module" src="comments.js"></script>
 </body>
 </html>
