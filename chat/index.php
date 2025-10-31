@@ -183,6 +183,13 @@ $isAdmin = isset($_SESSION['admin']);
             "album": "Album Name",
             "url": "https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F",
             "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Ghibli Jazz",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/3a330c69-d44a-421f-959b-9049a7807332/files/get/Ghibli%20Jazz.mp3?path=%2F&password=925758",
+            "cover_art_url": "/cover/art/url.jpg"
         }
     ]
 });
