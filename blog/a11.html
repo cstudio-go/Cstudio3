@@ -49,6 +49,10 @@
     opacity: 0;
     display: inline-block;
   }
+
+  .wrapper {
+    display:none;
+  }
  
 
   @media screen and (max-width: 500px) {
@@ -108,7 +112,7 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="../language.html">語言與框架</a>
-                  <a class="dropdown-item" href="../vueSpa/index.html">作品</a>
+                  <a class="dropdown-item" href="../work.html">作品</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
                 </div>
@@ -155,8 +159,71 @@
                 結論<br>
                 這麼說來，讓自己保持好奇心可能是練習音樂的路上，最重要的特質。練習時的強度控制，找到音樂對自己的意義，保持成長的開闊性，看看不同的視角，都需要不停的去調整。如果面對這麽多的任務要處理，就不太容易覺得練習無聊了吧。<br>
               </span>
-              <a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-              </span>
+              <!--new code-->
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+<a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
+        </div>
+         <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
+          <div style="display: block; margin: 0 auto; text-align: center;">
+ 
+            <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
+            
+<!--comment section-->
+<div id="comments"></div>
+<h5 class="bg-secondary text-white">發文</h5>
+<form id="commentForm">
+  <input type="text" id="name" class="form-text text-muted" style="width: 300px;" placeholder="姓名" required />
+  <textarea id="comment" class="form-text text-muted" rows="3" style="width: 300px;" placeholder="留言..." required></textarea>
+  <button class="btn btn-primary btn-sm" style="margin-bottom: 3px;" type="submit">送出</button>
+</form>
+
+</div>
+        </div>
+
+<script>
+const postId = "a11"; // dynamically set per page
+
+// Load comments
+async function loadComments() {
+  const res = await fetch(`postdb/comment_api.php?post_id=${postId}`);
+  const comments = await res.json();
+  document.getElementById('comments').innerHTML = comments
+    .reverse() // show oldest first (newest at bottom)
+    .map(c => `<p><strong>${c.name}:</strong> ${c.comment}</p><hr>`)
+    .join('');
+}
+loadComments();
+
+// Post comment
+document.getElementById('commentForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const comment = document.getElementById('comment').value;
+  await fetch('postdb/comment_api.php', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({ post_id: postId, name, comment })
+  });
+  loadComments();
+});
+
+
+</script>
+ <script>
+  function appear() {
+    var commentWrapper = $(".wrapper");
+    let changenote = document.getElementById('note');
+    
+    if (commentWrapper.is(":visible")) {
+      commentWrapper.slideUp(400); // slide up in 0.4 seconds
+      changenote.innerText = "留言";
+    } else {
+      commentWrapper.slideDown(400); // slide down in 0.4 seconds
+      changenote.innerText = "收回";
+    }
+  }
+  </script>
         </div>
         
         <div class="card-footer text-muted" style="text-align: center;">
