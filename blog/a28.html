@@ -54,7 +54,9 @@
     display: none;
   }
 
-
+  .admin-comment {
+  background-color: #9a622a; 
+}
 
 
   @media screen and (max-width: 500px) {
@@ -122,6 +124,7 @@
                   <a class="dropdown-item" href="../work.html">作品</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
+                  <a class="dropdown-item" href="postdb/admin_login.php?redirect=/blog/a28.html">管理者登入</a>
                 </div>
               </li>
             </ul>
@@ -171,6 +174,7 @@
 <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
 <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
         </div>
+        <div id="adminArea" style="margin: 0.1px auto; padding: 0 20px; display: block; text-align: center;"></div>
          <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
           <div style="display: block; margin: 0 auto; text-align: center;">
  
@@ -196,8 +200,12 @@ async function loadComments() {
   const res = await fetch(`postdb/comment_api.php?post_id=${postId}`);
   const comments = await res.json();
   document.getElementById('comments').innerHTML = comments
-    .reverse() // show oldest first (newest at bottom)
-    .map(c => `<p><strong>${c.name}:</strong> ${c.comment}</p><hr>`)
+    .reverse()
+    .map(c => {
+      const adminClass = c.is_admin == 1 ? 'admin-comment' : '';
+      const displayName = c.is_admin == 1 ? `${c.name} (版主)` : c.name;
+      return `<p class="${adminClass}"><strong>${displayName}:</strong> ${c.comment}</p><hr>`;
+    })
     .join('');
 }
 loadComments();
@@ -280,7 +288,19 @@ $('.line').slideDown(1200);
     });
   </script>
   
-
+  <!--javascript check admin-->
+  <script>
+    async function checkAdmin() {
+      const res = await fetch('postdb/check_admin.php');
+      const data = await res.json();
+      if(data.is_admin == 1){
+        // show logout button
+        const div = document.getElementById('adminArea');
+        div.innerHTML = '<a href="postdb/admin_logout.php?redirect=/blog/a28.html" class="btn btn-warning btn-sm">Logout</a>';
+      }
+    }
+    checkAdmin();
+    </script>
 
 </body>
 </html>
