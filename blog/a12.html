@@ -109,7 +109,7 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="../language.html">語言與框架</a>
-                  <a class="dropdown-item" href="../vueSpa/index.html">作品</a>
+                  <a class="dropdown-item" href="../work.html">作品</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
                 </div>
@@ -156,9 +156,10 @@
           <div style="display: block; margin: 0 auto; text-align: center;">
  
             <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
-            <h5 class="bg-secondary text-white">發文</h5>
+            
 <!--comment section-->
 <div id="comments"></div>
+<h5 class="bg-secondary text-white">發文</h5>
 <form id="commentForm">
   <input type="text" id="name" class="form-text text-muted" style="width: 300px;" placeholder="姓名" required />
   <textarea id="comment" class="form-text text-muted" rows="3" style="width: 300px;" placeholder="留言..." required></textarea>
@@ -197,7 +198,20 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
 
 
 </script>
-
+ <script>
+  function appear() {
+    var commentWrapper = $(".wrapper");
+    let changenote = document.getElementById('note');
+    
+    if (commentWrapper.is(":visible")) {
+      commentWrapper.slideUp(400); // slide up in 0.4 seconds
+      changenote.innerText = "留言";
+    } else {
+      commentWrapper.slideDown(400); // slide down in 0.4 seconds
+      changenote.innerText = "收回";
+    }
+  }
+  </script>
 
 
         <div class="card-footer text-muted" style="text-align: center;">
@@ -231,19 +245,6 @@ $('.line').slideDown(1200);
 
 
         </script>
-    <script>
-  function appear() {
-    var commentWrapper = $(".wrapper");
-    let changenote = document.getElementById('note');
-    
-    if (commentWrapper.is(":visible")) {
-      commentWrapper.slideUp(400); // slide up in 0.4 seconds
-      changenote.innerText = "留言";
-    } else {
-      commentWrapper.slideDown(400); // slide down in 0.4 seconds
-      changenote.innerText = "收回";
-    }
-  }
-  </script>
+   
 </body>
 </html>
