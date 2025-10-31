@@ -22,6 +22,8 @@ $isAdmin = isset($_SESSION['admin']);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
       <!--bootstrap icon css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<!--Amplitude js-->
+<script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script>
   <style>
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
@@ -29,6 +31,57 @@ $isAdmin = isset($_SESSION['admin']);
     .accordion{
       display: none;
     }
+
+    #amplitude-player {
+      margin: 10px auto 10px auto;
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 3px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+
+    }
+
+    /* amplitude style*/
+.btnamp {
+  
+  border: none;
+  padding: 10px 14px;
+  margin: 0 5px;
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.btnamp:hover {
+  transform: scale(1.12);
+  
+}
+
+.amplitude-play-pause {
+  font-size: 22px;
+}
+
+/* Optional: style progress bar */
+.amplitude-song-slider {
+  height: 6px;
+  appearance: none;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+}
+
+.amplitude-song-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #713838ff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
@@ -90,25 +143,50 @@ $isAdmin = isset($_SESSION['admin']);
    <button onclick="appear()" class="btn btn-outline-primary" id="buttonText">放點音樂</button>
       </div>
       <br>
-      <div class="accordion" id="accordionExample" style="margin: 0 auto; max-width: 800px;">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        🎵 最近在聽
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">方大同精選</em> <audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/8af01056-37a5-4f45-832e-e8ec2b1a326c/files/get/方大同精選.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio></div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">relax爵士精選</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/f6dd9c43-6ada-4d2e-8b85-25e0fbf39c3a/files/get/relax%20jazz.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <em style="font-size:smaller; margin-right: 20px;">Les Miserable Ost</em><audio controls controlslist="nodownload"><source src="https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F" type="audio/mpeg"> Your browser does not support the audio element.</audio> </div>
-    </div>
-    </div>
-      </div>
-      </div>
+ 
+
+
+
+      <!-- Amplitude JS-->
+<div id="amplitude-player" class="accordion" style="text-align:center;">
+  
+  <span data-amplitude-song-info="name"></span><br>
+  <button class="amplitude-prev btnamp">⏮️</button>
+  <button class="amplitude-play-pause btnamp">▶️ / ⏸️</button>
+  <button class="amplitude-next btnamp">⏭️</button>
+  
+  <input type="range" class="amplitude-song-slider" style="width:70%;"><br>
+  <span class="amplitude-current-time"></span> /
+  <span class="amplitude-duration-time"></span>
+</div>
+
+       <script>
+       Amplitude.init({
+    songs: [
+        {
+            "name": "方大同精選",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/8af01056-37a5-4f45-832e-e8ec2b1a326c/files/get/方大同精選.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "relax爵士精選",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/f6dd9c43-6ada-4d2e-8b85-25e0fbf39c3a/files/get/relax%20jazz.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Les Miserable Ost",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        }
+    ]
+});
+</script>
 
 
 <script>
@@ -203,7 +281,7 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
   function appear() {
-    const $music = $('#accordionExample');
+    const $music = $('.accordion');
     const $button = $('#buttonText');
   
     if ($music.is(':visible')) {
