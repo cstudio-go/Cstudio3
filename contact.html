@@ -72,6 +72,32 @@
     border: solid 3px rgb(167, 151, 135);
   }
 
+  #container {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  @media screen and (max-width: 782px) {
+    #container {
+      display: block;
+    }
+    #img {
+      display: block;
+      margin: 0 auto;
+      width: 500px;
+    }
+    #theForm {
+      display: block;
+      margin: 0 auto;
+      width: auto;
+    }
+    #message {
+      height: auto;
+      max-height: 100px;
+    }
+  }
+
 
   @media screen and (max-width: 500px) {
     #img{
@@ -138,24 +164,15 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/gypsyAir.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
+      
 
       <div class="card mb-3">
-        <span class="line">
+        <div class="line">
         <h3 class="card-header animate__animated animate__fadeInDown animate__delay-1s con" style="text-align: center;">聯繫我</h3>
-        <img src="asset/envelope.webp" class="d-block user-select-none" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto;" id="img">
-          <rect width="100%" height="100%" fill="#868e96"></rect>
-        <div class="card-body" style="margin: 0 auto;" id="theForm">
+       <div id="container">
+        <img src="asset/envelope.webp" id="img">
+          
+        <div class="card-body" id="theForm">
             <form id="contactForm">
                 <label>姓名：</label>
                     <input type="text" name ="user_name" style="background-color: rgb(234, 231, 231); margin-bottom: 2px;"><br>
@@ -164,8 +181,8 @@
                     <label>
                       <span id="typed"></span></label>
                     <br>
-                    <textarea name="message" style="background-color: rgb(234, 231, 231);  width: 100%; height: 200px;"></textarea><br>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <textarea name="message" style="background-color: rgb(234, 231, 231);  width: 100%;" rows="14" id="message"></textarea><br>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
                     <input id ="enter" type="submit" style="font-weight: 600; margin-right: 3px;" value="送出"/>
                     <div style="display: flex; gap: 10px;">
                      <i class="fa-brands fa-line fa-xl" onClick="lineID()" style="margin-right: 1px; cursor: grab" ></i>
@@ -173,8 +190,9 @@
                     </div>
                   </div>
                   </form>
-                </div>
-        </span>
+          </div>
+        </div>
+      </div>
         <!--Typed.js code-->
         <script>
             const typed = new Typed('#typed', {
@@ -204,9 +222,7 @@
 }) }
           </script>
 
-        <div class="card-footer text-muted" style="text-align: center;">
-          www.cstudio-go.com
-        </div>
+      
         
           
       </div>
