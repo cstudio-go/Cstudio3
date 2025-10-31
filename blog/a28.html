@@ -124,7 +124,7 @@
                   <a class="dropdown-item" href="../work.html">作品</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
-                  <a class="dropdown-item" href="postdb/admin_login.php?redirect=/blog/a28.html">管理者登入</a>
+                  <a id="adminLoginLink" class="dropdown-item" href="#">管理者登入</a>
                 </div>
               </li>
             </ul>
@@ -174,6 +174,7 @@
 <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
 <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
         </div>
+        <!--登出-->
         <div id="adminArea" style="margin: 0.1px auto; padding: 0 20px; display: block; text-align: center;"></div>
          <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
           <div style="display: block; margin: 0 auto; text-align: center;">
@@ -296,11 +297,17 @@ $('.line').slideDown(1200);
       if(data.is_admin == 1){
         // show logout button
         const div = document.getElementById('adminArea');
-        div.innerHTML = '<a href="postdb/admin_logout.php?redirect=/blog/a28.html" class="btn btn-warning btn-sm">Logout</a>';
+        div.innerHTML = '<a href="postdb/admin_logout.php?redirect=${window.location.pathname}" class="btn btn-warning btn-sm">Logout</a>';
       }
     }
     checkAdmin();
     </script>
+
+<script>
+  // dynamically add current page path to login link
+  document.getElementById("adminLoginLink").href = 
+    "postdb/admin_login.php?redirect=" + window.location.pathname;
+</script>
 
 </body>
 </html>

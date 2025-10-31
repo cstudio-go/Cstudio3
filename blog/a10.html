@@ -43,6 +43,13 @@
     text-align: center;
   }
 
+.wrapper {
+  display:none;
+}
+
+  .admin-comment {
+  background-color: #9a622a; 
+}
 
 
   @media screen and (max-width: 500px) {
@@ -105,6 +112,7 @@
                   <a class="dropdown-item" href="../work.html">作品</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
+                  <a id="adminLoginLink" class="dropdown-item" href="#">管理者登入</a>
                 </div>
               </li>
             </ul>
@@ -154,9 +162,80 @@
                       
                     詮釋的過程雖然也可能造成混亂，畢竟有太多不同的觀點。但是想要更加深入的瞭解事物，這應該是一個必經的過程。<br>
 </span>
-<a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-</span>
-        </div>
+<!--new code-->
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+  <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+  <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
+          </div>
+          <!--登出-->
+          <div id="adminArea" style="margin: 0.1px auto; padding: 0 20px; display: block; text-align: center;"></div>
+           <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
+            <div style="display: block; margin: 0 auto; text-align: center;">
+   
+              <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
+              
+  <!--comment section-->
+  <div id="comments"></div>
+  <h5 class="bg-secondary text-white">發文</h5>
+  <form id="commentForm">
+    <input type="text" id="name" class="form-text text-muted" style="width: 300px;" placeholder="姓名" required />
+    <textarea id="comment" class="form-text text-muted" rows="3" style="width: 300px;" placeholder="留言..." required></textarea>
+    <button class="btn btn-primary btn-sm" style="margin-bottom: 3px;" type="submit">送出</button>
+  </form>
+  
+  </div>
+          </div>
+        </span>
+      </div>
+  <script>
+  const postId = "a10"; // dynamically set per page
+  
+  // Load comments
+  async function loadComments() {
+    const res = await fetch(`postdb/comment_api.php?post_id=${postId}`);
+    const comments = await res.json();
+  
+    document.getElementById('comments').innerHTML = comments
+      .reverse()
+      .map(c => {
+        const adminClass = c.is_admin == 1 ? 'admin-comment' : '';
+        const adminLabel = c.is_admin == 1 ? '<span style="color: #632b2a; font-weight: bold;">[版主]</span> ' : '';
+        return `<p class="${adminClass}"><strong>${adminLabel}${c.name}:</strong> ${c.comment}</p><hr>`;
+      })
+      .join('');
+  }
+  loadComments();
+  
+  // Post comment
+  document.getElementById('commentForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const comment = document.getElementById('comment').value;
+    await fetch('postdb/comment_api.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams({ post_id: postId, name, comment })
+    });
+    loadComments();
+  });
+  
+  
+  </script>
+   <script>
+    function appear() {
+      var commentWrapper = $(".wrapper");
+      let changenote = document.getElementById('note');
+      
+      if (commentWrapper.is(":visible")) {
+        commentWrapper.slideUp(400); // slide up in 0.4 seconds
+        changenote.innerText = "留言";
+      } else {
+        commentWrapper.slideDown(400); // slide down in 0.4 seconds
+        changenote.innerText = "收回";
+      }
+    }
+    </script>
+
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
@@ -189,5 +268,26 @@ $('.line').slideDown(1200);
 
 
         </script>
+
+        <!--javascript check admin-->
+<script>
+  async function checkAdmin() {
+    const res = await fetch('postdb/check_admin.php');
+    const data = await res.json();
+    if(data.is_admin == 1){
+      // show logout button
+      const div = document.getElementById('adminArea');
+      div.innerHTML = `<a href="/blog/postdb/admin_logout.php?redirect=${window.location.pathname}" class="btn btn-warning btn-sm">Logout</a>`;
+    }
+  }
+  checkAdmin();
+  </script>
+
+<script>
+// dynamically add current page path to login link
+document.getElementById("adminLoginLink").href = 
+  "postdb/admin_login.php?redirect=" + window.location.pathname;
+</script>
+
 </body>
 </html>
