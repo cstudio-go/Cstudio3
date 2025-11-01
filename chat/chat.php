@@ -5,42 +5,9 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 
-// --- Update admin_status in DB ---
-$host = "localhost";
-$db = "cstusybk_chatdb";
-$user = "cstusybk_cstudio";
-$pass = "Aaron176!!!!@@@@";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
-}
-
-$adminName = '瑋語老師'; // use same name everywhere
+// Ensure session admin name is set
+$adminName = '瑋語老師';
 $_SESSION['admin'] = $adminName;
-
-// Ensure a row for this admin exists
-$stmt = $conn->prepare("SELECT id FROM admin_status WHERE admin_username=?");
-$stmt->bind_param("s", $adminName);
-$stmt->execute();
-$stmt->store_result();
-
-if ($stmt->num_rows > 0) {
-    // Update existing row
-    $update = $conn->prepare("UPDATE admin_status SET online=1, last_seen=NOW() WHERE admin_username=?");
-    $update->bind_param("s", $adminName);
-    $update->execute();
-    $update->close();
-} else {
-    // Insert new row
-    $insert = $conn->prepare("INSERT INTO admin_status (admin_username, online, last_seen) VALUES (?, 1, NOW())");
-    $insert->bind_param("s", $adminName);
-    $insert->execute();
-    $insert->close();
-}
-
-$stmt->close();
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -66,14 +33,14 @@ $conn->close();
 <div class="mt-2">
   <input type="text" id="msg" class="form-control form-control-sm" placeholder="輸入訊息">
   <div class="mt-1">
-    <button type="button" class="color-btn" onclick="setColor('black', this)" style="background:black;"></button>
-    <button type="button" class="color-btn" onclick="setColor('rgb(48,153,244)', this)" style="background:rgb(48,153,244);"></button>
-    <button class="btn btn-primary btn-sm" onclick="sendMsg()">送出</button>
-  </div>
+  <button type="button" class="color-btn" onclick="setColor('#9e3c39', this)" style="background:#9e3c39;"></button>
+  <button type="button" class="color-btn" onclick="setColor('#b08227', this)" style="background:#b08227;"></button>
+  <button class="btn btn-primary btn-sm" onclick="sendMsg()">送出</button>
+</div>
 </div>
 
 <script>
-let userColor = 'black';
+let userColor = '#9e3c39'; // default
 function setColor(color, btn){
     userColor = color;
     document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected-color'));
@@ -84,7 +51,6 @@ async function sendMsg(){
     const msg = document.getElementById('msg').value;
     if(!msg) return;
 
-    // Display name shown in chat
     const displayName = '瑋語老師';
 
     await fetch('chat_api.php', {
@@ -101,8 +67,9 @@ async function loadMessages(){
     const data = await res.json();
     const box = document.getElementById('messages');
     box.innerHTML = data.map(m => {
-        const color = (m.name==='瑋語老師') ? '#9e3c39' : (m.color||'black');
-        const bold = (m.name==='瑋語老師') ? 'font-weight:bold;' : '';
+        // Use message color if set, otherwise default to #9e3c39 for admin
+        let color = m.color || (m.name==='瑋語老師' ? '#9e3c39' : 'black');
+        let bold = (m.name==='瑋語老師') ? 'font-weight:bold;' : '';
         return `<div style="color:${color};${bold}">${m.name}: ${m.msg}</div>`;
     }).join('');
     const distanceFromBottom = box.scrollHeight - box.scrollTop - box.clientHeight;
@@ -111,14 +78,9 @@ async function loadMessages(){
     }
 }
 
-// load chat + keepalive
+// load chat messages
 setInterval(loadMessages, 2000);
 loadMessages();
-
-// keep admin online
-setInterval(async () => {
-    await fetch('admin_keepalive.php');
-}, 5000);
 </script>
 </body>
 </html>
