@@ -18,12 +18,12 @@ $isAdmin = isset($_SESSION['admin']);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Room - 瑋語老師的教室</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
       <!--bootstrap icon css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <!--Amplitude js-->
-<script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script>
+<script src="../jslib/amplitude.min.js"></script>
   <style>
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
@@ -279,7 +279,7 @@ loadMessages();
 updateVisitors();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../bootstrap.bundle.min.js"></script>
 <script>
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
