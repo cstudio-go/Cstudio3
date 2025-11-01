@@ -61,6 +61,15 @@ if ($isAdmin) {
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
 
+    #music-tip {
+      font-size: medium;
+    }
+
+    @media screen and (max-width: 500px) {
+      #music-tip {font-size: xx-small;    
+      }  
+    }
+
     .accordion{
       display: none;
     }
@@ -75,6 +84,7 @@ if ($isAdmin) {
       max-width: 300px;
 
     }
+
 
     /* amplitude style*/
 .btnamp {
@@ -133,6 +143,13 @@ if ($isAdmin) {
         <a href="logout.php" class="btn btn-danger btn-sm">登出</a>
       <?php endif; ?>
      
+      <span id="music-tip" 
+     style="background:(255, 243, 205, 0.3); color:#856404; border:1px solid #ffeeba;
+            border-radius:6px; padding:4px 6px; margin:10px auto;
+            max-width:400px; white-space: no-wrap">
+  🎵運弓保持手臂放鬆
+      </span>
+
     </div>
     <i class="fa-solid fa-dog fa-bounce" style="margin-top:6px;margin-right:10px;color:#d6d6d6"
        data-bs-toggle="tooltip" data-bs-placement="top" title="你也喜歡動物嗎?"></i>
@@ -370,6 +387,35 @@ likeBtn.addEventListener('click', async () => {
   
 
 });
+</script>
+
+<script>
+// List of music tips
+const tips = [
+  "🎻準確比速度更重要",
+  "🎹音階讓手指靈活",
+  "🎵運弓保持手臂放鬆"
+  "🎧錄音是提升的好方法",
+  "🎶多觀察，多想想",
+  "🎵保持呼吸，不要憋氣",
+  "🎼閱歷豐富音樂更成熟"
+];
+
+let currentTip = 0;
+const tipBox = document.getElementById("music-tip");
+
+function showNextTip() {
+  currentTip = (currentTip + 1) % tips.length;
+  // smooth fade effect
+  tipBox.style.opacity = 0;
+  setTimeout(() => {
+    tipBox.textContent = tips[currentTip];
+    tipBox.style.opacity = 1;
+  }, 400);
+}
+
+// change tip every 30 seconds
+setInterval(showNextTip, 30000);
 </script>
 
 
