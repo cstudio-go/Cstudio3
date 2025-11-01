@@ -1,1 +1,5 @@
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.cstudio-go\.com$ [NC]
+RewriteRule ^(.*)$ https://cstudio-go.com/$1 [L,R=301]

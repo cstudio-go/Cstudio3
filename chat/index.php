@@ -1,6 +1,39 @@
 <?php
 session_start();
 $isAdmin = isset($_SESSION['admin']);
+
+
+$host = "localhost";
+$db = "cstusybk_chatdb";
+$user = "cstusybk_cstudio";
+$pass = "Aaron176!!!!@@@@";
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+
+// Update admin_status if logged in
+if ($isAdmin) {
+    $adminName = $_SESSION['admin'];
+    // Check if row exists
+    $stmt = $conn->prepare("SELECT id FROM admin_status WHERE admin_username=?");
+    $stmt->bind_param("s", $adminName);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        // Update existing row
+        $update = $conn->prepare("UPDATE admin_status SET online=1, last_seen=NOW() WHERE admin_username=?");
+        $update->bind_param("s", $adminName);
+        $update->execute();
+    } else {
+        // Insert new row
+        $insert = $conn->prepare("INSERT INTO admin_status (admin_username, online, last_seen) VALUES (?, 1, NOW())");
+        $insert->bind_param("s", $adminName);
+        $insert->execute();
+    }
+    $stmt->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -99,9 +132,7 @@ $isAdmin = isset($_SESSION['admin']);
         <span class="text-success">已登入管理員</span>
         <a href="logout.php" class="btn btn-danger btn-sm">登出</a>
       <?php endif; ?>
-      <span id="loginStatus" style="margin-left:10px;font-weight:bold;">
-        <?php echo $isAdmin ? "管理者目前在線" : "管理者目前不在喔"; ?>
-      </span>
+     
     </div>
     <i class="fa-solid fa-dog fa-bounce" style="margin-top:6px;margin-right:10px;color:#d6d6d6"
        data-bs-toggle="tooltip" data-bs-placement="top" title="你也喜歡動物嗎?"></i>
@@ -333,6 +364,7 @@ likeBtn.addEventListener('click', async () => {
 
 });
 </script>
+
 
 
 </body>

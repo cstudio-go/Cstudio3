@@ -4,7 +4,7 @@ include 'db_config.php';
 header("Content-Type: application/json");
 
 $isAdmin = isset($_SESSION['admin']);
-$adminNames = ["瑋語老師","瑋語","張瑋語","張老師","玮语老师","玮语","张玮语"];
+$adminNames = ["瑋語老師","瑋語","張瑋語","張老師","玮语老师","玮语","张玮语", "cstudio"];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name  = $conn->real_escape_string($_POST['name']);
