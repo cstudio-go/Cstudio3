@@ -153,6 +153,13 @@ $_SESSION['admin'] = $adminName;
             "cover_art_url": "/cover/art/url.jpg"
         },
         {
+            "name": "Jay合集",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/f1ef790e-c852-4ee6-a1e7-d2106628a4b5/files/get/jay合集.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
             "name": "Les Miserable Ost",
             "artist": "Artist Name",
             "album": "Album Name",

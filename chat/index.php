@@ -61,12 +61,44 @@ if ($isAdmin) {
     .selected-color { border:3px solid #555; transform:scale(1.2); }
     .color-btn { width:20px; height:20px; border:none; cursor:pointer; margin-top:4px; }
 
-    #music-tip {
-      font-size: medium;
-    }
 
-    @media screen and (max-width: 500px) {
-      #music-tip {font-size: xx-small;    
+    
+
+    @keyframes subtleHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 0 rgba(133, 100, 4, 0);
+  }
+  25% {
+    transform: scale(1.01);
+    text-shadow: 0 0 2px rgba(133, 100, 4, 0.3);
+  }
+  50% {
+    transform: scale(0.995);
+  }
+  75% {
+    transform: scale(1.01);
+    text-shadow: 0 0 1.5px rgba(133, 100, 4, 0.2);
+  }
+}
+
+#music-tip {
+  animation: subtleHeartbeat 3s infinite ease-in-out;
+  transition: opacity 0.5s ease;
+  background: none; /* remove background */
+  color: #856404;
+  border: none; /* remove border */
+  padding: 0; /* remove padding */
+  margin: 0 auto 0 5px;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  font-size: medium;
+}
+@media screen and (max-width: 500px) {
+      #music-tip {
+        font-size: small;
+        margin-left: 2px;    
       }  
     }
 
@@ -143,12 +175,7 @@ if ($isAdmin) {
         <a href="logout.php" class="btn btn-danger btn-sm">登出</a>
       <?php endif; ?>
      
-      <span id="music-tip" 
-     style="background:(255, 243, 205, 0.3); color:#856404; border:1px solid #ffeeba;
-            border-radius:6px; padding:4px 6px; margin:10px auto;
-            max-width:400px; white-space: no-wrap">
-  🎵運弓保持手臂放鬆
-      </span>
+      <span id="music-tip"></span>
 
     </div>
     <i class="fa-solid fa-dog fa-bounce" style="margin-top:6px;margin-right:10px;color:#d6d6d6"
@@ -237,6 +264,13 @@ if ($isAdmin) {
             "artist": "Artist Name",
             "album": "Album Name",
             "url": "https://app.koofr.net/content/links/3a330c69-d44a-421f-959b-9049a7807332/files/get/Ghibli%20Jazz.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Jay合集",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/f1ef790e-c852-4ee6-a1e7-d2106628a4b5/files/get/jay合集.mp3?path=%2F",
             "cover_art_url": "/cover/art/url.jpg"
         },
         {
@@ -394,22 +428,51 @@ likeBtn.addEventListener('click', async () => {
 const tips = [
   "🎻準確比速度更重要",
   "🎹音階讓手指靈活",
-  "🎵運弓保持手臂放鬆"
+  "🎻手腕放鬆別僵硬",
   "🎧錄音是提升的好方法",
   "🎶多觀察，多想想",
+  "🎵 運弓保持手臂放鬆",
   "🎵保持呼吸，不要憋氣",
-  "🎼閱歷豐富音樂更成熟"
+  "🎼閱歷豐富音樂更成熟",
+  "🎶眼看譜手跟上",
+  "🎹每次練習有目標",
+  "🎶反覆短句練熟",
+  "🎻手指要靈活",
+  "🎹節奏先穩定",
+  "🎶慢練保質量",
+  "🎵姿勢要正確",
+  "🎼記得呼吸",
+  "🎻放鬆肩膀",
+  "🎹眼手協調",
+  "🎶多聽範例",
+  "🎵控制音量",
+  "🎧細聽音準",
+  "🎼反覆短練",
+  "🎶保持耐心",
+  "🎵心態要平",
+  "🎧音符看清",
+  "🎼慢速先練",
+  "🎹節拍跟上"
 ];
 
-let currentTip = 0;
 const tipBox = document.getElementById("music-tip");
 
+// show a random tip initially
+let lastTipIndex = Math.floor(Math.random() * tips.length);
+tipBox.textContent = tips[lastTipIndex];
+
+// function to show a new random tip
 function showNextTip() {
-  currentTip = (currentTip + 1) % tips.length;
-  // smooth fade effect
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * tips.length);
+  } while(randomIndex === lastTipIndex && tips.length > 1);
+
+  lastTipIndex = randomIndex;
+
   tipBox.style.opacity = 0;
   setTimeout(() => {
-    tipBox.textContent = tips[currentTip];
+    tipBox.textContent = tips[randomIndex];
     tipBox.style.opacity = 1;
   }, 400);
 }
