@@ -209,10 +209,10 @@ if ($isAdmin) {
             "cover_art_url": "/cover/art/url.jpg"
         },
         {
-            "name": "Les Miserable Ost",
+            "name": "陳綺貞合集",
             "artist": "Artist Name",
             "album": "Album Name",
-            "url": "https://app.koofr.net/content/links/807ae71d-36db-42e3-a7fc-58eee3f2c9eb/files/get/les%20miserable.mp3?path=%2F",
+            "url": "https://app.koofr.net/content/links/7a51530a-72f1-466a-b93d-24f8adaca5b7/files/get/陳綺貞合集.mp3?path=%2F",
             "cover_art_url": "/cover/art/url.jpg"
         },
         {
@@ -220,6 +220,13 @@ if ($isAdmin) {
             "artist": "Artist Name",
             "album": "Album Name",
             "url": "https://app.koofr.net/content/links/3a330c69-d44a-421f-959b-9049a7807332/files/get/Ghibli%20Jazz.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Relax Piano",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/ffdf6099-1bcd-4414-ac86-bade7ba96d8f/files/get/relax%20piano.mp3?path=%2F",
             "cover_art_url": "/cover/art/url.jpg"
         }
     ]
