@@ -189,7 +189,7 @@ if ($isAdmin) {
     *禁止攻擊與不當言論
   </div>
   <div>
-  <button class="btn btn-danger  btn-sm" id="like-btn"><i class="bi bi-heart">  <span id="like-count">0</span></i></button>
+  <button class="btn btn-danger  btn-sm" id="like-btn"><img src="heart.svg" alt="heart" class="icon">  <span id="like-count">0</span></button>
       </div>
 </div>
 </div>
