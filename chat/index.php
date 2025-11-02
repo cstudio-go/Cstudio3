@@ -82,6 +82,8 @@ if ($isAdmin) {
   }
 }
 
+
+
 #music-tip {
   animation: subtleHeartbeat 3s infinite ease-in-out;
   transition: opacity 0.5s ease;
