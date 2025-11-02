@@ -71,11 +71,27 @@
     height: auto;
     border: solid 3px rgb(167, 151, 135);
   }
+  
 
   #container {
     display: flex;
     justify-content: center;
     gap: 3px;
+  }
+  @media screen and (min-width: 783px) {
+
+    .card-header {
+      border-bottom: none;
+      background-color: rgba(222, 217, 217, 0.05);
+      margin-top: 10vw;
+    }
+
+    @media screen and (max-width: 1005px) {
+      .card-header {
+        background-color: rgb(237, 236, 236);
+      }
+    } 
+
   }
 
   @media screen and (max-width: 782px) {

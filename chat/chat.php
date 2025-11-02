@@ -160,6 +160,13 @@ $_SESSION['admin'] = $adminName;
             "cover_art_url": "/cover/art/url.jpg"
         },
         {
+            "name": "Morning Jazz",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://app.koofr.net/content/links/5035e4ae-8898-4072-9a6c-04e42f2c0c27/files/get/morning%20jazz.mp3?path=%2F",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
             "name": "Les Miserable Ost",
             "artist": "Artist Name",
             "album": "Album Name",
