@@ -47,12 +47,12 @@ body, html {
 </head>
 <body class="d-flex justify-content-center align-items-center">
 <div class="text-center w-100" style="max-width: 350px;">
-<h3>Admin Login</h3>
+<h3 style="margin-bottom: 10px;">管理員登入</h3>
 <?php if(isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
 <form method="POST">
-    <input type="text" name="username" placeholder="Username" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button type="submit">Login</button>
+    <input type="text" class="form-control" name="username" placeholder="Username" required><br>
+    <input type="password" class="form-control" name="password" placeholder="Password" required><br>
+    <button class="btn btn-primary btn-sm" style="padding: 5px 50px;" type="submit">Login</button>
 </form>
 </div>
 </body>
