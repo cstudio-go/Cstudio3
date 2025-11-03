@@ -242,7 +242,8 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
             <a href="a15.html" class="card-link">用小提琴演奏巴哈為什麼這麼難？</a>
           </div>
           www.cstudio-go.com<br>
-          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
+          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span><br>
+          <span style="font-size:xx-small" id="weather" class="marquee">Loading...</span>
         </div>
         
           
@@ -300,6 +301,22 @@ $('.line').slideDown(1200);
   document.getElementById("adminLoginLink").href = 
     "postdb/admin_login.php?redirect=" + window.location.pathname;
 </script>
+<script>
+    fetch('../postdb/weather.php')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          document.getElementById('weather').innerText =
+            `${data.city}: ${data.temp}°C, ${data.description}`;
+        } else {
+          document.getElementById('weather').innerText = 'Weather unavailable';
+        }
+      })
+      .catch(() => {
+        document.getElementById('weather').innerText = 'Failed to load weather';
+      });
+  </script>
+
 
 </body>
 </html>
