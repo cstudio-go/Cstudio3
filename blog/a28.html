@@ -22,70 +22,73 @@
     <link rel="stylesheet" href="blogstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="../jslib/typed.min.js"></script>
-<style>
+    <style>
   
-  .line {
-  display: none;
-}
-
-  #img {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-  }
-  #portrait{
-    width: 107px;
-    height: 200px;
-  }
-
-  #text {
-    margin: 0 auto;
-    max-width: 700px;
-    text-align: center;
-  }
-  .card-body {
-    opacity: 0;
-  }
-  .card-body.visible {
-    opacity: 1;
-  }
-
-  .wrapper {
-    display: none;
-  }
-
-  .admin-comment {
-  background-color: #9a622a; 
-}
-
-
-  @media screen and (max-width: 500px) {
-    #img{
-      width: 100%;
-      height: auto;
+      .line {
+      display: none;
     }
-    #portrait{
-      width: 100%;
-      height: auto;
+    
+      #img {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+      }
+      #portrait{
+        width: 107px;
+        height: 200px;
+      }
+    
+      #text {
+        margin: 0 auto;
+        max-width: 700px;
+        text-align: center;
+      }
+      .card-body {
+        opacity: 0;
+      }
+      .card-body.visible {
+        opacity: 1;
+      }
+    
+      .wrapper {
+        display: none;
+      }
+    
+      .admin-comment {
+      background-color: #9a622a; 
     }
-    .left {
-        text-align: left;
+    
+    
+      @media screen and (max-width: 500px) {
+        #img{
+          width: 100%;
+          height: auto;
+        }
+        #portrait{
+          width: 100%;
+          height: auto;
+        }
+        .left {
+            text-align: left;
+        }
+        .navbar-brand{
+          animation: slideInDown;
+          animation-duration: 1s;
+        }
+    
+      }
+    
+      @media screen and (max-width: 799px) {
+       #text {
+        padding: 0 20px;
+       }
+      }
+    
+      .admin-comment {
+      background-color: #9a622a; 
     }
-    .navbar-brand{
-      animation: slideInDown;
-      animation-duration: 1s;
-    }
-
-  }
-
-  @media screen and (max-width: 799px) {
-   #text {
-    padding: 0 20px;
-   }
-  }
-
-
-</style>
+    
+    </style>
 
 
 </head>
@@ -172,7 +175,7 @@
 <!--new code-->
 </p>
 <div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
-  <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+    <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
 <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
         </div>
         <!--登出-->
@@ -181,7 +184,7 @@
           <div style="display: block; margin: 0 auto; text-align: center;">
  
             <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
-      </div>
+            
 <!--comment section-->
 <div id="comments"></div>
 <h5 class="bg-secondary text-white">發文</h5>
@@ -193,8 +196,8 @@
 <p style="font-size: xx-small; color:rgb(215, 215, 215)">*文明交流，保持秩序</p>
 </div>
         </div>
-        </div>
-
+</div>
+</div>
 <script>
 const postId = "a28"; // dynamically set per page
 
@@ -248,7 +251,7 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
         <div class="card-body" style="text-align: center;">
-            <a href="a23.html" class="card-link">節奏感與美感</a><br>
+            <a href="a20.html" class="card-link">談談音樂基礎-線性效果</a><br>
             <a href="a15.html" class="card-link">用小提琴演奏巴哈為什麼這麼難？</a>
           </div>
           www.cstudio-go.com<br>
@@ -264,7 +267,7 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
        <!--Typed.js code-->
        <script>
         const typed = new Typed('#typed', {
-          strings: ["撰文：張瑋語 --更新於2025.10&nbsp;",],
+          strings: ["撰文：張瑋語 --更新於2025.11&nbsp;",],
           typeSpeed: 150,
           loop: false,
           cursorChar: ""
