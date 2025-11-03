@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>瑋語老師的教室</title>
-    <meta name="description" content="文章：資訊與網路平台的整合">
+    <meta name="description" content="文章：寫了一個記錄音樂的小工具">
 <meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
 <meta property="og:image" content="https://cstudio-go.com/logo.webp">
     <link 
@@ -43,9 +43,7 @@
     max-width: 700px;
     text-align: center;
   }
-  .card-body {
-    opacity: 0;
-  }
+ 
   .card-body.visible {
     opacity: 1;
   }
@@ -146,33 +144,23 @@
 
       <div class="card mb-3">
         <div class="line">
-          <h3 class="card-header" style="text-align: center;">資訊與網路平台的整合</h3>
+          <h3 class="card-header" style="text-align: center;">寫了一個記錄音樂的小工具</h3>
           <p class="card-text" style="text-align: center;" id="text">
             <span id="typed"></span><a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
-                <img src="blogpic/ex29.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
+                <img src="blogpic/ex8.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
             <span style="display:block; text-align: left;">
-                因為有太多的社交媒體與資訊管道，現代人每天都使用許多網站與APP。雖然取得資訊的管道更多更方便，但這不一定對我們有好處，目前看來，科技發展的趨勢是一直不停的訓練我們去分心，也包含對個人身心健康的影響。<br><br>
+                最近一直有一些音樂上的想法想記下來，因為找不到一個適合的工具可以用手機隨手記錄，所以研究了一下Tone.js，自己做了一個簡易的版本。<br><br>
 
-首先這導致了專注的困難，許多人都發現了自己更容易分神，或是沒辦法沈浸式的工作與學習。<br><br>
+簡單的介紹下Tone.js: 它是一個基於Web Audio API的音樂合成與JavaScript函式庫。可以在瀏覽器裡播放音符，轉換音色，做節拍控制，加入效果（混響、延遲）。Tone.js讓網頁做音樂變得簡單、可控、好玩，非常適合音樂教學，加入遊戲音效，或作為編曲器。<br><br>
 
-再來是信息焦慮感，是一種害怕錯失的焦慮感(英文為FOMO)，人們對於自己落後這件事感到害怕，所以必須更努力的讓自己去關注新消息，這樣的焦慮感影響了心理的安定，並且會更促進網路上癮。<br><br>
 
-最後是更強烈的比較心態，網路信息促成比較自己與他人，因此不容易在生活與工作中得到滿足，長期比較也更容易陷入低落的狀態。<br><br>
 
-因此資訊與平台的整合對個人來說會越來越重要，個體如能理解社交媒體與過多資訊可能對我們造成的影響，在能保護自己的意識下來使用這些網路媒介，就能讓他們真正的成為工具，發揮他們真正的力量。<br><br>
-
-在整合上我覺得比較簡單的作法是限制每天使用的時段，比方說限制特定時間才能用社交媒體，閱讀新聞或是觀看影片。<br><br>
-
-另一種方法則是利用設定目標的方式，讓自己帶有目的的去使用這些平台，在完成自己的目標後嘗試將他們從手上放下。<br><br>
-
-最後是理解到網路與真實世界的差異性，也就是有時可以把網路當成科幻小說的概念來觀賞（想想網路上對著鏡頭說話的人們，後製的照片與影片，雖然看起來很美好，但這也是個“擺拍與劇本創作”的世界）。<br><br>
-
-網路盛行後，雖然生活與取得資訊越來越方便，人們與這些網路工具的相處方式也在轉變中，在不太可能擺脫的情況下，也就必須學會與他們共存。
+我使用Tone.js去模擬聲音，選擇了一個稍長的迴音跟較溫和的音色，在網頁裡使用按鈕可以加入音符，加上返回鍵跟播放功能，然後輸出時銀幕上會有音高跟節奏的紀錄，透過截圖的方式就可以把當時音樂的想法保留起來。總算是利用工具實現了自己的想法，有興趣的朋友也可以試試看: <a href="../tools/compose.html" class="btn btn-dark bt-sm">寫譜工具</a>
 </span>
 <!--new code-->
 </p>
 <div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
-  <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+    <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
 <button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
         </div>
         <!--登出-->
@@ -181,7 +169,7 @@
           <div style="display: block; margin: 0 auto; text-align: center;">
  
             <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
-      </div>
+            
 <!--comment section-->
 <div id="comments"></div>
 <h5 class="bg-secondary text-white">發文</h5>
@@ -193,10 +181,10 @@
 <p style="font-size: xx-small; color:rgb(215, 215, 215)">*文明交流，保持秩序</p>
 </div>
         </div>
-        </div>
-
+</div>
+</div>
 <script>
-const postId = "a28"; // dynamically set per page
+const postId = "a29"; // dynamically set per page
 
 // Load comments
 async function loadComments() {
@@ -264,7 +252,7 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
        <!--Typed.js code-->
        <script>
         const typed = new Typed('#typed', {
-          strings: ["撰文：張瑋語 --更新於2025.10&nbsp;",],
+          strings: ["撰文：張瑋語 --更新於2025.11&nbsp;",],
           typeSpeed: 150,
           loop: false,
           cursorChar: ""
