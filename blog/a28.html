@@ -252,7 +252,8 @@ document.getElementById('commentForm').addEventListener('submit', async (e) => {
             <a href="a15.html" class="card-link">用小提琴演奏巴哈為什麼這麼難？</a>
           </div>
           www.cstudio-go.com<br>
-          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
+          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span><br>
+          <span style="font-size:xx-small" id="weather" class="marquee">Loading...</span>
         </div>
         
           
@@ -285,31 +286,27 @@ $('.line').slideDown(1200);
       if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200) {
         let link = $(".card-body");
         if (!link.hasClass("visible")) {
-          link.addClass("visible animate__animated animate__flipInX");
+          link.addClass("visible animate__animated animate__backInDown");
         }
       }
     });
   </script>
-  
-  <!--javascript check admin-->
   <script>
-    async function checkAdmin() {
-      const res = await fetch('postdb/check_admin.php');
-      const data = await res.json();
-      if(data.is_admin == 1){
-        // show logout button
-        const div = document.getElementById('adminArea');
-        div.innerHTML = '<a href="postdb/admin_logout.php?redirect=${window.location.pathname}" class="btn btn-warning btn-sm">Logout</a>';
-      }
-    }
-    checkAdmin();
-    </script>
+    fetch('../postdb/weather.php')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          document.getElementById('weather').innerText =
+            `${data.city}: ${data.temp}°C, ${data.description}`;
+        } else {
+          document.getElementById('weather').innerText = 'Weather unavailable';
+        }
+      })
+      .catch(() => {
+        document.getElementById('weather').innerText = 'Failed to load weather';
+      });
+  </script>
 
-<script>
-  // dynamically add current page path to login link
-  document.getElementById("adminLoginLink").href = 
-    "postdb/admin_login.php?redirect=" + window.location.pathname;
-</script>
 
 </body>
 </html>
