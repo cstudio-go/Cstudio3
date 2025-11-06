@@ -112,17 +112,7 @@
         </div>
       </nav>
       
-      <script>
-        var showvideo = () => {
-        var audio1 = document.getElementById('audio1');
-        var audioText = document.getElementById('audioText');
-        audio1.preload = "auto";
-        audio1.src = "asset/gypsyAir.mp3";
-        audio1.load();
-        audio1.style.display= "block";
-        audioText.style.display = "block";
-        }
-        </script>
+     
 
       <div class="card mb-3">
         <span class="line">
@@ -147,9 +137,11 @@
                     也不是要你不在乎它人怎麼想，<br>
                     而是要瞭解自己真正意識中的需求，與它和解。<br>
                   </span>
-                  <a href="bloglist.html" style="font-size: smaller;">回上一頁</a>
-                  </span>
-        </div>
+                  <div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+<a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button class="btn btn-danger  btn-sm" style="max-width: 300px;" id="like-btn"><img src="../chat/heart.svg" alt="heart" class="icon"> <span id="like-count">0</span></i></button>
+
+</div>
         
         <div class="card-footer text-muted" style="text-align: center;">
             <p>延伸閱讀</p>
@@ -182,5 +174,38 @@ $('.line').slideDown(1200);
 
 
         </script>
+
+<script>
+const pageId = 'a9';
+const likeBtn = document.getElementById('like-btn');
+const likeCount = document.getElementById('like-count');
+
+// Load current like count
+async function loadLikes() {
+    const res = await fetch('../chat/like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+}
+loadLikes();
+
+// Click handler
+likeBtn.addEventListener('click', async () => {
+    const res = await fetch('../chat/like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+
+  
+
+});
+</script>
+
 </body>
 </html>
