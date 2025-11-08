@@ -1,7 +1,11 @@
 <?php include('includes/db_connect.php'); ?>
 <!DOCTYPE html>
 <html>
-<head><title>Products</title></head>
+<head><title>Products</title>
+<link 
+    href="bootstrap.min.css" 
+    rel="stylesheet">
+</head>
 <body>
 <h1>Products</h1>
 

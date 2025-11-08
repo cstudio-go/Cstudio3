@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
+<html>
 <h2>Login</h2>
 <form method="POST" action="">
     <label>Username:</label><br>
@@ -44,4 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <button type="submit">Login</button>
 </form>
 
+
 <?php include 'includes/footer.php'; ?>
+
+</html>
