@@ -1,9 +1,15 @@
+
 RewriteEngine On
 
-# Redirect /blog/*.html → /blog/*
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^(.+)\.html$ $1 [R=301,L]
+# 1️⃣ If user visits /blog/ → show podcast.html
+DirectoryIndex bloglist.html
 
-# Serve /blog/* → /blog/*.html
+# 2️⃣ Redirect /blot/*.html → /blog/*
+# (But do NOT redirect podcast.html itself)
+RewriteCond %{THE_REQUEST} \s/+blog/([^/]+)\.html[\s?] [NC]
+RewriteCond %1 !^blog$        # prevent redirecting podcast.html → /podcast/
+RewriteRule ^([^/]+)\.html$ $1 [R=301,L]
+
+# 3️⃣ Serve /podcast/* → /podcast/*.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/]+)/?$ $1.html [L]
