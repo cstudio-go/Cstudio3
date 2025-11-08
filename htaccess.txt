@@ -8,13 +8,13 @@ RewriteCond %{HTTP_HOST} ^www\.cstudio-go\.com$ [NC]
 RewriteRule ^(.*)$ https://cstudio-go.com/$1 [L,R=301]
 
 # 2️⃣ Redirect root-level *.html → clean URLs
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteCond %{REQUEST_URI} !^/blog/   # Exclude /blog folder
-RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^/]+)\.html[\s?] [NC]
+RewriteCond %{REQUEST_URI} !^/blog/
+RewriteRule ^([^/]+)\.html$ /$1 [R=301,L]
 
 # 3️⃣ Serve root-level clean URLs → *.html
+# Only if it is NOT an existing folder
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteCond %{REQUEST_URI} !^/blog/   # Exclude /blog folder
+RewriteCond %{REQUEST_URI} !^/blog/
 RewriteRule ^([^/]+)/?$ $1.html [L]
-
