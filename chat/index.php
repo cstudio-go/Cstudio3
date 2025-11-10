@@ -206,7 +206,7 @@ if ($isAdmin) {
   </p>
 </div>
 <div style="display: flex; justify-content: center; gap: 10px;">
-<a href="https://www.cstudio-go.com/main.html"
+<a href="https://cstudio-go.com/main.html"
    class="btn btn-secondary"
    style="display:block;max-width:100px;">回到網站</a> 
    <button onclick="appear()" class="btn btn-outline-primary" id="buttonText">放點音樂</button>
