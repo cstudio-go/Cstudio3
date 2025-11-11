@@ -1,12 +1,13 @@
 <?php
 // upload.php
 
-$uploadDir = 'uploads/';
+$uploadDir = '../../uploadPrivate/';
 $maxTotalSize = 300 * 1024 * 1024; // 300MB in bytes
 
 // Define allowed file types (you can expand this list if needed)
 $allowed_types = ['mp3'];
 
+// Function to show messages
 function showMessage($message, $type = 'info') {
     echo "<div style='
         font-family: Arial, sans-serif;
