@@ -14,6 +14,24 @@
   h2 {
     font-size: 1.5rem; /* prevent shrinking too much on mobile */
   }
+  #progressContainer {
+            width: 100%;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        #progressBar {
+            width: 0%;
+            height: 30px;
+            background-color: green;
+            text-align: center;
+            color: white;
+        }
+        #statusMessage {
+            text-align: center;
+            margin-top: 10px;
+        }
+
   @media (max-width: 576px) {
     .mb-4{
       margin: 0 auto;
@@ -39,7 +57,61 @@
         <input type="file" class="btn btn-outline-secondary" style="max-width: 270px;" id="fileUpload" name="fileUpload" accept=".mp3" required>
         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">上傳</button>
     </form>
+    <!-- Progress bar container -->
+    <div id="progressContainer">
+      <div id="progressBar">0%</div>
+  </div>
+
+  <!-- Status message -->
+  <div id="statusMessage"></div>
 </div>
     <script src="upload.js"></script>
+
+    <script>
+      // Handle form submission via JavaScript to display progress bar
+      const form = document.getElementById('uploadForm');
+      form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent default form submission
+          
+          const formData = new FormData(form);
+          const fileInput = document.getElementById('fileUpload');
+          
+          // Reset the progress bar
+          const progressBar = document.getElementById('progressBar');
+          const statusMessage = document.getElementById('statusMessage');
+          progressBar.style.width = '0%';
+          statusMessage.innerHTML = '上傳中...';
+          
+          // Create XMLHttpRequest to handle file upload with progress
+          const xhr = new XMLHttpRequest();
+          
+          // Monitor progress
+          xhr.upload.addEventListener('progress', function(e) {
+              if (e.lengthComputable) {
+                  const percentComplete = (e.loaded / e.total) * 100;
+                  progressBar.style.width = percentComplete + '%';
+                  progressBar.innerText = Math.round(percentComplete) + '%';
+              }
+          });
+
+          // When upload is complete
+          xhr.addEventListener('load', function() {
+              if (xhr.status == 200) {
+                  statusMessage.innerHTML = '上傳成功了!';
+              } else {
+                  statusMessage.innerHTML = '上傳失敗了!';
+              }
+          });
+
+          // When upload fails
+          xhr.addEventListener('error', function() {
+              statusMessage.innerHTML = '上傳失敗了!';
+          });
+
+          // Send the request to the PHP backend
+          xhr.open('POST', 'upload.php', true);
+          xhr.send(formData);
+      });
+  </script>
 </body>
 </html>
