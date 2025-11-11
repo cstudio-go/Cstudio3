@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑋語老師的教室</title>
+    <meta name="description" content="文章：持琴">
+<meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
+<meta property="og:image" content="https://cstudio-go.com/logo.webp">
+<link href="
+https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
+" rel="stylesheet">
+    <link rel="stylesheet" href="blogstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="../jslib/typed.min.js"></script>
+<style>
+  
+  .line {
+  display: none;
+}
+
+  #img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+  }
+  #portrait{
+    width: 107px;
+    height: 200px;
+  }
+
+  #text {
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+  }
+  .card-body {
+    opacity: 0;
+  }
+  .card-body.visible {
+    opacity: 1;
+  }
+
+  .wrapper {
+    display: none;
+  }
+
+  .admin-comment {
+  background-color: #9a622a; 
+}
+
+
+  @media screen and (max-width: 500px) {
+    #img{
+      width: 100%;
+      height: auto;
+    }
+    #portrait{
+      width: 100%;
+      height: auto;
+    }
+    .left {
+        text-align: left;
+    }
+    .navbar-brand{
+      animation: slideInDown;
+      animation-duration: 1s;
+    }
+
+  }
+
+  @media screen and (max-width: 799px) {
+   #text {
+    padding: 0 20px;
+   }
+  }
+
+  .admin-comment {
+  background-color: #9a622a; 
+}
+
+</style>
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">瑋語老師的教室</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="../main.html">主頁
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bloglist.html">部落格</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../podcast/podcast.html">播客</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">聯繫我</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../contact.html">來信留言</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../chat/index.php">聊天室</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../language.html">語言與框架</a>
+                  <a class="dropdown-item" href="../work.html">作品</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
+                  <a id="adminLoginLink" class="dropdown-item" href="#">管理者登入</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <script>
+        var showvideo = () => {
+        var audio1 = document.getElementById('audio1');
+        var audioText = document.getElementById('audioText');
+        audio1.preload = "auto";
+        audio1.src = "asset/gypsyAir.mp3";
+        audio1.load();
+        audio1.style.display= "block";
+        audioText.style.display = "block";
+        }
+        </script>
+
+      <div class="card mb-3">
+        <div class="line">
+          <h3 class="card-header" style="text-align: center;">持琴</h3>
+          <p class="card-text" style="text-align: center;" id="text">
+            <span id="typed"></span><a href="bloglist.html" class="btn btn-link" style="font-size: smaller; white-space: nowrap;">文章列表</a><br><br>
+                <img src="blogpic/ex8.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 0 auto 35px auto;max-width: 200px; height: auto;" id="img">
+            <span style="display:block; text-align: left;">
+              小提琴的持琴方式是演奏技術中最基礎也是最重要的一環，它直接影響演奏者的姿勢、手部靈活性以及音色表現。正確的持琴方式不僅能讓小提琴穩定地放置於肩膀與下巴之間，還能保持身體放鬆，避免長時間練習或演奏造成肌肉緊張與疲勞。<br><br>
+
+              左手持琴主要是指左手指法操作時如何支撐琴頸。手腕應自然下垂，手指呈弧形放置在指板上，保持關節靈活，能快速換把和定位音高。拇指通常靠在琴頸下方，但不要用力過度，以免影響手指靈活性。手臂、手腕與手指的協調對音準、換把速度以及演奏連貫性至關重要。<br><br>
+              
+              右手則控制弓的運作，包括弓速、弓壓、弓角和弓點位置。持弓姿勢應自然，拇指微彎放在弓柄根部，其餘手指輕握弓杆，保持手指與手掌放鬆，能更靈活地控制弓速與音量變化。良好的右手持弓姿勢可以讓演奏者表現出豐富的音色層次，從柔和的弱音到有力的強音都能自然呈現。<br><br>
+              
+              除了手部，整體身體姿勢也與持琴息息相關。演奏者應保持自然站立或坐姿，肩膀放鬆，下巴輕輕靠在下巴托上，避免過度緊張或傾斜，這不僅有助於手部動作自由，也能減少身體疲勞與受傷風險。<br><br>
+              
+              總之，小提琴的持琴是一個全身協調的過程，正確的持琴方式是良好演奏的基礎。無論是初學者還是專業演奏者，都應不斷檢視和調整持琴姿勢，確保手、腕、臂和身體放鬆自然，才能發揮小提琴的最佳音色和演奏表現。
+</span>
+<!--new code-->
+</p>
+<div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+    <a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button onClick="appear()" class="btn btn-outline-success  btn-sm" style="max-width: 300px;" id="note">留言</button>
+        </div>
+        <!--登出-->
+        <div id="adminArea" style="margin: 0.1px auto; padding: 0 20px; display: block; text-align: center;"></div>
+         <div class="wrapper" style="border: 2px rgb(154, 154, 160) solid; max-width: 350px; margin: 0 auto;">
+          <div style="display: block; margin: 0 auto; text-align: center;">
+ 
+            <h5 class="bg-secondary text-white" style="width: 100%">留言區</h5>
+            
+<!--comment section-->
+<div id="comments"></div>
+<h5 class="bg-secondary text-white">發文</h5>
+<form id="commentForm">
+  <input type="text" id="name" class="form-text text-muted" style="width: 300px;" placeholder="姓名" required />
+  <textarea id="comment" class="form-text text-muted" rows="3" style="width: 300px;" placeholder="留言..." required></textarea>
+  <button class="btn btn-primary btn-sm" style="margin-bottom: 3px;" type="submit">送出</button>
+</form>
+<p style="font-size: xx-small; color:rgb(215, 215, 215)">*文明交流，保持秩序</p>
+</div>
+        </div>
+</div>
+</div>
+<script>
+const postId = "v1"; // dynamically set per page
+
+// Load comments
+async function loadComments() {
+  const res = await fetch(`../postdb/comment_api.php?post_id=${postId}`);
+  const comments = await res.json();
+  document.getElementById('comments').innerHTML = comments
+    .reverse()
+    .map(c => {
+      const adminClass = c.is_admin == 1 ? 'admin-comment' : '';
+      const displayName = c.is_admin == 1 ? `${c.name} (版主)` : c.name;
+      return `<p class="${adminClass}"><strong>${displayName}:</strong> ${c.comment}</p><hr>`;
+    })
+    .join('');
+}
+loadComments();
+
+// Post comment
+document.getElementById('commentForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const comment = document.getElementById('comment').value;
+  await fetch('postdb/comment_api.php', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({ post_id: postId, name, comment })
+  });
+  loadComments();
+});
+
+
+</script>
+ <script>
+  function appear() {
+    var commentWrapper = $(".wrapper");
+    let changenote = document.getElementById('note');
+    
+    if (commentWrapper.is(":visible")) {
+      commentWrapper.slideUp(400); // slide up in 0.4 seconds
+      changenote.innerText = "留言";
+    } else {
+      commentWrapper.slideDown(400); // slide down in 0.4 seconds
+      changenote.innerText = "收回";
+    }
+  }
+  </script>
+
+
+
+        <div class="card-footer text-muted" style="text-align: center;">
+            <p>延伸閱讀</p>
+        <div class="card-body" style="text-align: center;">
+            <a href="a18.html" class="card-link">演奏弦樂器的呼吸控制</a><br>
+            <a href="a15.html" class="card-link">用小提琴演奏巴哈為什麼這麼難？</a>
+          </div>
+          www.cstudio-go.com<br>
+          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span><br>
+          <span style="font-size:xx-small" id="weather" class="marquee">Loading...</span>
+        </div>
+        
+          
+      
+      
+  
+      <script src="../bootstrap.bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+       <!--Typed.js code-->
+       <script>
+        const typed = new Typed('#typed', {
+          strings: ["撰文：張瑋語 --更新於2025.11&nbsp;",],
+          typeSpeed: 150,
+          loop: false,
+          cursorChar: ""
+        });
+      </script>
+
+
+      <script>
+
+$('.line').slideDown(1200);
+
+
+        </script>
+<!--jquery scrolling-->
+        <script>
+    $(window).on("scroll", function() {
+      // Detect if the user scrolled near the bottom (e.g. last 200px)
+      if ($(window).scrollTop() + $(window).height() >= $(document).height() - 200) {
+        let link = $(".card-body");
+        if (!link.hasClass("visible")) {
+          link.addClass("visible animate__animated animate__flipInX");
+        }
+      }
+    });
+  </script>
+  
+  <!--javascript check admin-->
+  <script>
+    async function checkAdmin() {
+      const res = await fetch('postdb/check_admin.php');
+      const data = await res.json();
+      if(data.is_admin == 1){
+        // show logout button
+        const div = document.getElementById('adminArea');
+        div.innerHTML = '<a href="postdb/admin_logout.php?redirect=${window.location.pathname}" class="btn btn-warning btn-sm">Logout</a>';
+      }
+    }
+    checkAdmin();
+    </script>
+
+<script>
+  // dynamically add current page path to login link
+  document.getElementById("adminLoginLink").href = 
+    "postdb/admin_login.php?redirect=" + window.location.pathname;
+</script>
+<script>
+    fetch('../postdb/weather.php')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          document.getElementById('weather').innerText =
+            `${data.city}: ${data.temp}°C, ${data.description}`;
+        } else {
+          document.getElementById('weather').innerText = 'Weather unavailable';
+        }
+      })
+      .catch(() => {
+        document.getElementById('weather').innerText = 'Failed to load weather';
+      });
+  </script>
+
+
+</body>
+</html>
