@@ -4,6 +4,9 @@
 $uploadDir = 'uploads/';
 $maxTotalSize = 300 * 1024 * 1024; // 300MB in bytes
 
+// Define allowed file types (you can expand this list if needed)
+$allowed_types = ['mp3'];
+
 function showMessage($message, $type = 'info') {
     echo "<div style='
         font-family: Arial, sans-serif;
@@ -19,14 +22,16 @@ function showMessage($message, $type = 'info') {
     '>$message</div>";
 }
 
-
 // Check if file is uploaded
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['fileUpload'])) {
         $file = $_FILES['fileUpload'];
 
-        // Check if the file is an MP3
-        if ($file['type'] !== 'audio/mpeg') {
+        // Get the file extension
+        $fileExtension = pathinfo($file['name'], PATHINFO_EXTENSION);
+
+        // Check if the file type is allowed
+        if (!in_array(strtolower($fileExtension), $allowed_types)) {
             showMessage('❌ Invalid file type. Please upload an MP3 file.', 'error');
         } else {
             // Check the size of the uploaded file
