@@ -86,47 +86,65 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html">瑋語老師的教室</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="../main.html">主頁
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="bloglist.html">部落格</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../podcast/podcast.html">播客</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">聯繫我</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="../contact.html">來信留言</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../chat/index.php">聊天室</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="../language.html">語言與框架</a>
-                  <a class="dropdown-item" href="../work.html">作品</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
-                  <a id="adminLoginLink" class="dropdown-item" href="#">管理者登入</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">小提琴知識網</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="main.html">主頁
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog/bloglist.html">練習曲</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="podcast/podcast.html">樂曲</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">小提琴技巧</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="v1.html">持琴</a>
+      <a class="dropdown-item" href="#">音準</a>
+      <a class="dropdown-item" href="#">顫音</a>
+      <a class="dropdown-item" href="#">音量控制</a>
+      <a class="dropdown-item" href="#">換把</a>
+      <a class="dropdown-item" href="#">分弓</a>
+      <a class="dropdown-item" href="#">連弓</a>
+      <a class="dropdown-item" href="#">跳弓</a>
+      <a class="dropdown-item" href="#">樂句表情</a>
+      <a class="dropdown-item" href="#">音樂風格理解</a>
+      <a class="dropdown-item" href="#">練習方法</a>
+      <a class="dropdown-item" href="#">節奏感</a>
+      <a class="dropdown-item" href="#">聽覺訓練</a>
+      <a class="dropdown-item" href="#">舞台表現力</a>
+      <a class="dropdown-item" href="#">手指靈活性</a>
+      <a class="dropdown-item" href="#">呼吸</a>
+      <a class="dropdown-item" href="#">放鬆</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/chat/index.php">聊天室</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">交流區</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="language.html">論壇</a>
+              <a class="dropdown-item" href="work.html">聊天室</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="outsourcing.html">資源</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="podcast/podcast.html">版主</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
       
       <script>
         var showvideo = () => {
@@ -314,7 +332,7 @@ $('.line').slideDown(1200);
         document.getElementById('weather').innerText = 'Failed to load weather';
       });
   </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
