@@ -18,7 +18,7 @@
 <link href="
 https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 " rel="stylesheet">
- 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="jslib/sweetalert2.all.min.js"></script>
 </head>
 <style>
@@ -39,20 +39,78 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
         min-width: 80% !important;
         margin: 20px 0;
     }
+
+    .custom-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
 }   
+
+@media screen and (min-width: 769px) {
+  .card1 {
+  animation: fadeInLeft; 
+  animation-duration: 2s; 
+}
+
+.card2 {
+  animation: fadeInDown; 
+  animation-duration: 2s; 
+}
+.card3 {
+  animation: fadeInRight; 
+  animation-duration: 2s; 
+}
+
+.card4 {
+  animation: fadeInUp; 
+  animation-duration: 2s; 
+}
+
+.card5 {
+  animation: fadeInRight; 
+  animation-duration: 2s; 
+}
+
+.card6 {
+  animation: fadeInUp; 
+  animation-duration: 2s; 
+}
+
+@media screen and (max-width: 1300px) {
+  .custom-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+}
+
+
+}
+
+
 
 @media screen and (min-width: 1700px) {
 
 .card {
     width: 20vw !important;
 }
+
+
+
+
+
+
 }
 
 @media screen and (max-width: 991px) {
 .knowledge {
     margin-top: 55px;
+    border-left: none !important;
 }
-    
+ 
+
+
 }
 
 
@@ -126,7 +184,7 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
         </div>
       </nav>
 
-      <div class="container my-5">
+      <div class="container my-5 custom-container">
         <div class="row">
           <!-- Main content (cards) -->
           <div class="col-md-9">
@@ -165,10 +223,10 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 
       <!--first row-->
 <div>
-      <div class="row justify-content-left content" style="max-width: 95%; margin: 3vw auto 0 auto;">
+      <div class="row justify-content-left content card1" style="max-width: 95%; margin: 3vw auto 0 auto;">
         <div class="col-md-3 d-flex justify-content-center line">
             <div class="card" style="width: 18rem;">
-                <img src="https://cstudio-go.com/blog/blogpic/ex3.webp" class="card-img-top" alt="...">
+                <img src="asset/ex1.webp" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">姿勢與持琴</h5>
                   <p class="card-text">正確的站姿與持琴方式是演奏的基礎，能確保放鬆與穩定。錯誤姿勢容易造成肌肉緊張、音準不穩與技術障礙。</p>
@@ -178,9 +236,9 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 
 
         </div>
-        <div class="col-md-3 d-flex justify-content-center">
+        <div class="col-md-3 d-flex justify-content-center card2">
             <div class="card" style="width: 18rem;">
-                <img src="https://cstudio-go.com/blog/blogpic/ex4.webp" class="card-img-top" alt="...">
+                <img src="asset/ex2.webp" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">運弓技巧</h5>
                   <p class="card-text">控制弓速、弓壓與弓點位置，決定音色與音量。包括長弓、跳弓、分弓等，是塑造聲音表情的核心。</p>
@@ -190,9 +248,9 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 
 
         </div>
-        <div class="col-md-3 d-flex justify-content-center line">
+        <div class="col-md-3 d-flex justify-content-center line card3">
             <div class="card" style="width: 18rem;">
-                <img src="https://cstudio-go.com/blog/blogpic/ex2.webp" class="card-img-top" alt="...">
+                <img src="asset/ex3.webp" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">左手指法與音準</h5>
                   <p class="card-text">左手負責音高定位與換把。精準的指距、靈活的手型與聽覺訓練能建立穩定的音準與順暢的運指。</p>
@@ -209,10 +267,10 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
 
       <!--second row-->
       <div>
-        <div class="row justify-content-left" style="max-width: 95%; margin: 3vw auto 0 auto;">
+        <div class="row justify-content-left card4" style="max-width: 95%; margin: 3vw auto 0 auto;">
           <div class="col-md-3 d-flex justify-content-center line">
               <div class="card" style="width: 18rem;">
-                  <img src="https://cstudio-go.com/blog/blogpic/ex5.webp" class="card-img-top" alt="...">
+                  <img src="asset/ex4.webp" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">音色與表情控制</h5>
                     <p class="card-text">藉由右手的壓力、速度與左手的震音（vibrato）變化，創造豐富的音色層次與情感表達。</p>
@@ -222,9 +280,9 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
   
   
           </div>
-          <div class="col-md-3 d-flex justify-content-center line">
+          <div class="col-md-3 d-flex justify-content-center line card5">
               <div class="card" style="width: 18rem;">
-                  <img src="https://cstudio-go.com/blog/blogpic/ex6.webp" class="card-img-top" alt="...">
+                  <img src="asset/ex5.webp" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">音樂理解與詮釋</h5>
                     <p class="card-text">了解樂曲結構、風格與作曲家的意圖，使演奏超越技術層面，展現音樂性與藝術性。</p>
@@ -234,9 +292,9 @@ https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/slate/bootstrap.min.css
   
   
           </div>
-          <div class="col-md-3 d-flex justify-content-center line">
+          <div class="col-md-3 d-flex justify-content-center line card6">
               <div class="card" style="width: 18rem;">
-                  <img src="https://cstudio-go.com/blog/blogpic/ex7.webp" class="card-img-top" alt="...">
+                  <img src="asset/ex6.webp" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">練習方法與心理素質</h5>
                     <p class="card-text">有效率的練習計畫與正向心理狀態能持續進步。包含目標設定、慢練、專注力與舞台臨場的培養。</p>
