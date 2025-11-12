@@ -152,10 +152,12 @@ if ($isAdmin) {
 }
 
   </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
 <body>
 
-<h6 style="text-align:center; margin-top:5vw;">
+<h6 class="animate__animated animate__fadeInUp" style="text-align:center; margin-top:5vw;">
   管理者：瑋語老師 ｜<span style="font-size:smaller;">此名稱登入後才能使用</span>
 </h6>
 
