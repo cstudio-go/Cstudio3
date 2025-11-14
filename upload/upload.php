@@ -5,7 +5,7 @@ $uploadDir = '../../uploadPrivate/';
 $maxTotalSize = 300 * 1024 * 1024; // 300MB in bytes
 
 // Define allowed file types (you can expand this list if needed)
-$allowed_types = ['mp3'];
+$allowed_types = ['mp3', 'doc', 'pdf'];
 
 // Function to show messages
 function showMessage($message, $type = 'info') {
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 showMessage('⚠️ Total upload limit of 300MB reached. No more files can be uploaded.', 'error');
             } else {
                 // Check if the file size is under 5MB
-                if ($fileSize > 5 * 1024 * 1024) {
+                if ($fileSize > 10 * 1024 * 1024) {
                     showMessage('⚠️ File size exceeds 5MB. Please select a smaller file.', 'error');
                 } else {
                     // Make sure the upload directory exists

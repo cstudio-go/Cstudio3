@@ -6,8 +6,8 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
 
     if (file) {
         // Check if file size is under 5MB (5 * 1024 * 1024 bytes)
-        if (file.size > 5 * 1024 * 1024) {
-            alert('File size exceeds 2MB. Please select a smaller file.');
+        if (file.size > 10 * 1024 * 1024) {
+            alert('File size exceeds 10MB. Please select a smaller file.');
             e.preventDefault();  // Prevent form submission
         }
     }
