@@ -205,7 +205,7 @@
               <li class="list-group-item bg-light">簡單管理功能</li>
             </ul>
             <div class="card-body">
-              <a href="chatroom.html" class="card-link">前往聊天室作品</a>
+              <a href="/chat/index.php" class="card-link">前往聊天室作品</a>
             </div>
             <div class="card-footer text-muted">
               作品完成於2025/10
@@ -252,6 +252,22 @@
   
       <script src="bootstrap.bundle.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-     
+     <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* Tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['setDebug', true]);  // Move this line before the script is loaded
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  
+  (function() {
+    var u = "//cstudio-go.com/matomo/";
+    _paq.push(['setTrackerUrl', u + 'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+    g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </body>
 </html>
