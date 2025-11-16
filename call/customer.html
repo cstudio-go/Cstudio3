@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Customer</h2>
+
+<video id="local" autoplay playsinline muted></video>
+<video id="remote" autoplay playsinline></video>
+
+<button id="joinBtn">Join Call</button>
+
+<script>
+let pc = new RTCPeerConnection({
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+});
+
+let localVideo = document.getElementById("local");
+let remoteVideo = document.getElementById("remote");
+
+pc.ontrack = e => {
+    console.log("REMOTE TRACK RECEIVED");
+    remoteVideo.srcObject = e.streams[0];
+};
+
+pc.onicecandidate = e => {
+    if (e.candidate) {
+        fetch("save_customer_ice.php", {
+            method: "POST",
+            body: JSON.stringify(e.candidate)
+        });
+    }
+};
+
+document.getElementById("joinBtn").onclick = async () => {
+    console.log("Getting offer…");
+    let txt = await fetch("get_offer.php").then(r => r.text());
+
+    if (!txt.trim()) {
+        alert("No offer found. Caller has not started the call.");
+        return;
+    }
+
+    let offer;
+    try {
+        offer = JSON.parse(txt);
+    } catch (e) {
+        alert("Invalid offer JSON.\nOffer file is corrupted.");
+        return;
+    }
+
+    console.log("Setting remote offer…");
+    await pc.setRemoteDescription(offer);
+
+    console.log("Getting local media…");
+    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    stream.getTracks().forEach(track => pc.addTrack(track, stream));
+    localVideo.srcObject = stream;
+
+    console.log("Creating answer…");
+    let answer = await pc.createAnswer();
+    await pc.setLocalDescription(answer);
+
+    fetch("save_answer.php", {
+        method: "POST",
+        body: JSON.stringify(answer)
+    });
+
+    pollCallerICE();
+};
+
+async function pollCallerICE() {
+    console.log("Polling caller ICE…");
+
+    setInterval(async () => {
+        let text = await fetch("get_caller_ice.php").then(r => r.text());
+
+        if (!text.trim()) return;
+
+        let lines = text.trim().split("\n");
+
+        for (let line of lines) {
+            try {
+                let cand = JSON.parse(line);
+                await pc.addIceCandidate(cand);
+                console.log("Added ICE:", cand);
+            } catch (err) {
+                console.log("Bad ICE line:", line);
+            }
+        }
+    }, 1500);
+}
+</script>
+</body>
+</html>
