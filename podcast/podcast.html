@@ -130,9 +130,8 @@
                 <div class="accordion-body">
                   <strong>《望春風》是1933年由鄧雨賢作曲、李臨秋填詞的台語經典歌曲。旋律優美動人，歌詞描繪春夜微風、思念與情感的氛圍。此曲結合傳統與現代風格，被視為台灣早期流行音樂的重要代表作，歷久彌新。</strong>
                     <button class="card-link btn btn-outline-primary" type="button" onclick="showspring()" style="padding: 1px 8px">音樂試聽</button><br>
-                    <span id="springtext" style="display: none; text-shadow: 1px 1px #b6b6b5;">點擊</span>
-                    <a href="https://youtu.be/HycHL673Lgk?si=4ngbLlczEW2JgN7u" target="_blank" style="display:none;" id="spring"><i class="fa-brands fa-youtube fa-xl fa-beat-fade" style="color:#e32400; --fa-beat-fade-opacity: 0.9; --fa-beat-fade-scale: 1.05;"></i></a>
-                    <span id="springtext2" style="display: none; text-shadow: 1px 1px #b6b6b5;">前往</span>
+                    <span id="springtext" style="display: none; text-shadow: 1px 1px #b6b6b5;">望春風</span>
+                    <audio id="spring" controls style="display: none;">試聽</audio>
                 </div>
               </div>
             </div>
@@ -263,7 +262,7 @@ $('.line').slideDown(2000);
   var audio1 = document.getElementById('audio1');
   var audioText = document.getElementById('audioText');
   audio1.preload = "auto";
-  audio1.src = "asset/amazingGrace.mp3";
+  audio1.src = "https://app.koofr.net/content/links/39fedc6d-17ce-4bdc-842e-7b13451e06d9/files/get/Amazing%20grace%202.mp3?path=%2F";
   audio1.load();
   audio1.style.display= "block";
   audioText.style.display = "block";
@@ -273,7 +272,7 @@ $('.line').slideDown(2000);
   var audio2 = document.getElementById('audio2');
   var audioText2 = document.getElementById('audioText2');
   audio2.preload = "auto";
-  audio2.src = "asset/winter2.mp3";
+  audio2.src = "../asset/winter2.mp3";
   audio2.load();
   audio2.style.display= "block";
   audioText2.style.display = "block";
@@ -283,7 +282,7 @@ $('.line').slideDown(2000);
   var audio3 = document.getElementById('audio3');
   var audioText3 = document.getElementById('audioText3');
   audio3.preload = "auto";
-  audio3.src = "asset/gypsyAir.mp3";
+  audio3.src = "../asset/gypsyAir.mp3";
   audio3.load();
   audio3.style.display= "block";
   audioText3.style.display = "block";
@@ -292,10 +291,11 @@ $('.line').slideDown(2000);
   let showspring = () => {
   let Spring = document.getElementById('spring');
   let SpringText = document.getElementById('springtext');
-  let SpringText2 = document.getElementById('springtext2');
-  SpringText.style.display= "inline";
-  SpringText2.style.display= "inline";
-  Spring.style.display = "inline";
+  Spring.preload = "auto";
+  Spring.src = "https://app.koofr.net/content/links/374c1616-2b11-4e15-8da5-a0b4ede52f6e/files/get/望春風音檔.mp3?path=%2F";
+  Spring.load();
+  Spring.style.display= "block";
+  SpringText.style.display = "block";
 
   }
 
