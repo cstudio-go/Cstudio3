@@ -29,25 +29,19 @@
     width: 500px;
     height: 500px;
   }
-  #portrait{
-    width: 107px;
-    height: 200px;
-  }
+
 
   #text {
     padding: 0 30%;
   }
 
+  .table {
+max-width: 1000px;
+  }
 
   @media screen and (max-width: 500px) {
-    #img{
-      width: 100%;
-      height: auto;
-    }
-    #portrait{
-      width: 100%;
-      height: auto;
-    }
+
+  
     #text {
     padding: 0;
   }
@@ -55,6 +49,18 @@
     #shortBio {
       display: block;
       text-align: left;
+    }
+    .card {
+      width: 100%;
+      min-width: 380px;
+    }
+    
+    .navbar{
+      min-width: 380px;
+    }
+
+    .table {
+      width: 100%;
     }
   }
 
@@ -119,7 +125,7 @@
         </script>
 
       <div class="card mb-3">
-        <span class="line">
+        <div class="line">
         <h3 class="card-header" style="text-align: center;">-軟體工程-</h3>
         <div class="card-body">
           
@@ -129,7 +135,7 @@
           
 
 
-        <table class="table table-hover" style="max-width: 1000px; margin: 0 auto;">
+        <table class="table table-hover" style="margin: 0 auto;">
             <thead>
               <tr>
                 <th scope="col">語言與框架</th>
@@ -261,7 +267,7 @@
               </tr>
             </tbody>
           </table>
-        
+        </div>
 
         <div class="card-footer text-muted" style="text-align: center;">
           www.cstudio-go.com

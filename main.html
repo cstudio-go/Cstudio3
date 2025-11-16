@@ -18,7 +18,9 @@
     <link 
     href="bootstrap.min.css" 
     rel="stylesheet">
- 
+ <!--font awesome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
 
 <style>
   .line {
@@ -181,6 +183,15 @@
                   <a class="dropdown-item" href="outsourcing.html">架站服務</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">學生專區</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="language.html">作業平台</a>
+                  <a class="dropdown-item" href="work.html">共享資源平台</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="outsourcing.html">1對1平台</a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -193,6 +204,13 @@
         <div class="card-body">
           
           <h5 class="card-title" style="text-align: center;">我是一名音樂教師</h5>
+
+          <div style="display: block; margin: 0 auto 10px auto; text-align: center;">
+                     <i class="fa-brands fa-line fa-xl" onClick="lineID()" style="margin-right: 1px; cursor: grab" ></i>
+                     <i class="fa-solid fa-envelope fa-xl" onClick="mailID()" style="cursor: grab; margin: 0 10px"></i>
+                     <i class="fa-solid fa-phone fa-lg" onClick="phoneID()" style="cursor: grab"></i>
+                    </div>
+
           <div class="container">
           <a class="btn btn-dark btn1" href="blog/bloglist.html" role="button">
             閱讀<span style="white-space: nowrap;">文章</span>
@@ -208,6 +226,7 @@
           </a>
           </div>
           
+
         </div>
         <img src="logo.webp" class="d-block user-select-none"  style="margin: 0 auto;" id="img">
           <rect width="100%" height="100%" fill="#868e96"></rect>
@@ -298,6 +317,33 @@ $('.line').fadeIn(2000);
         background: '#fff',
       });
     }
+
+    function lineID() {
+  Swal.fire({
+  imageUrl: 'asset/lineQR.webp',
+  imageWidth: 250,
+  title: '掃碼加入好友',
+  text: '使用ID加入:8899610',
+  confirmButtonText: 'Close'
+}) }
+            function phoneID() {
+  Swal.fire({
+  imageUrl: 'cover.png',
+  imageWidth: 400,
+  title: '電話請聯繫',
+  text: '0958-376453',
+  confirmButtonText: 'Close'
+}) }
+
+function mailID() {
+  Swal.fire({
+  imageUrl: 'cover.png',
+  imageWidth: 400,
+  title: '郵件請寄到',
+  text: 'email@cstudio-go.com',
+  confirmButtonText: 'Close'
+}) }
+
   </script>
 <!--Tooltips-->
 <script>
