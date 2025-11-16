@@ -1,60 +1,46 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h2>You (Caller)</h2>
-<video id="local" autoplay playsinline></video>
-<video id="remote" autoplay playsinline></video>
-
-<button id="startBtn">Start Call</button>
-
-<script>
-let pc = new RTCPeerConnection({
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
-});
-
-let localVideo = document.getElementById("local");
-let remoteVideo = document.getElementById("remote");
-
-pc.ontrack = e => remoteVideo.srcObject = e.streams[0];
-
-pc.onicecandidate = e => {
-    if (e.candidate) {
-        // Send ICE candidate to server
-        fetch("save_caller_ice.php", {
-            method: "POST",
-            body: JSON.stringify(e.candidate)
-        });
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Jitsi</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* horizontal center */
+      align-items: center;     /* vertical center */
+      background-color: rgb(242, 233, 226);/* optional, for better visibility */
     }
-};
 
-document.getElementById("startBtn").onclick = async () => {
-    let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    stream.getTracks().forEach(track => pc.addTrack(track, stream));
-    localVideo.srcObject = stream;
+    #meet {
+      max-width: 800px;
+      max-height: 600px;
+      box-shadow: 10px 10px 15px rgba(9, 6, 6, 0.2); /* optional styling */
+    }
+  </style>
+</head>
+<body>
+   
+  <div id="meet" style="border-radius: 20px;">
+    <p style="text-align: center; font-size: x-large; color: rgb(7, 7, 7); background-color: rgb(214, 157, 11); width:200px; margin: 0 auto; border-radius: 3px;">上課囉</p>
 
-    let offer = await pc.createOffer();
-    await pc.setLocalDescription(offer);
+  </div>
+  
 
-    // send offer to server
-    await fetch("save_offer.php", {
-        method: "POST",
-        body: JSON.stringify(offer)
-    });
-
-    // Poll for answer
-    pollAnswer();
-};
-
-async function pollAnswer() {
-    setInterval(async () => {
-        let res = await fetch("get_answer.php");
-        if (!res.ok) return;
-        let answer = await res.json();
-        if (answer && !pc.currentRemoteDescription) {
-            await pc.setRemoteDescription(answer);
-        }
-    }, 2000);
-}
-</script>
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script>
+    const domain = "meet.jit.si";
+    const options = {
+      roomName: "CSTUDIO CLASSROOM01",
+      width: 800,
+      height: 600,
+      parentNode: document.querySelector('#meet'),
+      userInfo: { displayName: "Student" }
+    };
+    const api = new JitsiMeetExternalAPI(domain, options);
+  </script>
+  
 </body>
 </html>
