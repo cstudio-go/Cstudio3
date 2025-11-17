@@ -15,15 +15,43 @@
     }
 
     #meet {
+      border: 10px black solid;
+      padding: 30px;
+      padding-top: 0;
+      padding-bottom:50px;
       max-width: 800px;
       max-height: 600px;
       box-shadow: 10px 10px 15px rgba(9, 6, 6, 0.2); /* optional styling */
     }
+
+    .wood-box {
+  color: #3b2a1f;
+  border: 1px solid #8b6d4e;
+  border-radius: 10px;
+  padding: 20px;
+
+  background:
+    /* wider, less uniform grain lines */
+    repeating-linear-gradient(
+      90deg,
+      #c9a679 0px,
+      #c9a679 22px,
+      #b68a5a 22px,
+      #b68a5a 45px
+    ),
+    /* soft, irregular knots */
+    radial-gradient(circle at 18% 65%, rgba(210,180,140,0.6) 0%, transparent 70%),
+    radial-gradient(circle at 75% 40%, rgba(200,160,120,0.5) 0%, transparent 70%),
+    radial-gradient(circle at 40% 25%, rgba(205,170,130,0.55) 0%, transparent 75%),
+    radial-gradient(circle at 60% 80%, rgba(215,185,145,0.45) 0%, transparent 75%);
+
+  background-blend-mode: multiply;
+}
   </style>
 </head>
 <body>
    
-  <div id="meet" style="border-radius: 20px;">
+  <div id="meet" style="border-radius: 20px;" class="wood-box">
     <p style="text-align: center; font-size: x-large; color: rgb(7, 7, 7); background-color: rgb(204, 185, 157); width:200px; margin: 0 auto; border-radius: 3px;">數位課堂</p>
 
   </div>
