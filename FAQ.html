@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+
+#fade {
+    animation: fadeIn; 
+  animation-duration: 1.5s;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link 
+    href="bootstrap.min.css" 
+    rel="stylesheet">
+
+</head>
+<body id="fade">
+<div style="max-width: 600px; width: 100%; border: 3px black solid; display: block; margin: 8vw auto 0; background-color: rgb(252, 252, 252);">
+<img src="https://cstudio-go.com/cover.png" style="display: block; margin: 0 auto; max-width: 800px; width: 100%;" class="imageTop">
+<h3 style="text-align: center; margin-top: 15px;">問與答</h3>
+<div style="margin: 0 auto; display: block; text-align: center;">
+<div style="padding: 20px;">
+<input type="text" id="user-input" placeholder="請向我提問...">
+<button class="btn btn-primary btn-sm" onclick="sendMessage()">送出</button>
+</div>
+<div id="chat-box" style="padding: 0 8vw; text-align: left;"></div>
+</div>
+</div>
+
+
+
+<div class="card-footer text-muted" style="text-align: center;">
+          www.cstudio-go.com<br>
+        <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span><br>
+        <span style="font-size:xx-small" id="weather" class="marquee">Loading...</span>
+        </div>
+
+<script>
+const botAnswers = {
+    "費": "課程一堂是50分鐘，小中提琴與鋼琴都是一樣的，上課地點平常在台北市，費用是$1600。",
+    "價": "課程一堂是50分鐘，小中提琴與鋼琴都是一樣的，上課地點平常在台北市，費用是$1600。",
+    "錢": "課程一堂是50分鐘，小中提琴與鋼琴都是一樣的，上課地點平常在台北市，費用是$1600。",
+    "市": "我主要出沒在台北，地點可以跟我討論，外縣市或特殊需求請與我聯繫。",
+    "地點": "我主要出沒在台北，地點可以跟我討論，外縣市或特殊需求請與我聯繫。",
+    "孩": "兒童與少年的吸收能力很強，人的大腦在25歲前都是高度發展的，學音樂可以很好的刺激認知發展，小朋友我最小可以教到5歲，考量到溝通與注意力不容易集中，再更小的年紀我可能就不太能幫助到他們了。",
+    "童": "兒童與少年的吸收能力很強，人的大腦在25歲前都是高度發展的，學音樂可以很好的刺激認知發展，小朋友我最小可以教到5歲，考量到溝通與注意力不容易集中，再更小的年紀我可能就不太能幫助到他們了。",
+    "聯絡": "請使用line ID: 8899610與我聯絡。",
+    "電話": "請使用line ID: 8899610與我聯絡。",
+    "時間": "可以使用網站上的約課系統查詢可以上課的時間，或是與我聯繫。",
+    "時候": "可以使用網站上的約課系統查詢可以上課的時間，或是與我聯繫。",
+    "上課": "可以使用網站上的約課系統查詢可以上課的時間，或是與我聯繫。",
+
+};
+
+function sendMessage() {
+    const input = document.getElementById("user-input").value;
+    const chatBox = document.getElementById("chat-box");
+
+    // Show user question first (no animation needed)
+    const userMessage = document.createElement("p");
+    userMessage.innerHTML = "<b>提問:</b> " + input;
+    chatBox.appendChild(userMessage);
+
+    // Collect all matching answers
+    let answers = [];
+    for (const key in botAnswers) {
+        if (input.includes(key)) {
+            answers.push(botAnswers[key]);
+        }
+    }
+
+    // Remove duplicate answers
+    answers = [...new Set(answers)];
+
+    // Show bot answer with fadeInUp animation
+    const botMessage = document.createElement("p");
+    botMessage.innerHTML = "<b>瑋語:</b> " + (answers.length > 0 ? answers.join(" ") : "實在抱歉，目前無法自動回覆這個問題喔。");
+
+    // Add Animate.css class
+    botMessage.classList.add("animate__animated", "animate__fadeInUp");
+    botMessage.style.color="#571313";
+
+    // Remove animation classes after animation ends (so old messages won't animate again)
+    botMessage.addEventListener('animationend', () => {
+        botMessage.classList.remove("animate__animated", "animate__fadeInUp");
+    });
+
+    chatBox.appendChild(botMessage);
+
+    // Clear input field
+    document.getElementById("user-input").value = "";
+}
+</script>
+<script>
+    fetch('postdb/weather.php')
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          document.getElementById('weather').innerText =
+            `${data.city}: ${data.temp}°C, ${data.description}`;
+        } else {
+          document.getElementById('weather').innerText = 'Weather unavailable';
+        }
+      })
+      .catch(() => {
+        document.getElementById('weather').innerText = 'Failed to load weather';
+      });
+  </script>
+
+
+
+
+</body>
+</html>
