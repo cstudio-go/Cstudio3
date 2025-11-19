@@ -21,6 +21,7 @@
 </head>
 <body id="fade">
 <div style="max-width: 600px; width: 100%; border: 3px black solid; display: block; margin: 8vw auto 0; background-color: rgb(252, 252, 252);">
+<div id="meta" style="text-align: center; font-weight: 800; color: rgb(46, 6, 6);"></div>
 <img src="https://cstudio-go.com/cover.png" style="display: block; margin: 0 auto; max-width: 800px; width: 100%;" class="imageTop">
 <h3 style="text-align: center; margin-top: 15px;">課程問與答</h3>
 <div style="margin: 0 auto; display: block; text-align: center;">
@@ -117,6 +118,20 @@ function sendMessage() {
       });
   </script>
 
+<script>
+const meta = document.getElementById('meta');
+function updateTime() {
+    const now = new Date(); // current time
+    meta.innerText = now.toLocaleString(); // or use toLocaleTimeString() for only time
+}
+
+// update immediately
+updateTime();
+
+// update every second
+setInterval(updateTime, 1000);
+
+</script>
 
 
 
