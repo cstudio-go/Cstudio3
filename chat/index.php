@@ -2,7 +2,7 @@
 session_start();
 $isAdmin = isset($_SESSION['admin']);
 
-
+/*
 $host = "localhost";
 $db = "cstusybk_chatdb";
 $user = "cstusybk_cstudio";
@@ -34,6 +34,10 @@ if ($isAdmin) {
     }
     $stmt->close();
 }
+
+
+*/
+
 ?>
 
 <!DOCTYPE html>
@@ -151,6 +155,15 @@ if ($isAdmin) {
   cursor: pointer;
 }
 
+
+
+@media screen and (min-width: 1300px) {
+  #chat{
+    border-radius: 30px;
+    padding: 25px !important;
+  }
+}
+
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
@@ -161,7 +174,7 @@ if ($isAdmin) {
   管理者：瑋語老師 ｜<span style="font-size:smaller;">此名稱登入後才能使用</span>
 </h6>
 
-<div id="chat" style="max-width:800px;margin:0 auto 9px auto;border: 1.5px brown solid; box-shadow: 30px 30px 80px rgba(44, 21, 21, 0.7);;padding:10px;">
+<div id="chat" style="max-width:800px;margin:0 auto 9px auto;border: 1.5px #a51f1fff solid; box-shadow: 30px 30px 80px rgba(44, 21, 21, 0.7);padding:10px; background-color: #F5F2F2;">
   <div style="display:flex;justify-content:space-between;">
     <div style="margin-bottom:10px;">
       <?php if (!$isAdmin): ?>
