@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑋語老師的教室</title>
+    <meta name="description" content="文章：Neovim編輯器">
+<meta name ="keywords" content="張瑋語, 部落格, 小提琴, 鋼琴, 編曲, 軟體工程, 音樂作品">
+<meta property="og:image" content="https://cstudio-go.com/logo.webp">
+    <link 
+    href="../bootstrap.min.css" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="blogstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="../jslib/typed.min.js"></script>
+<style>
+  
+  .line {
+  display: none;
+}
+
+  #img {
+    width: 500px;
+    height: 500px;
+  }
+  #portrait{
+    width: 107px;
+    height: 200px;
+  }
+
+  #text {
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+  }
+
+
+
+  @media screen and (max-width: 500px) {
+    #img{
+      width: 100%;
+      height: auto;
+    }
+    #portrait{
+      width: 100%;
+      height: auto;
+    }
+    .left {
+        text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 799px) {
+   #text {
+    padding: 0 20px;
+   }
+  }
+
+
+</style>
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">瑋語老師的教室</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="../main.html">主頁
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bloglist.html">部落格</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../podcast/podcast.html">播客</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">聯繫我</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../contact.html">來信留言</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../chat/index.php">聊天室</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">軟體工程</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="../language.html">語言與框架</a>
+                  <a class="dropdown-item" href="../work.html">作品</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../outsourcing.html">架站服務</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+     
+
+      <div class="card mb-3">
+        <span class="line">
+        <h3 class="card-header" style="text-align: center;">Neovim編輯器</span></h3>
+          <p class="card-text" style="text-align: center;" id="text">
+            <span id="typed"></span> <a href="bloglist.html" style="font-size: smaller; white-space: nowrap;">文章列表</a>
+            <img src="blogpic/ex31.png" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 20px auto 35px auto; border-radius: 20px;max-width: 200px; height: auto;" id="img">
+            <span style="display:block; text-align: left;">
+           前陣子因為一台舊筆電跑不太動習慣用的代碼編輯器，所以下載了Neovim來簡單的替代看看。雖然它的插件與功能都沒有VS Code豐富，但他可以讓人進入沈浸式的環境，有些作家甚至會用他的來撰寫文章，這邊稍微介紹一下NeoVim與他的實用性。<br><br></span>
+           <img src="blogpic/ex31-2.webp" class="d-block user-select-none" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle; margin: 20px auto 3px auto; border-radius: 20px;width: 80%;max-width: 700px; height: auto;" >
+            <span style="font-size: x-small; text-align: center; margin: 0 auto; ">使用Command Line來編輯，整體偏向復古的風格。雖然編輯器主流是VS Code，Neovim仍有許多支持者</span><br><br>
+            <span style="display:block; text-align: left;">
+           Neovim 是從Vim發展而來的現代化開源文字編輯器，它主要用於編寫程式碼、編輯設定檔、處理大量文字等工作。因為Neovim本質上是「強大的終端機文字編輯器」，所以它速度非常快、佔用資源極少，並且能在幾乎所有平台上使用，包括 macOS、Linux、Windows。開發者選擇 Neovim 的主要原因，是它提供高度可自訂的環境，讓使用者能按照自己的開發習慣打造最順手的工作流程。<br><br>
+           優點方面，Neovim啟動快、佔記憶體少，對老舊電腦也非常友好。其鍵盤操作導向的設計可以讓熟練的使用者達到極高的輸入與編輯效率，不需滑鼠，速度比一般 GUI 編輯器更快。跨平台與可重現性也很高，只要帶著自己的設定檔就能在任何電腦上重建工作環境。<br><br>
+           整體來說，我覺得Neovim算是老設備上面順暢編寫代碼的選擇，或是適合想要沈浸式寫作的人。但如果電腦跑的動，VS Code還是感覺比較好用。
+                  </span>
+                  <div style="margin: 30px auto;display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
+<a href="bloglist.html" class="btn btn-outline-primary btn-sm">回上一頁</a>
+<button class="btn btn-danger  btn-sm" style="max-width: 300px;" id="like-btn"><img src="../chat/heart.svg" alt="heart" class="icon"> <span id="like-count">0</span></i></button>
+
+</div>
+        
+        <div class="card-footer text-muted" style="text-align: center;">
+            <p>延伸閱讀</p>
+        <div class="card-body" style="text-align: center;">
+            <a href="a7.html" class="card-link">咖啡因與演奏音樂</a><br>
+            <a href="a25.html" class="card-link">弦樂為什麼練習空弦</a>
+          </div>
+          www.cstudio-go.com<br>
+          <span style="font-size:xx-small">  © 2025 Wei-yu Chang. All Rights Reserved. </span>
+        </div>
+        
+          
+      </div>
+      
+  
+      <script src="../bootstrap.bundle.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+       <!--Typed.js code-->
+       <script>
+        const typed = new Typed('#typed', {
+          strings: ["撰文：張瑋語 --更新於2025.11&nbsp;",],
+          typeSpeed: 150,
+          loop: false,
+          cursorChar: ""
+        });
+      </script>
+      <script>
+
+$('.line').slideDown(1200);
+
+
+        </script>
+
+<script>
+const pageId = 'a32';
+const likeBtn = document.getElementById('like-btn');
+const likeCount = document.getElementById('like-count');
+
+// Load current like count
+async function loadLikes() {
+    const res = await fetch('../chat/like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+}
+loadLikes();
+
+// Click handler
+likeBtn.addEventListener('click', async () => {
+    const res = await fetch('../chat/like_api.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams({ page_id: pageId })
+    });
+    const data = await res.json();
+    likeCount.textContent = data.likes || 0;
+
+  
+
+});
+</script>
+
+</body>
+</html>
