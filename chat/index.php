@@ -2,7 +2,7 @@
 session_start();
 $isAdmin = isset($_SESSION['admin']);
 
-/*
+
 $host = "localhost";
 $db = "cstusybk_chatdb";
 $user = "cstusybk_cstudio";
@@ -36,7 +36,7 @@ if ($isAdmin) {
 }
 
 
-*/
+
 
 ?>
 
