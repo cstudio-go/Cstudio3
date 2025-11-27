@@ -48,9 +48,9 @@ if ($isAdmin) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat Room - 瑋語老師的教室</title>
   <link href="../bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../csslib/all.min.css">
       <!--bootstrap icon css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../csslib/bootstrap-icons.css">
 <!--Amplitude js-->
 <script src="../jslib/amplitude.min.js"></script>
   <style>
@@ -165,7 +165,7 @@ if ($isAdmin) {
 }
 
   </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="../csslib/animate.min.css"/>
 
 </head>
 <body>
@@ -383,7 +383,7 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
 </script>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../jslib/jquery-3.7.1.min.js"></script>
 <script>
   function appear() {
     const $music = $('.accordion');
