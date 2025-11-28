@@ -126,10 +126,19 @@
 <button class="btn btn-danger  btn-sm" style="max-width: 300px;" id="like-btn"><img src="../chat/heart.svg" alt="heart" class="icon"> <span id="like-count">0</span></i></button>
 
 </div>
-        
+<div class="card-footer text-muted" style="text-align: center;">
+  <div class="card" style="width: 18rem; margin: 0 auto;">
+    <img src="../asset/portrait.jpeg"  class="card-img-top" style="max-width: 100px; height: auto; border-radius: 50px; margin: 10px auto 0 auto;">
+    <div class="card-body">
+    <p class="card-text">關於我：<br>小提琴演奏博士，喜歡探討音樂，演奏心理，軟體工程，時事與科技。<button class="btn btn-info  btn-sm" style="max-width: 300px; background-color: rgb(26, 160, 217);" id="like-btn-portrait"><img src="../chat/heart.svg" alt="heart" class="icon"> <span id="like-count-portrait">0</span></i></button></p>
+  </div>
+  </div>        
+
+
         <div class="card-footer text-muted" style="text-align: center;">
-            <p>延伸閱讀</p>
+            
         <div class="card-body" style="text-align: center;">
+          <p>延伸閱讀</p>
             <a href="a7.html" class="card-link">咖啡因與演奏音樂</a><br>
             <a href="a25.html" class="card-link">弦樂為什麼練習空弦</a>
           </div>
@@ -190,6 +199,38 @@ likeBtn.addEventListener('click', async () => {
 
 });
 </script>
+
+<script>
+  const pageIdPortrait = 'portrait';
+  const likeBtnPortrait = document.getElementById('like-btn-portrait');
+  const likeCountPortrait = document.getElementById('like-count-portrait');
+  
+  // Load current like count
+  async function loadLikesPortrait() {
+      const res = await fetch('../chat/like_api.php', {
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body: new URLSearchParams({ page_id: pageIdPortrait })
+      });
+      const data = await res.json();
+      likeCountPortrait.textContent = data.likes || 0;
+  }
+  loadLikesPortrait();
+  
+  // Click handler
+  likeBtnPortrait.addEventListener('click', async () => {
+      const res = await fetch('../chat/like_api.php', {
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body: new URLSearchParams({ page_id: pageIdPortrait })
+      });
+      const data = await res.json();
+      likeCountPortrait.textContent = data.likes || 0;
+  
+    
+  
+  });
+  </script>
 
 </body>
 </html>
