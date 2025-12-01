@@ -13,6 +13,7 @@
 <link rel="preload" href="blog/blogpic/ex15.webp" as="image">
 <link rel="preload" href="asset/WChang.webp" as="image">
 <link rel="preload" href="asset/ex23-1.webp" as="image">
+<link rel="manifest" href="manifest.json">
 <meta property="og:image" content="https://cstudio-go.com/logo.webp">
 <meta property="og:title" content="瑋語老師的教室-主頁">
 <meta property="og:description" content="張瑋語的網站主頁，分享音樂教學，部落格與作品分享">
@@ -407,6 +408,13 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
   })();
 </script>
 <!-- End Matomo Code -->
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+
 
 </body>
 </html>
