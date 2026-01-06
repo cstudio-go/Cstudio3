@@ -167,6 +167,13 @@ if ($isAdmin) {
   </style>
 <link rel="stylesheet" href="../csslib/animate.min.css"/>
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-d+gxKqO3h+Aj8Lw7Z1E2I3W+tGxq0Lzl8cNJ2H4TqiosT9wua6ZFQ3aLnvk7mGw0OjXRv2dAiD5C/w8RRT2vOg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+/>
+
 </head>
 <body>
 
